@@ -1,0 +1,48 @@
+.circle1/*DRAG AND DROP*/{
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    border-radius: 50px;
+    position:absolute;
+    top:30%;
+    left:50%;
+  }
+
+  .circle2/*COTOVELO*/{
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+    border-radius: 50px;
+    position:absolute;
+    top:50%;
+    left:40%;
+  }
+
+  .circle3/*OMBRO*/{
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+    border-radius: 50px;
+    position:absolute;
+    top:70%;
+    left:50%;
+    
+  }
+
+  .skew {
+    width: 10px;
+    height: 200px;
+    background: black;
+    -webkit-transform: skew(0deg); /* Chrome, Opera */
+        -ms-transform: skew(0deg); /* IE */
+            transform: skew(0deg); /* Padrão */
+  }
+
+  .negative {
+    -webkit-transform: rotate(-26deg); /* Chrome, Opera */
+    -webkit-transform-origin: center bottom; /* Chrome, Opera */
+
+    position:absolute;
+    top:51.5%;
+    left:52%;
+  }
