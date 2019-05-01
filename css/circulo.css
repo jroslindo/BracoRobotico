@@ -31,7 +31,7 @@
 
   .skew {
     width: 10px;
-    height: 200px;
+    height: 260px;
     background: black;
     -webkit-transform: skew(0deg); /* Chrome, Opera */
         -ms-transform: skew(0deg); /* IE */
@@ -39,10 +39,9 @@
   }
 
   .negative {
-    -webkit-transform: rotate(-26deg); /* Chrome, Opera */
+    -webkit-transform: rotate(-45deg); /* Chrome, Opera */
     -webkit-transform-origin: center bottom; /* Chrome, Opera */
-
     position:absolute;
-    top:51.5%;
-    left:52%;
+    top:45%;
+    left:51%;
   }
