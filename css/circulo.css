@@ -24,14 +24,16 @@
     background-color: green;
     border-radius: 50px;
     position:absolute;
-    top:655px;
-    left:958px;
-    
+    top:70%;
+    left:50%;    
   }
 
   .skew {
     width: 10px;
     height: 260px;
+    padding-top: 0%;
+    padding-bottom: initial;
+
     background: black;
     -webkit-transform: skew(0deg); /* Chrome, Opera */
         -ms-transform: skew(0deg); /* IE */
