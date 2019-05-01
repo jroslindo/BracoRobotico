@@ -27,23 +27,29 @@
     top:70%;
     left:50%;    
   }
-
+  
   .skew {
-    width: 10px;
-    height: 260px;
-    padding-top: 0%;
-    padding-bottom: initial;
+    width: 0.5%;
+    height: 25%;/*260*/
+    z-index: 1000;
+    
 
     background: black;
-    -webkit-transform: skew(0deg); /* Chrome, Opera */
-        -ms-transform: skew(0deg); /* IE */
-            transform: skew(0deg); /* Padrão */
-  }
-
-  .negative {
     -webkit-transform: rotate(-45deg); /* Chrome, Opera */
-    -webkit-transform-origin: center bottom; /* Chrome, Opera */
+    -webkit-transform-origin: center bottom;
+    /*-ms-transform: skew(0deg); /* IE */
+    /*transform: skew(0deg); /* Padrão */
+
+
     position:absolute;
-    top:45%;
+    top:48%;
     left:51%;
   }
+/*
+  .negative {
+    -webkit-transform: rotate(0deg); /* Chrome, Opera */
+    /*-webkit-transform-origin: center bottom; /* Chrome, Opera */
+    /*position:absolute;
+    top:45%;
+    left:51%;
+  }*/
