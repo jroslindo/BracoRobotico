@@ -28,7 +28,7 @@
     left:50%;    
   }
   
-  .skew {
+  .aresta /*ARESTA 1*/{
     width: 0.5%;
     height: 25%;/*260*/
     z-index: 1000;
@@ -43,6 +43,24 @@
 
     position:absolute;
     top:48%;
+    left:51%;
+  }
+
+  .aresta2 /*ARESTA 2*/{
+    width: 0.5%;
+    height: 26%;/*260*/
+    z-index: 1000;
+    
+
+    background: black;
+    -webkit-transform: rotate(225deg); /* Chrome, Opera */
+    -webkit-transform-origin: center bottom;
+    /*-ms-transform: skew(0deg); /* IE */
+    /*transform: skew(0deg); /* Padrão */
+
+
+    position:absolute;
+    top:9%;
     left:51%;
   }
 /*
