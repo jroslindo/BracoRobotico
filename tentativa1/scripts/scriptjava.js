@@ -4,4 +4,4 @@ function teste (){
     console.log('aaaaaaaaaa')
 }
 
-teste();
+//teste();
