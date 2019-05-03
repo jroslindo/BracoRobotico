@@ -1,7 +1,9 @@
+var grausAresta = -45;
+
 function teste (){
-    document.getElementById('aresta').style.WebkitTransform = 'rotate(25deg)';
+    grausAresta+=5;
+    document.getElementById('aresta').style.WebkitTransform = 'rotate(' + grausAresta.toString() +'deg)';
   
-    console.log('aaaaaaaaaa')
+    console.log(grausAresta.toString())
 }
 
-//teste();
