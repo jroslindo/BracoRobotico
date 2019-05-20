@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="267.0" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="principal.FXMLDocumentController">
+    <children>
+        <Label fx:id="label" layoutX="80.0" layoutY="22.0" minHeight="16" minWidth="69" text="Calculadora de talentos WOW">
+         <font>
+            <Font name="Comic Sans MS" size="12.0" />
+         </font></Label>
+      <Label layoutX="25.0" layoutY="64.0" text="Digite o seu level:" />
+      <TextField fx:id="Valor" layoutX="127.0" layoutY="60.0" prefHeight="25.0" prefWidth="94.0" />
+      <Label layoutX="25.0" layoutY="103.0" text="Classe:" />
+      <CheckBox fx:id="Check1" layoutX="72.0" layoutY="103.0" mnemonicParsing="false" text="Demon Hunter" />
+      <CheckBox fx:id="Check2" layoutX="185.0" layoutY="103.0" mnemonicParsing="false" text="Death Knight" />
+      <CheckBox fx:id="Check3" layoutX="72.0" layoutY="134.0" mnemonicParsing="false" text="Priest" />
+      <CheckBox fx:id="Check4" layoutX="185.0" layoutY="134.0" mnemonicParsing="false" text="Rogue" />
+      <Button fx:id="Calcular" layoutX="122.0" layoutY="168.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Calcular" />
+      <Label layoutX="25.0" layoutY="207.0" text="A quantidade de talentos disnponíveis é: " />
+      <Label fx:id="Resultado" layoutX="249.0" layoutY="207.0" />
+    </children>
+</AnchorPane>
