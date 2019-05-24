@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" onMouseClicked="#CotoveloEsquerda" prefHeight="473.0" prefWidth="807.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tentativa3.Janela1Controller">
+    <children>
+        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+      <Line fx:id="linha1" endX="-102.0" endY="-119.5" layoutX="688.0" layoutY="381.0" startX="-102.0" startY="22.5">
+         <rotationAxis>
+            <Point3D y="1.0" />
+         </rotationAxis></Line>
+      <Button layoutX="19.0" layoutY="116.0" mnemonicParsing="false" onAction="#CotoveloEsquerda" text="&lt;- COTOVELO" />
+      <Line fx:id="linha2" endX="-114.0" endY="-274.5" layoutX="698.0" layoutY="391.0" startX="-112.5" startY="-130.0" />
+      <Circle fill="DODGERBLUE" layoutX="585.0" layoutY="403.0" radius="32.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="cotovelo" fill="DODGERBLUE" layoutX="586.0" layoutY="261.0" radius="32.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="mao" fill="DODGERBLUE" layoutX="585.0" layoutY="116.0" radius="32.0" stroke="BLACK" strokeType="INSIDE" />
+      <Label layoutX="14.0" layoutY="14.0" text="INTERFACE DO BRAÇO ROBÓTICO">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="cotoveloT" layoutX="562.0" layoutY="253.0" text="Cotovelo" textFill="WHITE" />
+      <Label layoutX="567.0" layoutY="395.0" text="Ombro" textFill="WHITE" />
+      <Label fx:id="maoT" layoutX="572.0" layoutY="108.0" text="Mão" textFill="WHITE" />
+      <Label layoutX="14.0" layoutY="436.0" text="FEITO POR JOÃO PAULO ROSLINDO E GUSTAVO COPINI DECOL" />
+      <Label layoutX="14.0" layoutY="85.0" text="ROTAÇÕES:" />
+      <Button layoutX="126.0" layoutY="116.0" mnemonicParsing="false" text="COTOVELO -&gt;" />
+      <Button layoutX="19.0" layoutY="166.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="93.0" text="&lt;- OMBRO" />
+      <Button layoutX="126.0" layoutY="166.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="93.0" text="OMBRO -&gt;" />
+      <Button layoutX="23.0" layoutY="240.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="196.0" text="ENVIAR AO BRAÇO">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="grau_move" layoutX="86.0" layoutY="81.0" prefHeight="25.0" prefWidth="189.0" promptText="selecionar graus de rotacao" />
+    </children>
+</AnchorPane>
