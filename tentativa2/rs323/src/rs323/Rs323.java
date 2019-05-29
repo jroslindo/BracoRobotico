@@ -24,16 +24,16 @@ public class Rs323 {
         
         try {
             //System.out.println(System.getProperty("java.library.path"));
-            CommPortIdentifier idPorta = CommPortIdentifier.getPortIdentifier("COM2");
+            CommPortIdentifier idPorta = CommPortIdentifier.getPortIdentifier("COM1");
             
             SerialPort portaSerial = (SerialPort) idPorta.open("PORTAPIC", 1000);
             portaSerial.setSerialPortParams(9600, portaSerial.DATABITS_8, portaSerial.STOPBITS_1, portaSerial.PARITY_NONE);
          
-            byte b = 57;
+            
+            
             try {
-
                 OutputStream saida = portaSerial.getOutputStream();
-                saida.write(b);
+                saida.write(49);
                 Thread.sleep(100);
                 saida.flush();
                 System.out.println("finalizou tudo");
