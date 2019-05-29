@@ -23,19 +23,20 @@ public class Rs323 {
     public static void main(String[] args) {
         
         try {
-            System.out.println(System.getProperty("java.library.path"));
+            //System.out.println(System.getProperty("java.library.path"));
             CommPortIdentifier idPorta = CommPortIdentifier.getPortIdentifier("COM2");
             
             SerialPort portaSerial = (SerialPort) idPorta.open("PORTAPIC", 1000);
             portaSerial.setSerialPortParams(9600, portaSerial.DATABITS_8, portaSerial.STOPBITS_1, portaSerial.PARITY_NONE);
-
+         
+            byte b = 57;
             try {
-                int comando = 3;
 
                 OutputStream saida = portaSerial.getOutputStream();
-                saida.write(comando);
+                saida.write(b);
                 Thread.sleep(100);
                 saida.flush();
+                System.out.println("finalizou tudo");
 
             } catch (IOException ioe) {
                 System.out.println("Não foi possivel abrir/enviar_comando na porta serial");
