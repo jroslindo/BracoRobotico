@@ -33,7 +33,7 @@ public class Rs323 {
             
             try {
                 OutputStream saida = portaSerial.getOutputStream();
-                saida.write(50);
+                saida.write(49);
                 Thread.sleep(100);
                 saida.flush();
                 System.out.println("finalizou tudo");
