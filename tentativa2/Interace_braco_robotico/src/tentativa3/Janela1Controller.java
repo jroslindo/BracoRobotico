@@ -216,22 +216,15 @@ public class Janela1Controller implements Initializable {
                     saida.write(43);
                 if(negativo == true)
                     saida.write(45);
-                Thread.sleep(100);
+                //Thread.sleep(100);
                 saida.flush();
                 
                 saida.write(valor[0]);
-                Thread.sleep(100);
+                //Thread.sleep(100);
                 saida.flush();
                 
                 saida.write(valor[1]);
-                Thread.sleep(100);
-                saida.flush();
-                
-                saida.write(valor[2]);
-                Thread.sleep(100);
-                saida.flush();
-                
-                saida.write(46);
+                //Thread.sleep(100);                
                 Thread.sleep(100);
                 saida.flush();
                 
@@ -268,12 +261,11 @@ public class Janela1Controller implements Initializable {
         System.out.println("andou mao:" + andou_mao);
         //System.out.println("andou cotovelo:" + andou_cotovelo);
 
-        int valor[] = new int[3], auxiliar = andou_mao;
+        int valor[] = new int[2], auxiliar = andou_mao;
 
         valor[0] = 0;
         valor[1] = 0;
-        valor[2] = 0;
-        int i = 2, j = 0, x=0;
+        int i = 1, j = 0, x=0;
         boolean negativo=false;
         
         if (andou_mao != andou_mao_anterior) {
@@ -293,7 +285,7 @@ public class Janela1Controller implements Initializable {
             
 
             i = 0;
-            while (i < 3) {
+            while (i < 2) {
                 if (valor[i] == 0)
                     valor[i] = 48;
                 if (valor[i] == 1)
@@ -327,8 +319,7 @@ public class Janela1Controller implements Initializable {
 
         valor[0] = 0;
         valor[1] = 0;
-        valor[2] = 0;
-        i = 2; j = 0; x=0;
+        i = 1; j = 0; x=0;
         
         
         if (andou_cotovelo != andou_cotovelo_anterior) {
@@ -347,7 +338,7 @@ public class Janela1Controller implements Initializable {
             
 
             i = 0;
-            while (i < 3) {
+            while (i < 2) {
                 if (valor[i] == 0)
                     valor[i] = 48;
                 if (valor[i] == 1)

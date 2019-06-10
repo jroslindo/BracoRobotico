@@ -31,25 +31,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _RCREG `Vuc ~T0 @X0 0 e@4014 ]
 [t ~ __interrupt . k ]
 [t T41 __interrupt ]
-"6698
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4520.h: 6698:     struct {
-[s S275 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S275 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
-"6708
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4520.h: 6708:     struct {
-[s S276 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S276 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
-"6718
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4520.h: 6718:     struct {
-[s S277 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S277 . . GIEL GIEH ]
-"6697
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4520.h: 6697: typedef union {
-[u S274 `S275 1 `S276 1 `S277 1 ]
-[n S274 . . . . ]
-"6724
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4520.h: 6724: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
-[v _INTCONbits `VS274 ~T0 @X0 0 e@4082 ]
+[p mainexit ]
+"1699
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4520.h: 1699: extern volatile unsigned char TRISB __attribute__((address(0xF93)));
+[v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
+"1932
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4520.h: 1932:     struct {
+[s S72 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S72 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"1942
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4520.h: 1942:     struct {
+[s S73 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S73 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"1931
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4520.h: 1931: typedef union {
+[u S71 `S72 1 `S73 1 ]
+[n S71 . . . ]
+"1953
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4520.h: 1953: extern volatile TRISCbits_t TRISCbits __attribute__((address(0xF94)));
+[v _TRISCbits `VS71 ~T0 @X0 0 e@3988 ]
 "456
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4520.h: 456:     struct {
 [s S23 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -77,24 +77,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "497
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4520.h: 497: extern volatile PORTCbits_t PORTCbits __attribute__((address(0xF82)));
 [v _PORTCbits `VS22 ~T0 @X0 0 e@3970 ]
-"1699
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4520.h: 1699: extern volatile unsigned char TRISB __attribute__((address(0xF93)));
-[v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
-"1932
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4520.h: 1932:     struct {
-[s S72 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S72 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
-"1942
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4520.h: 1942:     struct {
-[s S73 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S73 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
-"1931
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4520.h: 1931: typedef union {
-[u S71 `S72 1 `S73 1 ]
-[n S71 . . . ]
-"1953
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4520.h: 1953: extern volatile TRISCbits_t TRISCbits __attribute__((address(0xF94)));
-[v _TRISCbits `VS71 ~T0 @X0 0 e@3988 ]
 "2143
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4520.h: 2143: extern volatile unsigned char TRISD __attribute__((address(0xF95)));
 [v _TRISD `Vuc ~T0 @X0 0 e@3989 ]
@@ -128,7 +110,40 @@ Version 4.0 HI-TECH Software Intermediate Code
 "315
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4520.h: 315: extern volatile PORTBbits_t PORTBbits __attribute__((address(0xF81)));
 [v _PORTBbits `VS16 ~T0 @X0 0 e@3969 ]
-[p mainexit ]
+"6698
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4520.h: 6698:     struct {
+[s S275 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S275 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+"6708
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4520.h: 6708:     struct {
+[s S276 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S276 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+"6718
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4520.h: 6718:     struct {
+[s S277 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S277 . . GIEL GIEH ]
+"6697
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4520.h: 6697: typedef union {
+[u S274 `S275 1 `S276 1 `S277 1 ]
+[n S274 . . . . ]
+"6724
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4520.h: 6724: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
+[v _INTCONbits `VS274 ~T0 @X0 0 e@4082 ]
+"2600
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4520.h: 2600:     struct {
+[s S93 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S93 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE PSPIE ]
+"2610
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4520.h: 2610:     struct {
+[s S94 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S94 . . TX1IE RC1IE ]
+"2599
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4520.h: 2599: typedef union {
+[u S92 `S93 1 `S94 1 ]
+[n S92 . . . ]
+"2616
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4520.h: 2616: extern volatile PIE1bits_t PIE1bits __attribute__((address(0xF9D)));
+[v _PIE1bits `VS92 ~T0 @X0 0 e@3997 ]
 "632
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4520.h: 632: extern volatile unsigned char PORTD __attribute__((address(0xF83)));
 [v _PORTD `Vuc ~T0 @X0 0 e@3971 ]
@@ -551,175 +566,426 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4520.h: 7001: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "25 comunicacao.c
-[; ;comunicacao.c: 25:     TXEN = 1;
-[v _valorRes `i ~T0 @X0 1 e ]
-[i _valorRes
--> 5 `i
-]
+[; ;comunicacao.c: 25:     TRISC6 = 1;
+[v _valorRes `i ~T0 @X0 -> 2 `i e ]
 "26
-[; ;comunicacao.c: 26:     return 1;
+[; ;comunicacao.c: 26:     CREN = 1;
 [v _x `ui ~T0 @X0 1 e ]
+"27
+[; ;comunicacao.c: 27:     TXEN = 1;
+[v _contador `i ~T0 @X0 1 e ]
+[i _contador
+-> 0 `i
+]
 "28
-[; ;comunicacao.c: 28:   return 0;
+[; ;comunicacao.c: 28:     return 1;
+[v _sinal `i ~T0 @X0 1 e ]
+[i _sinal
+-> 0 `i
+]
+"30
+[; ;comunicacao.c: 30:   return 0;
 [v _UART_Init `(uc ~T0 @X0 1 ef1`Cl ]
-"29
-[; ;comunicacao.c: 29: }
+"31
+[; ;comunicacao.c: 31: }
 {
 [e :U _UART_Init ]
-"28
-[; ;comunicacao.c: 28:   return 0;
+"30
+[; ;comunicacao.c: 30:   return 0;
 [v _baudrate `Cl ~T0 @X0 1 r1 ]
-"29
-[; ;comunicacao.c: 29: }
-[f ]
 "31
-[; ;comunicacao.c: 31: char UART_Data_Ready()
-[e = _x -> / - -> 16000000 `l * _baudrate -> -> 64 `i `l * _baudrate -> -> 64 `i `l `ui ]
-"32
-[; ;comunicacao.c: 32: {
-[e $ ! > _x -> -> 255 `i `ui 284  ]
+[; ;comunicacao.c: 31: }
+[f ]
 "33
-[; ;comunicacao.c: 33:   return RCIF;
-{
+[; ;comunicacao.c: 33: char UART_Data_Ready()
+[e = _x -> / - -> 16000000 `l * _baudrate -> -> 64 `i `l * _baudrate -> -> 64 `i `l `ui ]
 "34
-[; ;comunicacao.c: 34: }
-[e = _x -> / - -> 16000000 `l * _baudrate -> -> 16 `i `l * _baudrate -> -> 16 `i `l `ui ]
+[; ;comunicacao.c: 34: {
+[e $ ! > _x -> -> 255 `i `ui 284  ]
 "35
-[; ;comunicacao.c: 35: 
-[e = _BRGH -> -> 1 `i `b ]
+[; ;comunicacao.c: 35:   return RCIF;
+{
 "36
-[; ;comunicacao.c: 36: char UART_Read()
+[; ;comunicacao.c: 36: }
+[e = _x -> / - -> 16000000 `l * _baudrate -> -> 16 `i `l * _baudrate -> -> 16 `i `l `ui ]
+"37
+[; ;comunicacao.c: 37: 
+[e = _BRGH -> -> 1 `i `b ]
+"38
+[; ;comunicacao.c: 38: char UART_Read()
 }
 [e :U 284 ]
-"37
-[; ;comunicacao.c: 37: {
-[e $ ! < _x -> -> 256 `i `ui 285  ]
-"38
-[; ;comunicacao.c: 38:     int retorno;
-{
 "39
-[; ;comunicacao.c: 39:   while(!RCIF);
-[e = _SPBRG -> _x `uc ]
+[; ;comunicacao.c: 39: {
+[e $ ! < _x -> -> 256 `i `ui 285  ]
 "40
-[; ;comunicacao.c: 40:   retorno = RCREG;
-[e = _SYNC -> -> 0 `i `b ]
+[; ;comunicacao.c: 40:     int retorno=9;
+{
 "41
-[; ;comunicacao.c: 41: 
-[e = _SPEN -> -> 1 `i `b ]
+[; ;comunicacao.c: 41:   while(!RCIF);
+[e = _SPBRG -> _x `uc ]
 "42
-[; ;comunicacao.c: 42:   if (RCREG == '1'){
-[e = _TRISC7 -> -> 1 `i `b ]
+[; ;comunicacao.c: 42:   retorno = RCREG;
+[e = _SYNC -> -> 0 `i `b ]
 "43
-[; ;comunicacao.c: 43:       retorno = 1;
-[e = _TRISC6 -> -> 1 `i `b ]
+[; ;comunicacao.c: 43: 
+[e = _SPEN -> -> 1 `i `b ]
 "44
-[; ;comunicacao.c: 44:   }
-[e = _CREN -> -> 1 `i `b ]
+[; ;comunicacao.c: 44:   if (RCREG == '1'){
+[e = _TRISC7 -> -> 1 `i `b ]
 "45
-[; ;comunicacao.c: 45: 
-[e = _TXEN -> -> 1 `i `b ]
+[; ;comunicacao.c: 45:       retorno = 1;
+[e = _TRISC6 -> -> 1 `i `b ]
 "46
-[; ;comunicacao.c: 46: 
+[; ;comunicacao.c: 46:   }
+[e = _CREN -> -> 1 `i `b ]
+"47
+[; ;comunicacao.c: 47: 
+[e = _TXEN -> -> 1 `i `b ]
+"48
+[; ;comunicacao.c: 48:   if (RCREG == '2'){
 [e ) -> -> 1 `i `uc ]
 [e $UE 283  ]
-"47
-[; ;comunicacao.c: 47:   return retorno;
+"49
+[; ;comunicacao.c: 49:       retorno = 2;
 }
 [e :U 285 ]
-"48
-[; ;comunicacao.c: 48: }
+"50
+[; ;comunicacao.c: 50:   }
 [e ) -> -> 0 `i `uc ]
 [e $UE 283  ]
-"49
-[; ;comunicacao.c: 49: 
-[e :UE 283 ]
-}
 "51
 [; ;comunicacao.c: 51: 
+[e :UE 283 ]
+}
+"53
+[; ;comunicacao.c: 53:       retorno = 3;
 [v _UART_Data_Ready `(uc ~T0 @X0 1 ef ]
-"52
-[; ;comunicacao.c: 52:     if (INTCONbits.INT0IF == 1){
+"54
+[; ;comunicacao.c: 54:   }
 {
 [e :U _UART_Data_Ready ]
 [f ]
-"53
-[; ;comunicacao.c: 53:        PORTCbits.RC0 = 1;
+"55
+[; ;comunicacao.c: 55: 
 [e ) -> _RCIF `uc ]
 [e $UE 286  ]
-"54
-[; ;comunicacao.c: 54:        valorRes = UART_Read();
+"56
+[; ;comunicacao.c: 56:   if (RCREG == '4'){
 [e :UE 286 ]
 }
-"56
-[; ;comunicacao.c: 56:    }
+"58
+[; ;comunicacao.c: 58:   }
 [v _UART_Read `(uc ~T0 @X0 1 ef ]
-"57
-[; ;comunicacao.c: 57: 
+"59
+[; ;comunicacao.c: 59: 
 {
 [e :U _UART_Read ]
 [f ]
-"58
-[; ;comunicacao.c: 58: }
+"60
+[; ;comunicacao.c: 60:   if (RCREG == '5'){
 [v _retorno `i ~T0 @X0 1 a ]
-"59
-[; ;comunicacao.c: 59: 
+[e = _retorno -> 9 `i ]
+"61
+[; ;comunicacao.c: 61:       retorno = 5;
 [e $U 288  ]
 [e :U 289 ]
 [e :U 288 ]
 [e $ ! _RCIF 289  ]
 [e :U 290 ]
-"60
-[; ;comunicacao.c: 60: char numeros[] = { 0b10111111,
-[e = _retorno -> _RCREG `i ]
 "62
-[; ;comunicacao.c: 62:                         0b11011011,
+[; ;comunicacao.c: 62:   }
+[e = _retorno -> _RCREG `i ]
+"64
+[; ;comunicacao.c: 64:   if (RCREG == '6'){
 [e $ ! == -> _RCREG `ui -> 49 `ui 291  ]
 {
-"63
-[; ;comunicacao.c: 63:                         0b11001111,
+"65
+[; ;comunicacao.c: 65:       retorno = 6;
 [e = _retorno -> 1 `i ]
-"64
-[; ;comunicacao.c: 64:                         0b11100110,
+"66
+[; ;comunicacao.c: 66:   }
 }
 [e :U 291 ]
-"67
-[; ;comunicacao.c: 67:                         0b10000111,
+"68
+[; ;comunicacao.c: 68:   if (RCREG == '7'){
+[e $ ! == -> _RCREG `ui -> 50 `ui 292  ]
+{
+"69
+[; ;comunicacao.c: 69:       retorno = 7;
+[e = _retorno -> 2 `i ]
+"70
+[; ;comunicacao.c: 70:   }
+}
+[e :U 292 ]
+"72
+[; ;comunicacao.c: 72:   if (RCREG == '8'){
+[e $ ! == -> _RCREG `ui -> 51 `ui 293  ]
+{
+"73
+[; ;comunicacao.c: 73:       retorno = 8;
+[e = _retorno -> 3 `i ]
+"74
+[; ;comunicacao.c: 74:   }
+}
+[e :U 293 ]
+"76
+[; ;comunicacao.c: 76:   if (RCREG == '9'){
+[e $ ! == -> _RCREG `ui -> 52 `ui 294  ]
+{
+"77
+[; ;comunicacao.c: 77:       retorno = 9;
+[e = _retorno -> 4 `i ]
+"78
+[; ;comunicacao.c: 78:   }
+}
+[e :U 294 ]
+"80
+[; ;comunicacao.c: 80:       retorno = 0;
+[e $ ! == -> _RCREG `ui -> 53 `ui 295  ]
+{
+"81
+[; ;comunicacao.c: 81:   }
+[e = _retorno -> 5 `i ]
+"82
+[; ;comunicacao.c: 82: 
+}
+[e :U 295 ]
+"84
+[; ;comunicacao.c: 84:       retorno = 10;
+[e $ ! == -> _RCREG `ui -> 54 `ui 296  ]
+{
+"85
+[; ;comunicacao.c: 85:   }
+[e = _retorno -> 6 `i ]
+"86
+[; ;comunicacao.c: 86: 
+}
+[e :U 296 ]
+"88
+[; ;comunicacao.c: 88: }
+[e $ ! == -> _RCREG `ui -> 55 `ui 297  ]
+{
+"89
+[; ;comunicacao.c: 89: 
+[e = _retorno -> 7 `i ]
+"90
+[; ;comunicacao.c: 90: void faz_a_coisa (){
+}
+[e :U 297 ]
+"92
+[; ;comunicacao.c: 92: 
+[e $ ! == -> _RCREG `ui -> 56 `ui 298  ]
+{
+"93
+[; ;comunicacao.c: 93:     if(contador == 0){
+[e = _retorno -> 8 `i ]
+"94
+[; ;comunicacao.c: 94:         if (valor == 10)
+}
+[e :U 298 ]
+"96
+[; ;comunicacao.c: 96:         else
+[e $ ! == -> _RCREG `ui -> 57 `ui 299  ]
+{
+"97
+[; ;comunicacao.c: 97:             sinal=0;
+[e = _retorno -> 9 `i ]
+"98
+[; ;comunicacao.c: 98:         contador ++;
+}
+[e :U 299 ]
+"99
+[; ;comunicacao.c: 99:     }else if(contador == 1){
+[e $ ! == -> _RCREG `ui -> 48 `ui 300  ]
+{
+"100
+[; ;comunicacao.c: 100:         valorRes[0] = valor*10;
+[e = _retorno -> 0 `i ]
+"101
+[; ;comunicacao.c: 101:         contador++;
+}
+[e :U 300 ]
+"103
+[; ;comunicacao.c: 103:         valorRes[0] += valor;
+[e $ ! == -> _RCREG `ui -> 45 `ui 301  ]
+{
+"104
+[; ;comunicacao.c: 104:         contador++;
+[e = _retorno -> 10 `i ]
+"105
+[; ;comunicacao.c: 105:     }else if(contador == 3){
+}
+[e :U 301 ]
+"107
+[; ;comunicacao.c: 107:             valorRes[0] *= -1 ;
 [e ) -> _retorno `uc ]
 [e $UE 287  ]
-"68
-[; ;comunicacao.c: 68:                         0b11111111,
+"108
+[; ;comunicacao.c: 108:             sinal = 0;
 [e :UE 287 ]
 }
+"110
+[; ;comunicacao.c: 110:         if (valor == 10)
+[v _faz_a_coisa `(v ~T0 @X0 1 ef ]
+{
+[e :U _faz_a_coisa ]
+[f ]
+"111
+[; ;comunicacao.c: 111:             sinal=1;
+[v _valor `i ~T0 @X0 1 a ]
+[e = _valor -> ( _UART_Read ..  `i ]
+"113
+[; ;comunicacao.c: 113:             sinal=0;
+[e $ ! == _contador -> 0 `i 303  ]
+{
+"114
+[; ;comunicacao.c: 114:         contador++;
+[e $ ! == _valor -> 10 `i 304  ]
+"115
+[; ;comunicacao.c: 115:     }else if(contador == 4){
+[e = _sinal -> 1 `i ]
+[e $U 305  ]
+"116
+[; ;comunicacao.c: 116:         valorRes[1] = valor*10;
+[e :U 304 ]
+"117
+[; ;comunicacao.c: 117:         contador++;
+[e = _sinal -> 0 `i ]
+[e :U 305 ]
+"118
+[; ;comunicacao.c: 118:     }else if(contador == 5){
+[e ++ _contador -> 1 `i ]
+"119
+[; ;comunicacao.c: 119:         valorRes[1] += valor;
+}
+[e $U 306  ]
+[e :U 303 ]
+[e $ ! == _contador -> 1 `i 307  ]
+{
+"120
+[; ;comunicacao.c: 120:         contador=0;
+[e = *U + &U _valorRes * -> -> -> 0 `i `ui `ux -> -> # *U &U _valorRes `ui `ux * _valor -> 10 `i ]
+"121
+[; ;comunicacao.c: 121:     }
+[e ++ _contador -> 1 `i ]
+"122
+[; ;comunicacao.c: 122: }
+}
+[e $U 308  ]
+[e :U 307 ]
+[e $ ! == _contador -> 2 `i 309  ]
+{
+"123
+[; ;comunicacao.c: 123: 
+[e =+ *U + &U _valorRes * -> -> -> 0 `i `ui `ux -> -> # *U &U _valorRes `ui `ux _valor ]
+"124
+[; ;comunicacao.c: 124: void __attribute__((picinterrupt(("")))) tratamento (void){
+[e ++ _contador -> 1 `i ]
+"125
+[; ;comunicacao.c: 125: 
+}
+[e $U 310  ]
+[e :U 309 ]
+[e $ ! == _contador -> 3 `i 311  ]
+{
+"126
+[; ;comunicacao.c: 126: 
+[e $ ! == _sinal -> 1 `i 312  ]
+{
+"127
+[; ;comunicacao.c: 127: 
+[e =* *U + &U _valorRes * -> -> -> 0 `i `ui `ux -> -> # *U &U _valorRes `ui `ux -U -> 1 `i ]
+"128
+[; ;comunicacao.c: 128: 
+[e = _sinal -> 0 `i ]
+"129
+[; ;comunicacao.c: 129: 
+}
+[e :U 312 ]
+"130
+[; ;comunicacao.c: 130: 
+[e $ ! == _valor -> 10 `i 313  ]
+"131
+[; ;comunicacao.c: 131: 
+[e = _sinal -> 1 `i ]
+[e $U 314  ]
+"132
+[; ;comunicacao.c: 132:     if(RCIF){
+[e :U 313 ]
+"133
+[; ;comunicacao.c: 133:         RCIF=0;
+[e = _sinal -> 0 `i ]
+[e :U 314 ]
+"134
+[; ;comunicacao.c: 134:         faz_a_coisa();
+[e ++ _contador -> 1 `i ]
+"135
+[; ;comunicacao.c: 135: 
+}
+[e $U 315  ]
+[e :U 311 ]
+[e $ ! == _contador -> 4 `i 316  ]
+{
+"136
+[; ;comunicacao.c: 136:     }
+[e = *U + &U _valorRes * -> -> -> 1 `i `ui `ux -> -> # *U &U _valorRes `ui `ux * _valor -> 10 `i ]
+"137
+[; ;comunicacao.c: 137: 
+[e ++ _contador -> 1 `i ]
+"138
+[; ;comunicacao.c: 138: }
+}
+[e $U 317  ]
+[e :U 316 ]
+[e $ ! == _contador -> 5 `i 318  ]
+{
+"139
+[; ;comunicacao.c: 139: 
+[e =+ *U + &U _valorRes * -> -> -> 1 `i `ui `ux -> -> # *U &U _valorRes `ui `ux _valor ]
+"140
+[; ;comunicacao.c: 140: char numeros[] = { 0b10111111,
+[e = _contador -> 0 `i ]
+"141
+[; ;comunicacao.c: 141:                         0b10000110,
+}
+[e :U 318 ]
+[e :U 317 ]
+[e :U 315 ]
+[e :U 310 ]
+[e :U 308 ]
+[e :U 306 ]
+"142
+[; ;comunicacao.c: 142:                         0b11011011,
+[e :UE 302 ]
+}
 [v $root$_tratamento `(v ~T0 @X0 0 e ]
-"70
-[; ;comunicacao.c: 70: 
+"144
+[; ;comunicacao.c: 144:                         0b11100110,
 [v _tratamento `(v ~T41 @X0 1 ef ]
 {
 [e :U _tratamento ]
 [f ]
-"72
-[; ;comunicacao.c: 72: {
-[e $ ! == -> . . _INTCONbits 0 1 `i -> 1 `i 293  ]
+"152
+[; ;comunicacao.c: 152: 
+[e $ ! _RCIF 320  ]
 {
-"73
-[; ;comunicacao.c: 73: 
-[e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
-"74
-[; ;comunicacao.c: 74:     TRISB = 0x00;
-[e = _valorRes -> ( _UART_Read ..  `i ]
-"75
-[; ;comunicacao.c: 75:     TRISCbits.TRISC7 = 1;
-[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
-"76
-[; ;comunicacao.c: 76:     TRISCbits.TRISC6 = 1;
+"153
+[; ;comunicacao.c: 153: void main(void) {
+[e = _RCIF -> -> 0 `i `b ]
+"154
+[; ;comunicacao.c: 154: 
+[e ( _faz_a_coisa ..  ]
+"156
+[; ;comunicacao.c: 156:     TRISCbits.TRISC7 = 1;
 }
-[e :U 293 ]
-"78
-[; ;comunicacao.c: 78:     PORTCbits.RC0 = 0;
-[e :UE 292 ]
+[e :U 320 ]
+"158
+[; ;comunicacao.c: 158:     TRISCbits.TRISC0 = 0;
+[e :UE 319 ]
 }
-"80
-[; ;comunicacao.c: 80:     ADCON1 = 0x0F;
+"160
+[; ;comunicacao.c: 160:     TRISD = 0x00;
 [v _numeros `uc ~T0 @X0 -> 10 `i e ]
 [i _numeros
 :U ..
@@ -735,100 +1001,101 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 231 `i `uc
 ..
 ]
-"91
-[v _configuracao `(v ~T0 @X0 1 ef ]
-"92
-{
-[e :U _configuracao ]
-[f ]
-"94
-[e = _TRISB -> -> 0 `i `uc ]
-"95
-[e = . . _TRISCbits 0 7 -> -> 1 `i `uc ]
-"96
-[e = . . _TRISCbits 0 6 -> -> 1 `i `uc ]
-"97
-[e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
-"98
-[e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
-"99
-[e = _TRISD -> -> 0 `i `uc ]
-"100
-[e = _ADCON1 -> -> 15 `i `uc ]
-"101
-[e = . . _PORTBbits 0 4 -> -> 1 `i `uc ]
-"102
-[e = . . _PORTBbits 0 5 -> -> 1 `i `uc ]
-"103
-[e = . . _PORTBbits 0 6 -> -> 1 `i `uc ]
-"104
-[e = . . _PORTBbits 0 7 -> -> 1 `i `uc ]
-"105
-[e ( _UART_Init (1 -> -> 9600 `i `l ]
-"110
-[e :UE 294 ]
-}
 [v $root$_main `(v ~T0 @X0 0 e ]
-"132
-[; ;comunicacao.c: 132: void main(void) {
+"173
+[; ;comunicacao.c: 173:     ADCON1 = 0x0F;
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"134
-[; ;comunicacao.c: 134:     configuracao();
-[e ( _configuracao ..  ]
-"135
-[; ;comunicacao.c: 135:     TRISB = 0x00;
+"175
+[; ;comunicacao.c: 175:     PORTBbits.RB5 = 1;
 [e = _TRISB -> -> 0 `i `uc ]
-"136
-[; ;comunicacao.c: 136:     TRISD = 0x00;
+"176
+[; ;comunicacao.c: 176:     PORTBbits.RB6 = 1;
+[e = . . _TRISCbits 0 7 -> -> 1 `i `uc ]
+"177
+[; ;comunicacao.c: 177:     PORTBbits.RB7 = 1;
+[e = . . _TRISCbits 0 6 -> -> 1 `i `uc ]
+"178
+[; ;comunicacao.c: 178:     while(1){
+[e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
+"179
+[; ;comunicacao.c: 179: 
+[e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
+"180
+[; ;comunicacao.c: 180:         PORTD = numeros[valorRes[1]%10];
 [e = _TRISD -> -> 0 `i `uc ]
-"137
-[; ;comunicacao.c: 137:     ADCON1 = 0x0F;
+"181
+[; ;comunicacao.c: 181: 
 [e = _ADCON1 -> -> 15 `i `uc ]
-"138
-[; ;comunicacao.c: 138:     PORTBbits.RB4 = 1;
+"182
+[; ;comunicacao.c: 182:         PORTBbits.RB7 = 0;
 [e = . . _PORTBbits 0 4 -> -> 1 `i `uc ]
-"139
-[; ;comunicacao.c: 139:     PORTBbits.RB5 = 1;
+"183
+[; ;comunicacao.c: 183:         _delay((unsigned long)((5)*(16000000/4000.0)));
 [e = . . _PORTBbits 0 5 -> -> 1 `i `uc ]
-"140
-[; ;comunicacao.c: 140:     PORTBbits.RB6 = 1;
+"184
+[; ;comunicacao.c: 184:         PORTBbits.RB7 = 1;
 [e = . . _PORTBbits 0 6 -> -> 1 `i `uc ]
-"141
-[; ;comunicacao.c: 141:     PORTBbits.RB7 = 1;
+"185
+[; ;comunicacao.c: 185: 
 [e = . . _PORTBbits 0 7 -> -> 1 `i `uc ]
-"142
-[; ;comunicacao.c: 142:     while(1){
-[e :U 297 ]
+"186
+[; ;comunicacao.c: 186:         PORTD = numeros[valorRes[1]/10];
+[e ( _UART_Init (1 -> -> 9600 `i `l ]
+"188
+[; ;comunicacao.c: 188:         PORTBbits.RB6 = 0;
+[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
+"189
+[; ;comunicacao.c: 189:         _delay((unsigned long)((5)*(16000000/4000.0)));
+[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
+"190
+[; ;comunicacao.c: 190:         PORTBbits.RB6 = 1;
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+"191
+[; ;comunicacao.c: 191:     }
+[e = _TRISB -> -> 0 `i `uc ]
+"192
+[; ;comunicacao.c: 192:     return;
+[e = _TRISD -> -> 0 `i `uc ]
+"193
+[; ;comunicacao.c: 193: }
+[e = _ADCON1 -> -> 15 `i `uc ]
+"194
+[e = . . _PORTBbits 0 4 -> -> 1 `i `uc ]
+"195
+[e = . . _PORTBbits 0 5 -> -> 1 `i `uc ]
+"196
+[e = . . _PORTBbits 0 6 -> -> 1 `i `uc ]
+"197
+[e = . . _PORTBbits 0 7 -> -> 1 `i `uc ]
+"198
+[e :U 323 ]
 {
-"143
-[; ;comunicacao.c: 143:         if(UART_Data_Ready())
-[e $ ! != -> ( _UART_Data_Ready ..  `i -> 0 `i 299  ]
-"144
-[; ;comunicacao.c: 144:             PORTD = numeros[UART_Read()];
-[e = _PORTD -> *U + &U _numeros * -> ( _UART_Read ..  `ux -> -> # *U &U _numeros `ui `ux `uc ]
-[e :U 299 ]
-"148
-[; ;comunicacao.c: 148:         PORTBbits.RB7 = 0;
+"200
+[e = _PORTD -> *U + &U _numeros * -> -> % *U + &U _valorRes * -> -> -> 1 `i `ui `ux -> -> # *U &U _valorRes `ui `ux -> 10 `i `ui `ux -> -> # *U &U _numeros `ui `ux `uc ]
+"202
 [e = . . _PORTBbits 0 7 -> -> 0 `i `uc ]
-"149
-[; ;comunicacao.c: 149:         _delay((unsigned long)((5)*(16000000/4000.0)));
+"203
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"150
-[; ;comunicacao.c: 150:         PORTBbits.RB7 = 1;
+"204
 [e = . . _PORTBbits 0 7 -> -> 1 `i `uc ]
-"153
-[; ;comunicacao.c: 153:     }
+"206
+[e = _PORTD -> *U + &U _numeros * -> -> / *U + &U _valorRes * -> -> -> 1 `i `ui `ux -> -> # *U &U _valorRes `ui `ux -> 10 `i `ui `ux -> -> # *U &U _numeros `ui `ux `uc ]
+"208
+[e = . . _PORTBbits 0 6 -> -> 0 `i `uc ]
+"209
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"210
+[e = . . _PORTBbits 0 6 -> -> 1 `i `uc ]
+"211
 }
-[e :U 296 ]
-[e $U 297  ]
-[e :U 298 ]
-"154
-[; ;comunicacao.c: 154:     return;
-[e $UE 295  ]
-"155
-[; ;comunicacao.c: 155: }
-[e :UE 295 ]
+[e :U 322 ]
+[e $U 323  ]
+[e :U 324 ]
+"212
+[e $UE 321  ]
+"213
+[e :UE 321 ]
 }

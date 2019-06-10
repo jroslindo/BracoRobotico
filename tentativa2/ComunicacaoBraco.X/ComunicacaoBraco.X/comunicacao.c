@@ -22,8 +22,10 @@
 #define Q3 PORTBbits.RB6
 #define Q4 PORTBbits.RB7
 
-int valorRes=5;
+int valorRes[2];
 unsigned int x;
+int contador=0;
+int sinal=0;
 
 char UART_Init(const long int baudrate)
 {
@@ -55,7 +57,7 @@ char UART_Data_Ready()
 
 char UART_Read()
 {
-    int retorno;
+    int retorno=9;
   while(!RCIF);
   retorno = RCREG;
   
@@ -63,17 +65,95 @@ char UART_Read()
       retorno = 1;
   }
   
+  if (RCREG == '2'){
+      retorno = 2;
+  }
+  
+  if (RCREG == '3'){
+      retorno = 3;
+  }
+  
+  if (RCREG == '4'){
+      retorno = 4;
+  }
+  
+  if (RCREG == '5'){
+      retorno = 5;
+  }
+  
+  if (RCREG == '6'){
+      retorno = 6;
+  }
+  
+  if (RCREG == '7'){
+      retorno = 7;
+  }
+  
+  if (RCREG == '8'){
+      retorno = 8;
+  }
+  
+  if (RCREG == '9'){
+      retorno = 9;
+  }
+  if (RCREG == '0'){
+      retorno = 0;
+  }
+  
+  if (RCREG == '-'){
+      retorno = 10;
+  }
   
   return retorno;
 }
 
+void faz_a_coisa (){
+    int valor = UART_Read();
+    
+    if(contador == 0){
+        if (valor == 10)
+            sinal=1;
+        else
+            sinal=0;
+        contador ++;
+    }else if(contador == 1){
+        valorRes[0] = valor*10;
+        contador++;       
+    }else if(contador == 2){
+        valorRes[0] += valor;
+        contador++;       
+    }else if(contador == 3){
+        if (sinal == 1){
+            valorRes[0] *= -1 ;
+            sinal = 0;
+        }
+        if (valor == 10)
+            sinal=1;
+        else
+            sinal=0;        
+        contador++; //2 em 1, finaliza o dado 1 e ja pega o sinal do proximo      
+    }else if(contador == 4){
+        valorRes[1] = valor*10;
+        contador++;       
+    }else if(contador == 5){
+        valorRes[1] += valor;
+        contador=0;       
+    }
+}
+
 void __interrupt() tratamento (void){
    
-    if (INTCONbits.INT0IF == 1){         //Tratamento interrupção comunicação serial
+    /*if (INTCONbits.INT0IF == 1){         //Tratamento interrupção comunicação serial
        PORTCbits.RC0 = 1;
        valorRes = UART_Read();   
        INTCONbits.INT0IF = 0;
-   }    
+   }*/
+    
+    if(RCIF){   
+        RCIF=0;
+        faz_a_coisa();
+        
+    }
    
 }
 
@@ -88,9 +168,10 @@ char numeros[]      = { 0b10111111, // 0 Valores para o display
                         0b11111111, // 8
                         0b11100111};// 9
 
-void configuracao ()
-{
-   //CONFIGURAÇÕES GERAIS DO PIC, portas:
+
+
+void main(void) {
+    //CONFIGURAÇÕES GERAIS DO PIC, portas:
     TRISB = 0x00;//
     TRISCbits.TRISC7 = 1;
     TRISCbits.TRISC6 = 1;
@@ -104,34 +185,9 @@ void configuracao ()
     Q4 = 1;    
     UART_Init(9600);
     //CONFIGURANDO INTERRUPÇÃO
-    //INTCONbits.PEIE = 1;        //Habilita interrupção de periféricos
-    //PIE1bits.RCIE = 1;          //Chave individual do módulo receptor
-    //INTCONbits.GIE = 1;			//Chave geral de interrupção
-}
-
-//unsigned char recebeUART(void){
-//    TRISCbits.TRISC7 = 1;
-//    TRISCbits.TRISC6 = 1;
-    
-//    SPBRG = 207;
-//    TXSTA = 0b00100100;
-//    RCSTA = 0b10010000;
-//    BAUDCON = 0b00000000;
-    
-//    while(!PIR1bits.RCIF){
-//        if(RCSTAbits.FERR){
-//            RCSTAbits.CREN = 0;
-//            return -1;
-//        }else{
-//            PORTCbits.RC0 = 0;
-//            return RCREG;
-//        }
-//    }
-//}
-
-void main(void) {
-    
-    configuracao();
+    INTCONbits.PEIE = 1;        //Habilita interrupção de periféricos
+    PIE1bits.RCIE = 1;          //Chave individual do módulo receptor
+    INTCONbits.GIE = 1;			//Chave geral de interrupção
     TRISB = 0x00;
     TRISD = 0x00;
     ADCON1 = 0x0F;
@@ -140,16 +196,18 @@ void main(void) {
     Q3 = 1;
     Q4 = 1;    
     while(1){
-        if(UART_Data_Ready())
-            PORTD = numeros[UART_Read()];
-            //PORTB = UART_Read();
-        //valorRes = UART_Read();
-        //PORTD = numeros[valorRes];
+        
+        PORTD = numeros[valorRes[1]%10];
+        
         Q4 = 0;
         __delay_ms(5);
         Q4 = 1;
-	
-        //printf("valor lido: %d\r",valorRes);
+        
+        PORTD = numeros[valorRes[1]/10];
+        
+        Q3 = 0;
+        __delay_ms(5);
+        Q3 = 1;
     }
     return;
 }

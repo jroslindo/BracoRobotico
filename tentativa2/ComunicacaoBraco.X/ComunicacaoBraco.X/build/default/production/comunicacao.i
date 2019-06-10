@@ -4677,8 +4677,10 @@ char *tempnam(const char *, const char *);
 
 
 
-int valorRes=5;
+int valorRes[2];
 unsigned int x;
+int contador=0;
+int sinal=0;
 
 char UART_Init(const long int baudrate)
 {
@@ -4710,7 +4712,7 @@ char UART_Data_Ready()
 
 char UART_Read()
 {
-    int retorno;
+    int retorno=9;
   while(!RCIF);
   retorno = RCREG;
 
@@ -4718,17 +4720,95 @@ char UART_Read()
       retorno = 1;
   }
 
+  if (RCREG == '2'){
+      retorno = 2;
+  }
+
+  if (RCREG == '3'){
+      retorno = 3;
+  }
+
+  if (RCREG == '4'){
+      retorno = 4;
+  }
+
+  if (RCREG == '5'){
+      retorno = 5;
+  }
+
+  if (RCREG == '6'){
+      retorno = 6;
+  }
+
+  if (RCREG == '7'){
+      retorno = 7;
+  }
+
+  if (RCREG == '8'){
+      retorno = 8;
+  }
+
+  if (RCREG == '9'){
+      retorno = 9;
+  }
+  if (RCREG == '0'){
+      retorno = 0;
+  }
+
+  if (RCREG == '-'){
+      retorno = 10;
+  }
 
   return retorno;
 }
 
+void faz_a_coisa (){
+    int valor = UART_Read();
+
+    if(contador == 0){
+        if (valor == 10)
+            sinal=1;
+        else
+            sinal=0;
+        contador ++;
+    }else if(contador == 1){
+        valorRes[0] = valor*10;
+        contador++;
+    }else if(contador == 2){
+        valorRes[0] += valor;
+        contador++;
+    }else if(contador == 3){
+        if (sinal == 1){
+            valorRes[0] *= -1 ;
+            sinal = 0;
+        }
+        if (valor == 10)
+            sinal=1;
+        else
+            sinal=0;
+        contador++;
+    }else if(contador == 4){
+        valorRes[1] = valor*10;
+        contador++;
+    }else if(contador == 5){
+        valorRes[1] += valor;
+        contador=0;
+    }
+}
+
 void __attribute__((picinterrupt(("")))) tratamento (void){
 
-    if (INTCONbits.INT0IF == 1){
-       PORTCbits.RC0 = 1;
-       valorRes = UART_Read();
-       INTCONbits.INT0IF = 0;
-   }
+
+
+
+
+
+
+    if(RCIF){
+        RCIF=0;
+        faz_a_coisa();
+
+    }
 
 }
 
@@ -4743,8 +4823,9 @@ char numeros[] = { 0b10111111,
                         0b11111111,
                         0b11100111};
 
-void configuracao ()
-{
+
+
+void main(void) {
 
     TRISB = 0x00;
     TRISCbits.TRISC7 = 1;
@@ -4759,14 +4840,9 @@ void configuracao ()
     PORTBbits.RB7 = 1;
     UART_Init(9600);
 
-
-
-
-}
-# 132 "comunicacao.c"
-void main(void) {
-
-    configuracao();
+    INTCONbits.PEIE = 1;
+    PIE1bits.RCIE = 1;
+    INTCONbits.GIE = 1;
     TRISB = 0x00;
     TRISD = 0x00;
     ADCON1 = 0x0F;
@@ -4775,16 +4851,18 @@ void main(void) {
     PORTBbits.RB6 = 1;
     PORTBbits.RB7 = 1;
     while(1){
-        if(UART_Data_Ready())
-            PORTD = numeros[UART_Read()];
 
-
+        PORTD = numeros[valorRes[1]%10];
 
         PORTBbits.RB7 = 0;
         _delay((unsigned long)((5)*(16000000/4000.0)));
         PORTBbits.RB7 = 1;
 
+        PORTD = numeros[valorRes[1]/10];
 
+        PORTBbits.RB6 = 0;
+        _delay((unsigned long)((5)*(16000000/4000.0)));
+        PORTBbits.RB6 = 1;
     }
     return;
 }

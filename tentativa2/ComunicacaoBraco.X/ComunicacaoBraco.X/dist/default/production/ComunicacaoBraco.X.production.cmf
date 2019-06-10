@@ -11,27 +11,29 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$dist/default/production\ComunicacaoBraco.X.production.o
-cinit CODE 0 266 266 2A 1
-intcode_body CODE 0 2CC 2CC 1A 1
-text0 CODE 0 1E6 1E6 4E 1
-text1 CODE 0 234 234 32 1
-text2 CODE 0 12 12 108 1
-text3 CODE 0 11A 11A CC 1
-text4 CODE 0 290 290 1E 1
-text5 CODE 0 2F2 2F2 8 1
-text7 CODE 0 2AE 2AE 1E 1
-nvCOMRAM COMRAM 1 2C 2C 2 1
-idataCOMRAM CODE 0 2E6 2E6 C 1
-cstackCOMRAM COMRAM 1 1 1 1F 1
-temp COMRAM 1 2E 2E 1 1
-intcode CODE 0 8 8 6 1
-dataCOMRAM COMRAM 1 20 20 C 1
-$C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.o
+$C:\Users\RAZAGO~1\AppData\Local\Temp\s70.o
 idloc IDLOC 0 200000 200000 8 1
 init CODE 0 E E 4 1
 reset_vec CODE 0 0 0 4 1
 config CONFIG 0 300000 300000 E 1
+$dist/default/production\ComunicacaoBraco.X.production.o
+cinit CODE 0 546 546 36 1
+intcode_body CODE 0 5A2 5A2 20 1
+text0 CODE 0 396 396 BC 1
+text1 CODE 0 4D6 4D6 70 1
+text2 CODE 0 452 452 84 1
+text3 CODE 0 12 12 108 1
+text4 CODE 0 20C 20C CC 1
+text6 CODE 0 11A 11A F2 1
+text7 CODE 0 57C 57C 26 1
+text8 CODE 0 2D8 2D8 BE 1
+nvCOMRAM COMRAM 1 39 39 2 1
+idataCOMRAM CODE 0 5C2 5C2 A 1
+cstackCOMRAM COMRAM 1 1 1 26 1
+temp COMRAM 1 3B 3B 1 1
+intcode CODE 0 8 8 6 1
+dataCOMRAM COMRAM 1 27 27 A 1
+bssCOMRAM COMRAM 1 31 31 8 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
@@ -47,13 +49,13 @@ BANK3 300-3FF 1
 BANK4 400-4FF 1
 BANK5 500-5FF 1
 CONST 4-7 1
-CONST 2FA-66F 1
+CONST 5CC-66F 1
 STACK 80-5FF 1
 SMALLCONST 600-66F 1
 CODE 4-7 1
-CODE 2FA-66F 1
-BIGRAM 2F-5FF 1
-COMRAM 2F-7F 1
+CODE 5CC-66F 1
+BIGRAM 3C-5FF 1
+COMRAM 3C-7F 1
 EEDATA F00000-F000FF 1
 MEDIUMCONST 600-66F 1
 # %LINETAB Section
@@ -70,122 +72,212 @@ MEDIUMCONST 600-66F 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\ComunicacaoBraco.X.production.o
-8 intcode CODE >54:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-8 intcode CODE >70:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-2AE text7 CODE >56:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-2AE text7 CODE >59:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-2B2 text7 CODE >60:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-2B8 text7 CODE >62:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-2C0 text7 CODE >63:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-2C8 text7 CODE >64:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-2C8 text7 CODE >67:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-2CA text7 CODE >68:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-2CC intcode_body CODE >70:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-2CE intcode_body CODE >72:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-2D2 intcode_body CODE >73:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-2D4 intcode_body CODE >74:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-2E0 intcode_body CODE >75:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-2E2 intcode_body CODE >78:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-2F2 text5 CODE >51:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-2F2 text5 CODE >53:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-2F8 text5 CODE >54:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-290 text4 CODE >56:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-290 text4 CODE >59:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-294 text4 CODE >60:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-29A text4 CODE >62:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-2A2 text4 CODE >63:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-2AA text4 CODE >64:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-2AA text4 CODE >67:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-2AC text4 CODE >68:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-11A text3 CODE >7:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-11A text3 CODE >13:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-11E text3 CODE >14:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-122 text3 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-132 text3 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-136 text3 CODE >18:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-13A text3 CODE >19:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-14A text3 CODE >20:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-14E text3 CODE >22:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-15E text3 CODE >23:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-16A text3 CODE >24:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-16E text3 CODE >25:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-170 text3 CODE >26:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-17A text3 CODE >27:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-17C text3 CODE >25:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-180 text3 CODE >30:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-18A text3 CODE >31:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-19E text3 CODE >32:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-1AE text3 CODE >33:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-1B0 text3 CODE >35:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-1BA text3 CODE >36:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-1BE text3 CODE >38:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-1C4 text3 CODE >39:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-1D4 text3 CODE >40:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-1E4 text3 CODE >41:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-12 text2 CODE >28:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-12 text2 CODE >31:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-86 text2 CODE >32:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-8C text2 CODE >34:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-100 text2 CODE >35:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-102 text2 CODE >37:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-108 text2 CODE >39:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-10C text2 CODE >40:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-10E text2 CODE >41:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-110 text2 CODE >42:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-112 text2 CODE >43:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-114 text2 CODE >44:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-116 text2 CODE >45:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-118 text2 CODE >49:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-234 text1 CODE >91:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-234 text1 CODE >94:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-238 text1 CODE >95:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-23A text1 CODE >96:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-23C text1 CODE >97:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-23E text1 CODE >98:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-240 text1 CODE >99:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-244 text1 CODE >100:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-248 text1 CODE >101:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-24A text1 CODE >102:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-24C text1 CODE >103:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-24E text1 CODE >104:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-250 text1 CODE >105:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-264 text1 CODE >110:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-1E6 text0 CODE >132:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-1E6 text0 CODE >134:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-1EA text0 CODE >135:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-1EE text0 CODE >136:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-1F2 text0 CODE >137:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-1F6 text0 CODE >138:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-1F8 text0 CODE >139:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-1FA text0 CODE >140:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-1FC text0 CODE >141:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-1FE text0 CODE >143:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-208 text0 CODE >144:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-220 text0 CODE >148:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-222 text0 CODE >149:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-232 text0 CODE >150:C:\Users\Razagorus\Desktop\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
-266 cinit CODE >465:C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.
-266 cinit CODE >467:C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.
-266 cinit CODE >470:C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.
-266 cinit CODE >491:C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.
-268 cinit CODE >492:C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.
-26A cinit CODE >493:C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.
-26C cinit CODE >494:C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.
-26E cinit CODE >495:C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.
-270 cinit CODE >496:C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.
-272 cinit CODE >497:C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.
-276 cinit CODE >498:C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.
-27A cinit CODE >499:C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.
-27A cinit CODE >500:C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.
-27C cinit CODE >501:C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.
-280 cinit CODE >502:C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.
-282 cinit CODE >503:C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.
-284 cinit CODE >504:C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.
-286 cinit CODE >510:C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.
-286 cinit CODE >512:C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.
-288 cinit CODE >513:C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.
-28A cinit CODE >514:C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.
-28C cinit CODE >515:C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.
+8 intcode CODE >41:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+8 intcode CODE >144:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+2D8 text8 CODE >58:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+2D8 text8 CODE >61:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+2DC text8 CODE >62:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+2E2 text8 CODE >64:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+2EA text8 CODE >65:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+2F2 text8 CODE >68:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+2FA text8 CODE >69:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+302 text8 CODE >72:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+30A text8 CODE >73:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+312 text8 CODE >76:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+31A text8 CODE >77:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+322 text8 CODE >80:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+32A text8 CODE >81:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+332 text8 CODE >84:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+33A text8 CODE >85:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+342 text8 CODE >88:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+34A text8 CODE >89:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+352 text8 CODE >92:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+35A text8 CODE >93:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+362 text8 CODE >96:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+36A text8 CODE >97:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+372 text8 CODE >99:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+37A text8 CODE >100:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+382 text8 CODE >103:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+38A text8 CODE >104:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+392 text8 CODE >105:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+392 text8 CODE >107:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+394 text8 CODE >108:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+57C text7 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul16.c
+57C text7 CODE >37:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul16.c
+588 text7 CODE >38:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul16.c
+590 text7 CODE >39:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul16.c
+598 text7 CODE >52:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul16.c
+5A0 text7 CODE >53:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul16.c
+11A text6 CODE >110:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+11A text6 CODE >111:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+126 text6 CODE >113:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+12E text6 CODE >114:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+138 text6 CODE >115:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+140 text6 CODE >117:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+148 text6 CODE >118:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+14C text6 CODE >119:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+156 text6 CODE >120:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+174 text6 CODE >122:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+17E text6 CODE >123:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+188 text6 CODE >125:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+192 text6 CODE >126:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+19A text6 CODE >127:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+1B4 text6 CODE >128:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+1BC text6 CODE >130:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+1C8 text6 CODE >135:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+1D2 text6 CODE >136:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+1F0 text6 CODE >138:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+1FA text6 CODE >139:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+202 text6 CODE >140:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+5A2 intcode_body CODE >144:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+5AC intcode_body CODE >152:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+5B0 intcode_body CODE >153:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+5B2 intcode_body CODE >154:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+5B6 intcode_body CODE >158:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+20C text4 CODE >7:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+20C text4 CODE >13:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+210 text4 CODE >14:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+214 text4 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+224 text4 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+228 text4 CODE >18:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+22C text4 CODE >19:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+23C text4 CODE >20:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+240 text4 CODE >22:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+250 text4 CODE >23:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+25C text4 CODE >24:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+260 text4 CODE >25:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+262 text4 CODE >26:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+26C text4 CODE >27:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+26E text4 CODE >25:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+272 text4 CODE >30:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+27C text4 CODE >31:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+290 text4 CODE >32:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+2A0 text4 CODE >33:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+2A2 text4 CODE >35:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+2AC text4 CODE >36:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+2B0 text4 CODE >38:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+2B6 text4 CODE >39:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+2C6 text4 CODE >40:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+2D6 text4 CODE >41:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+12 text3 CODE >30:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+12 text3 CODE >33:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+86 text3 CODE >34:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+8C text3 CODE >36:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+100 text3 CODE >37:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+102 text3 CODE >39:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+108 text3 CODE >41:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+10C text3 CODE >42:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+10E text3 CODE >43:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+110 text3 CODE >44:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+112 text3 CODE >45:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+114 text3 CODE >46:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+116 text3 CODE >47:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+118 text3 CODE >51:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+452 text2 CODE >7:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awdiv.c
+452 text2 CODE >13:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awdiv.c
+456 text2 CODE >14:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awdiv.c
+45A text2 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awdiv.c
+462 text2 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awdiv.c
+466 text2 CODE >18:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awdiv.c
+46A text2 CODE >19:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awdiv.c
+472 text2 CODE >20:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awdiv.c
+476 text2 CODE >22:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awdiv.c
+47E text2 CODE >23:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awdiv.c
+486 text2 CODE >24:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awdiv.c
+48A text2 CODE >25:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awdiv.c
+48C text2 CODE >26:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awdiv.c
+492 text2 CODE >27:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awdiv.c
+494 text2 CODE >25:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awdiv.c
+498 text2 CODE >30:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awdiv.c
+49E text2 CODE >31:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awdiv.c
+4AA text2 CODE >32:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awdiv.c
+4B2 text2 CODE >33:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awdiv.c
+4B4 text2 CODE >35:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awdiv.c
+4BA text2 CODE >36:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awdiv.c
+4BE text2 CODE >38:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awdiv.c
+4C4 text2 CODE >39:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awdiv.c
+4CC text2 CODE >40:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awdiv.c
+4D4 text2 CODE >41:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awdiv.c
+4D6 text1 CODE >7:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awmod.c
+4D6 text1 CODE >12:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awmod.c
+4DA text1 CODE >13:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awmod.c
+4DE text1 CODE >14:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awmod.c
+4E6 text1 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awmod.c
+4EA text1 CODE >17:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awmod.c
+4EE text1 CODE >18:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awmod.c
+4F6 text1 CODE >19:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awmod.c
+4FE text1 CODE >20:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awmod.c
+502 text1 CODE >21:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awmod.c
+504 text1 CODE >22:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awmod.c
+50A text1 CODE >23:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awmod.c
+50C text1 CODE >21:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awmod.c
+510 text1 CODE >26:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awmod.c
+51C text1 CODE >27:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awmod.c
+524 text1 CODE >28:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awmod.c
+52A text1 CODE >29:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awmod.c
+52E text1 CODE >31:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awmod.c
+534 text1 CODE >32:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awmod.c
+53C text1 CODE >33:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awmod.c
+544 text1 CODE >34:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awmod.c
+396 text0 CODE >173:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+396 text0 CODE >175:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+39A text0 CODE >176:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+39C text0 CODE >177:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+39E text0 CODE >178:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+3A0 text0 CODE >179:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+3A2 text0 CODE >180:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+3A6 text0 CODE >181:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+3AA text0 CODE >182:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+3AC text0 CODE >183:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+3AE text0 CODE >184:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+3B0 text0 CODE >185:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+3B2 text0 CODE >186:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+3C6 text0 CODE >188:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+3C8 text0 CODE >189:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+3CA text0 CODE >190:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+3CC text0 CODE >191:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+3D0 text0 CODE >192:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+3D4 text0 CODE >193:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+3D8 text0 CODE >194:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+3DA text0 CODE >195:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+3DC text0 CODE >196:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+3DE text0 CODE >197:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+3E0 text0 CODE >200:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+404 text0 CODE >202:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+406 text0 CODE >203:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+416 text0 CODE >204:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+418 text0 CODE >206:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+43C text0 CODE >208:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+43E text0 CODE >209:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+44E text0 CODE >210:C:\Users\Razagorus\BracoRobotico\tentativa2\ComunicacaoBraco.X\ComunicacaoBraco.X\comunicacao.c
+546 cinit CODE >466:C:\Users\RAZAGO~1\AppData\Local\Temp\s70.
+546 cinit CODE >468:C:\Users\RAZAGO~1\AppData\Local\Temp\s70.
+546 cinit CODE >471:C:\Users\RAZAGO~1\AppData\Local\Temp\s70.
+546 cinit CODE >498:C:\Users\RAZAGO~1\AppData\Local\Temp\s70.
+548 cinit CODE >499:C:\Users\RAZAGO~1\AppData\Local\Temp\s70.
+54A cinit CODE >500:C:\Users\RAZAGO~1\AppData\Local\Temp\s70.
+54C cinit CODE >501:C:\Users\RAZAGO~1\AppData\Local\Temp\s70.
+54E cinit CODE >502:C:\Users\RAZAGO~1\AppData\Local\Temp\s70.
+550 cinit CODE >503:C:\Users\RAZAGO~1\AppData\Local\Temp\s70.
+552 cinit CODE >504:C:\Users\RAZAGO~1\AppData\Local\Temp\s70.
+556 cinit CODE >505:C:\Users\RAZAGO~1\AppData\Local\Temp\s70.
+55A cinit CODE >506:C:\Users\RAZAGO~1\AppData\Local\Temp\s70.
+55A cinit CODE >507:C:\Users\RAZAGO~1\AppData\Local\Temp\s70.
+55C cinit CODE >508:C:\Users\RAZAGO~1\AppData\Local\Temp\s70.
+560 cinit CODE >509:C:\Users\RAZAGO~1\AppData\Local\Temp\s70.
+562 cinit CODE >510:C:\Users\RAZAGO~1\AppData\Local\Temp\s70.
+564 cinit CODE >511:C:\Users\RAZAGO~1\AppData\Local\Temp\s70.
+566 cinit CODE >515:C:\Users\RAZAGO~1\AppData\Local\Temp\s70.
+56A cinit CODE >516:C:\Users\RAZAGO~1\AppData\Local\Temp\s70.
+56C cinit CODE >517:C:\Users\RAZAGO~1\AppData\Local\Temp\s70.
+56C cinit CODE >518:C:\Users\RAZAGO~1\AppData\Local\Temp\s70.
+56E cinit CODE >519:C:\Users\RAZAGO~1\AppData\Local\Temp\s70.
+570 cinit CODE >520:C:\Users\RAZAGO~1\AppData\Local\Temp\s70.
+572 cinit CODE >526:C:\Users\RAZAGO~1\AppData\Local\Temp\s70.
+572 cinit CODE >528:C:\Users\RAZAGO~1\AppData\Local\Temp\s70.
+574 cinit CODE >529:C:\Users\RAZAGO~1\AppData\Local\Temp\s70.
+576 cinit CODE >530:C:\Users\RAZAGO~1\AppData\Local\Temp\s70.
+578 cinit CODE >531:C:\Users\RAZAGO~1\AppData\Local\Temp\s70.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -198,14 +290,14 @@ $dist/default/production\ComunicacaoBraco.X.production.o
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-_x 2C 0 COMRAM 1 nvCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
+_x 39 0 COMRAM 1 nvCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
+___awdiv@counter 10 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
 __Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\ComunicacaoBraco.X.production.o
 __Hspace_0 30000E 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
-__Hspace_1 2F 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
+__Hspace_1 3C 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
 __Hspace_2 0 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
-__size_of_UART_Data_Ready 0 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\ComunicacaoBraco.X.production.o
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\RAZAGO~1\AppData\Local\Temp\s70.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\ComunicacaoBraco.X.production.o
 __Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\ComunicacaoBraco.X.production.o
 _BRGH 7D62 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
@@ -214,51 +306,64 @@ _RCIF 7CF5 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
 _SPEN 7D5F 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
 _SYNC 7D64 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
 _TXEN 7D65 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.o
-_main 1E6 0 CODE 0 text0 dist/default/production\ComunicacaoBraco.X.production.o
-btemp 2E 0 COMRAM 1 temp dist/default/production\ComunicacaoBraco.X.production.o
-start E 0 CODE 0 init C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.o
+___sp 0 0 STACK 2 stack C:\Users\RAZAGO~1\AppData\Local\Temp\s70.o
+_main 396 0 CODE 0 text0 dist/default/production\ComunicacaoBraco.X.production.o
+btemp 3B 0 COMRAM 1 temp dist/default/production\ComunicacaoBraco.X.production.o
+start E 0 CODE 0 init C:\Users\RAZAGO~1\AppData\Local\Temp\s70.o
 __size_of___aldiv 0 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
+__size_of___awdiv 0 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
+__size_of___awmod 0 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
-i2_UART_Read 2AE 0 CODE 0 text7 dist/default/production\ComunicacaoBraco.X.production.o
+__HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
+?___wmul 1 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
+__size_of_faz_a_coisa 0 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
 __Hpowerup E 0 CODE 0 powerup dist/default/production\ComunicacaoBraco.X.production.o
-ttemp5 2F 0 COMRAM 1 temp dist/default/production\ComunicacaoBraco.X.production.o
-ttemp6 32 0 COMRAM 1 temp dist/default/production\ComunicacaoBraco.X.production.o
-ttemp7 36 0 COMRAM 1 temp dist/default/production\ComunicacaoBraco.X.production.o
+___awmod@sign 11 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
+ttemp5 3C 0 COMRAM 1 temp dist/default/production\ComunicacaoBraco.X.production.o
+ttemp6 3F 0 COMRAM 1 temp dist/default/production\ComunicacaoBraco.X.production.o
+ttemp7 43 0 COMRAM 1 temp dist/default/production\ComunicacaoBraco.X.production.o
 __LnvCOMRAM 0 0 ABS 0 nvCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
 __HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
-__accesstop 80 0 ABS 0 - C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.o
-intlevel0 0 0 CODE 0 text C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.o
-intlevel1 0 0 CODE 0 text C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.o
-intlevel2 0 0 CODE 0 text C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.o
-intlevel3 0 0 CODE 0 text C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.o
-___aldiv@divisor 8 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
-UART_Read@retorno 4 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
+__accesstop 80 0 ABS 0 - C:\Users\RAZAGO~1\AppData\Local\Temp\s70.o
+intlevel0 0 0 CODE 0 text C:\Users\RAZAGO~1\AppData\Local\Temp\s70.o
+intlevel1 0 0 CODE 0 text C:\Users\RAZAGO~1\AppData\Local\Temp\s70.o
+intlevel2 0 0 CODE 0 text C:\Users\RAZAGO~1\AppData\Local\Temp\s70.o
+intlevel3 0 0 CODE 0 text C:\Users\RAZAGO~1\AppData\Local\Temp\s70.o
+__LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
+___aldiv@divisor 10 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
+UART_Read@retorno 1 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\ComunicacaoBraco.X.production.o
-wtemp8 2F 0 COMRAM 1 temp dist/default/production\ComunicacaoBraco.X.production.o
+wtemp8 3C 0 COMRAM 1 temp dist/default/production\ComunicacaoBraco.X.production.o
 __Hifardata 0 0 CODE 0 ifardata dist/default/production\ComunicacaoBraco.X.production.o
-___aldiv@sign D 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
+___aldiv@sign 15 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
+___awdiv@sign 11 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
 __Hclrtext 0 0 ABS 0 clrtext dist/default/production\ComunicacaoBraco.X.production.o
-__pidataCOMRAM 2E6 0 CODE 0 idataCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
+__pidataCOMRAM 5C2 0 CODE 0 idataCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
+___wmul@multiplicand 3 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
 _ADCON1 FC1 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.o
-UART_Init@baudrate 12 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
+___awdiv@dividend C 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\RAZAGO~1\AppData\Local\Temp\s70.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\RAZAGO~1\AppData\Local\Temp\s70.o
+UART_Init@baudrate 1A 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
 __LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\ComunicacaoBraco.X.production.o
+__end_of___wmul 5A2 0 CODE 0 text7 dist/default/production\ComunicacaoBraco.X.production.o
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\ComunicacaoBraco.X.production.o
 __Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\ComunicacaoBraco.X.production.o
 __Hintcodelo E 0 CODE 0 intcodelo dist/default/production\ComunicacaoBraco.X.production.o
-__end_of___aldiv 1E6 0 CODE 0 text3 dist/default/production\ComunicacaoBraco.X.production.o
-_valorRes 2A 0 COMRAM 1 dataCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
+___awdiv@divisor E 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
+__end_of___aldiv 2D8 0 CODE 0 text4 dist/default/production\ComunicacaoBraco.X.production.o
+__end_of___awdiv 4D6 0 CODE 0 text2 dist/default/production\ComunicacaoBraco.X.production.o
+__end_of___awmod 546 0 CODE 0 text1 dist/default/production\ComunicacaoBraco.X.production.o
+_valorRes 31 0 COMRAM 1 bssCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
 __LidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
 __HnvCOMRAM 0 0 ABS 0 nvCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
 __Lintcodelo E 0 CODE 0 intcodelo dist/default/production\ComunicacaoBraco.X.production.o
-start_initialization 266 0 CODE 0 cinit dist/default/production\ComunicacaoBraco.X.production.o
+start_initialization 546 0 CODE 0 cinit dist/default/production\ComunicacaoBraco.X.production.o
 __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\ComunicacaoBraco.X.production.o
-_numeros 20 0 COMRAM 1 dataCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
+_numeros 27 0 COMRAM 1 dataCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
 _TRISCbits F94 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
-___aldiv@quotient E 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
+___aldiv@quotient 16 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
 ___rparam_used 1 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
 _TRISC6 7CA6 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
 _TRISC7 7CA7 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
@@ -281,11 +386,13 @@ __Htext1 0 0 ABS 0 text1 dist/default/production\ComunicacaoBraco.X.production.o
 __Htext2 0 0 ABS 0 text2 dist/default/production\ComunicacaoBraco.X.production.o
 __Htext3 0 0 ABS 0 text3 dist/default/production\ComunicacaoBraco.X.production.o
 __Htext4 0 0 ABS 0 text4 dist/default/production\ComunicacaoBraco.X.production.o
-__Htext5 0 0 ABS 0 text5 dist/default/production\ComunicacaoBraco.X.production.o
+__Htext6 0 0 ABS 0 text6 dist/default/production\ComunicacaoBraco.X.production.o
 __Htext7 0 0 ABS 0 text7 dist/default/production\ComunicacaoBraco.X.production.o
+__Htext8 0 0 ABS 0 text8 dist/default/production\ComunicacaoBraco.X.production.o
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\ComunicacaoBraco.X.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production\ComunicacaoBraco.X.production.o
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.o
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\RAZAGO~1\AppData\Local\Temp\s70.o
+_faz_a_coisa 11A 0 CODE 0 text6 dist/default/production\ComunicacaoBraco.X.production.o
 _tratamento 8 0 CODE 0 intcode dist/default/production\ComunicacaoBraco.X.production.o
 __Hcomram 0 0 ABS 0 comram dist/default/production\ComunicacaoBraco.X.production.o
 __Hconfig 30000E 0 CONFIG 0 config dist/default/production\ComunicacaoBraco.X.production.o
@@ -308,8 +415,9 @@ __Ltext1 0 0 ABS 0 text1 dist/default/production\ComunicacaoBraco.X.production.o
 __Ltext2 0 0 ABS 0 text2 dist/default/production\ComunicacaoBraco.X.production.o
 __Ltext3 0 0 ABS 0 text3 dist/default/production\ComunicacaoBraco.X.production.o
 __Ltext4 0 0 ABS 0 text4 dist/default/production\ComunicacaoBraco.X.production.o
-__Ltext5 0 0 ABS 0 text5 dist/default/production\ComunicacaoBraco.X.production.o
+__Ltext6 0 0 ABS 0 text6 dist/default/production\ComunicacaoBraco.X.production.o
 __Ltext7 0 0 ABS 0 text7 dist/default/production\ComunicacaoBraco.X.production.o
+__Ltext8 0 0 ABS 0 text8 dist/default/production\ComunicacaoBraco.X.production.o
 __Hfarbss 0 0 FARRAM 0 farbss dist/default/production\ComunicacaoBraco.X.production.o
 __Lintcode_body 0 0 ABS 0 intcode_body dist/default/production\ComunicacaoBraco.X.production.o
 _PORTBbits F81 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
@@ -320,100 +428,108 @@ __Hdata 0 0 ABS 0 data dist/default/production\ComunicacaoBraco.X.production.o
 __Hinit 12 0 CODE 0 init dist/default/production\ComunicacaoBraco.X.production.o
 __Hrbit 0 0 COMRAM 1 rbit dist/default/production\ComunicacaoBraco.X.production.o
 __Hrbss 0 0 COMRAM 1 rbss dist/default/production\ComunicacaoBraco.X.production.o
-__Htemp 2F 0 COMRAM 1 temp dist/default/production\ComunicacaoBraco.X.production.o
+__Htemp 3C 0 COMRAM 1 temp dist/default/production\ComunicacaoBraco.X.production.o
 __Htext 0 0 ABS 0 text dist/default/production\ComunicacaoBraco.X.production.o
 __Labs1 0 0 ABS 0 abs1 dist/default/production\ComunicacaoBraco.X.production.o
 __Ldata 0 0 ABS 0 data dist/default/production\ComunicacaoBraco.X.production.o
 __Linit E 0 CODE 0 init dist/default/production\ComunicacaoBraco.X.production.o
 __Lrbit 0 0 COMRAM 1 rbit dist/default/production\ComunicacaoBraco.X.production.o
 __Lrbss 0 0 COMRAM 1 rbss dist/default/production\ComunicacaoBraco.X.production.o
-__Ltemp 2E 0 COMRAM 1 temp dist/default/production\ComunicacaoBraco.X.production.o
+__Ltemp 3B 0 COMRAM 1 temp dist/default/production\ComunicacaoBraco.X.production.o
 __Ltext 0 0 ABS 0 text dist/default/production\ComunicacaoBraco.X.production.o
-int$flags 2E 0 COMRAM 1 temp dist/default/production\ComunicacaoBraco.X.production.o
+___wmul 57C 0 CODE 0 text7 dist/default/production\ComunicacaoBraco.X.production.o
+int$flags 3B 0 COMRAM 1 temp dist/default/production\ComunicacaoBraco.X.production.o
 __HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
-__end_ofi2_UART_Read 2CC 0 CODE 0 text7 dist/default/production\ComunicacaoBraco.X.production.o
 __Hintret 0 0 ABS 0 intret dist/default/production\ComunicacaoBraco.X.production.o
 __Hirdata 0 0 CODE 0 irdata dist/default/production\ComunicacaoBraco.X.production.o
 __S0 30000E 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
-__S1 2F 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
+__S1 3C 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
 __S2 0 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
-__pnvCOMRAM 2C 0 COMRAM 1 nvCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
+__pnvCOMRAM 39 0 COMRAM 1 nvCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
 __HidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
 __Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\ComunicacaoBraco.X.production.o
 __Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\ComunicacaoBraco.X.production.o
-int_func 2CC 0 CODE 0 intcode_body dist/default/production\ComunicacaoBraco.X.production.o
+int_func 5A2 0 CODE 0 intcode_body dist/default/production\ComunicacaoBraco.X.production.o
 __Lintentry 0 0 ABS 0 intentry dist/default/production\ComunicacaoBraco.X.production.o
-__end_of_tratamento 2E6 0 CODE 0 intcode_body dist/default/production\ComunicacaoBraco.X.production.o
+__end_of_tratamento 5C2 0 CODE 0 intcode_body dist/default/production\ComunicacaoBraco.X.production.o
 __Hramtop 600 0 RAM 0 ramtop dist/default/production\ComunicacaoBraco.X.production.o
 __Hrparam 0 0 COMRAM 1 rparam dist/default/production\ComunicacaoBraco.X.production.o
 __activetblptr 0 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
 __Hstruct 0 0 COMRAM 1 struct dist/default/production\ComunicacaoBraco.X.production.o
-___aldiv 11A 0 CODE 0 text3 dist/default/production\ComunicacaoBraco.X.production.o
-__pintcode_body 2CC 0 CODE 0 intcode_body dist/default/production\ComunicacaoBraco.X.production.o
+__size_of___wmul 0 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
+___awmod@counter 10 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
+_PIE1bits F9D 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
+___aldiv 20C 0 CODE 0 text4 dist/default/production\ComunicacaoBraco.X.production.o
+___awdiv 452 0 CODE 0 text2 dist/default/production\ComunicacaoBraco.X.production.o
+___awmod 4D6 0 CODE 0 text1 dist/default/production\ComunicacaoBraco.X.production.o
+__pintcode_body 5A2 0 CODE 0 intcode_body dist/default/production\ComunicacaoBraco.X.production.o
 __Lbigbss 0 0 BIGRAM 1 bigbss dist/default/production\ComunicacaoBraco.X.production.o
 __Lbigram 0 0 ABS 0 bigram dist/default/production\ComunicacaoBraco.X.production.o
 __Lcomram 0 0 ABS 0 comram dist/default/production\ComunicacaoBraco.X.production.o
 __Lconfig 300000 0 CONFIG 0 config dist/default/production\ComunicacaoBraco.X.production.o
+___wmul@multiplier 1 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\ComunicacaoBraco.X.production.o
+faz_a_coisa@valor 8 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\ComunicacaoBraco.X.production.o
-stackhi 5FF 0 ABS 0 - C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.o
-stacklo 80 0 ABS 0 - C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.o
+stackhi 5FF 0 ABS 0 - C:\Users\RAZAGO~1\AppData\Local\Temp\s70.o
+stacklo 80 0 ABS 0 - C:\Users\RAZAGO~1\AppData\Local\Temp\s70.o
 __Lintcode 8 0 CODE 0 intcode dist/default/production\ComunicacaoBraco.X.production.o
 __Lintret 0 0 ABS 0 intret dist/default/production\ComunicacaoBraco.X.production.o
 __Lirdata 0 0 CODE 0 irdata dist/default/production\ComunicacaoBraco.X.production.o
 __Lspace_0 0 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
 __Lspace_1 0 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
 __Lspace_2 0 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
-__end_of_UART_Data_Ready 2FA 0 CODE 0 text5 dist/default/production\ComunicacaoBraco.X.production.o
+__pbssCOMRAM 31 0 COMRAM 1 bssCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
 __LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
-end_of_initialization 286 0 CODE 0 cinit dist/default/production\ComunicacaoBraco.X.production.o
+end_of_initialization 572 0 CODE 0 cinit dist/default/production\ComunicacaoBraco.X.production.o
 __Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\ComunicacaoBraco.X.production.o
 __Hintentry 0 0 ABS 0 intentry dist/default/production\ComunicacaoBraco.X.production.o
-?___aldiv 4 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
-__size_ofi2_UART_Read 0 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
+___awdiv@quotient 12 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
+?___aldiv C 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
+?___awdiv C 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
+?___awmod C 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
 __Hreset_vec 4 0 CODE 0 reset_vec dist/default/production\ComunicacaoBraco.X.production.o
-_configuracao 234 0 CODE 0 text1 dist/default/production\ComunicacaoBraco.X.production.o
+___awmod@dividend C 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
 __Lramtop 600 0 RAM 0 ramtop dist/default/production\ComunicacaoBraco.X.production.o
-__end_of_UART_Init 11A 0 CODE 0 text2 dist/default/production\ComunicacaoBraco.X.production.o
-__end_of_UART_Read 2AE 0 CODE 0 text4 dist/default/production\ComunicacaoBraco.X.production.o
+__end_of_UART_Init 11A 0 CODE 0 text3 dist/default/production\ComunicacaoBraco.X.production.o
+__end_of_UART_Read 396 0 CODE 0 text8 dist/default/production\ComunicacaoBraco.X.production.o
 __Lrparam 0 0 COMRAM 1 rparam dist/default/production\ComunicacaoBraco.X.production.o
-__pcinit 266 0 CODE 0 cinit dist/default/production\ComunicacaoBraco.X.production.o
+__pcinit 546 0 CODE 0 cinit dist/default/production\ComunicacaoBraco.X.production.o
 __size_of_UART_Init 0 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
 __size_of_UART_Read 0 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
-__ptext0 1E6 0 CODE 0 text0 dist/default/production\ComunicacaoBraco.X.production.o
-__ptext1 234 0 CODE 0 text1 dist/default/production\ComunicacaoBraco.X.production.o
-__ptext2 12 0 CODE 0 text2 dist/default/production\ComunicacaoBraco.X.production.o
-__ptext3 11A 0 CODE 0 text3 dist/default/production\ComunicacaoBraco.X.production.o
-__ptext4 290 0 CODE 0 text4 dist/default/production\ComunicacaoBraco.X.production.o
-__ptext5 2F2 0 CODE 0 text5 dist/default/production\ComunicacaoBraco.X.production.o
-__ptext7 2AE 0 CODE 0 text7 dist/default/production\ComunicacaoBraco.X.production.o
+__ptext0 396 0 CODE 0 text0 dist/default/production\ComunicacaoBraco.X.production.o
+__ptext1 4D6 0 CODE 0 text1 dist/default/production\ComunicacaoBraco.X.production.o
+__ptext2 452 0 CODE 0 text2 dist/default/production\ComunicacaoBraco.X.production.o
+__ptext3 12 0 CODE 0 text3 dist/default/production\ComunicacaoBraco.X.production.o
+__ptext4 20C 0 CODE 0 text4 dist/default/production\ComunicacaoBraco.X.production.o
+__ptext6 11A 0 CODE 0 text6 dist/default/production\ComunicacaoBraco.X.production.o
+__ptext7 57C 0 CODE 0 text7 dist/default/production\ComunicacaoBraco.X.production.o
+__ptext8 2D8 0 CODE 0 text8 dist/default/production\ComunicacaoBraco.X.production.o
 __Lstruct 0 0 COMRAM 1 struct dist/default/production\ComunicacaoBraco.X.production.o
-__ramtop 600 0 RAM 0 ramtop C:\Users\RAZAGO~1\AppData\Local\Temp\scb8.o
-___aldiv@dividend 4 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
+__ramtop 600 0 RAM 0 ramtop C:\Users\RAZAGO~1\AppData\Local\Temp\s70.o
+___aldiv@dividend C 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
 __Lpowerup E 0 CODE 0 powerup dist/default/production\ComunicacaoBraco.X.production.o
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\ComunicacaoBraco.X.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\ComunicacaoBraco.X.production.o
-_UART_Init 12 0 CODE 0 text2 dist/default/production\ComunicacaoBraco.X.production.o
-_UART_Read 290 0 CODE 0 text4 dist/default/production\ComunicacaoBraco.X.production.o
-_UART_Data_Ready 2F2 0 CODE 0 text5 dist/default/production\ComunicacaoBraco.X.production.o
+_UART_Init 12 0 CODE 0 text3 dist/default/production\ComunicacaoBraco.X.production.o
+_UART_Read 2D8 0 CODE 0 text8 dist/default/production\ComunicacaoBraco.X.production.o
+__end_of_faz_a_coisa 20C 0 CODE 0 text6 dist/default/production\ComunicacaoBraco.X.production.o
 ___param_bank 0 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\ComunicacaoBraco.X.production.o
-__end_of__initialization 286 0 CODE 0 cinit dist/default/production\ComunicacaoBraco.X.production.o
+__end_of__initialization 572 0 CODE 0 cinit dist/default/production\ComunicacaoBraco.X.production.o
+___awmod@divisor E 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
 __Libigdata 0 0 CODE 0 ibigdata dist/default/production\ComunicacaoBraco.X.production.o
-__size_of_configuracao 0 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
 __Lclrtext 0 0 ABS 0 clrtext dist/default/production\ComunicacaoBraco.X.production.o
 __size_of_tratamento 0 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
 __pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
-___aldiv@counter C 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
-__end_of_main 234 0 CODE 0 text0 dist/default/production\ComunicacaoBraco.X.production.o
+___aldiv@counter 14 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
+__end_of_main 452 0 CODE 0 text0 dist/default/production\ComunicacaoBraco.X.production.o
 __pintcode 8 0 CODE 0 intcode dist/default/production\ComunicacaoBraco.X.production.o
-__end_of_configuracao 266 0 CODE 0 text1 dist/default/production\ComunicacaoBraco.X.production.o
 _PORTD F83 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
 _RCREG FAE 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
 _SPBRG FAF 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
 _TRISB F93 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
 _TRISD F95 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
-i2UART_Read@retorno 1 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
 __HRAM 0 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
 __Hbss 0 0 RAM 1 bss dist/default/production\ComunicacaoBraco.X.production.o
 __Hram 0 0 ABS 0 ram dist/default/production\ComunicacaoBraco.X.production.o
@@ -422,9 +538,12 @@ __LRAM 1 0 ABS 0 - dist/default/production\ComunicacaoBraco.X.production.o
 __Lbss 0 0 RAM 1 bss dist/default/production\ComunicacaoBraco.X.production.o
 __Lram 0 0 ABS 0 ram dist/default/production\ComunicacaoBraco.X.production.o
 __Lsfr 0 0 ABS 0 sfr dist/default/production\ComunicacaoBraco.X.production.o
-__initialization 266 0 CODE 0 cinit dist/default/production\ComunicacaoBraco.X.production.o
-__pdataCOMRAM 20 0 COMRAM 1 dataCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
+_sinal 35 0 COMRAM 1 bssCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
+_contador 37 0 COMRAM 1 bssCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
+__initialization 546 0 CODE 0 cinit dist/default/production\ComunicacaoBraco.X.production.o
+__pdataCOMRAM 27 0 COMRAM 1 dataCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
 __Hfardata 0 0 FARRAM 0 fardata dist/default/production\ComunicacaoBraco.X.production.o
+___wmul@product 5 0 COMRAM 1 cstackCOMRAM dist/default/production\ComunicacaoBraco.X.production.o
 __Hsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\ComunicacaoBraco.X.production.o
 __Lifardata 0 0 CODE 0 ifardata dist/default/production\ComunicacaoBraco.X.production.o
 __Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\ComunicacaoBraco.X.production.o
@@ -454,7 +573,7 @@ __Hintcode E 0 CODE 0 intcode dist/default/production\ComunicacaoBraco.X.product
 # All other numeric quantities are in decimal.
 %SEGMENTS
 idloc 0 200000 200000 8 1
-cstackCOMRAM 1 1 1 2E 1
+cstackCOMRAM 1 1 1 3B 1
 reset_vec 0 0 0 4 1
-intcode 0 8 8 2F2 1
+intcode 0 8 8 5C4 1
 config 0 300000 300000 E 1
