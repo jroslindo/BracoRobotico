@@ -17,15 +17,16 @@
 #pragma WRT = OFF 
 #pragma CP = OFF 
 #define _XTAL_FREQ 16000000
-#define Q1 PORTBbits.RB4
-#define Q2 PORTBbits.RB5
-#define Q3 PORTBbits.RB6
-#define Q4 PORTBbits.RB7
+#define PASSO PORTDbits.RD0
+#define MS1 PORTDbits.RD1
+#define MS2 PORTDbits.RD2
+#define MS3 PORTDbits.RD3
+#define DIRECAO PORTDbits.RD5
 
 int valorRes[2];
 unsigned int x;
 int contador=0;
-int sinal=0;
+int vai = 0;
 
 char UART_Init(const long int baudrate)
 {
@@ -112,25 +113,28 @@ void faz_a_coisa (){
     
     if(contador == 0){
         if (valor == 10)
-            sinal=1;
+            DIRECAO = 0;
         else
-            sinal=0;
+            DIRECAO=1;
         contador ++;
     }else if(contador == 1){
         valorRes[0] = valor*10;
         contador++;       
     }else if(contador == 2){
         valorRes[0] += valor;
-        contador++;       
-    }else if(contador == 3){
-        if (sinal == 1){
+        contador=0;   
+        vai=1;
+    }
+    
+    /*else if(contador == 3){
+        if (DIRECAO == 1){
             valorRes[0] *= -1 ;
-            sinal = 0;
+            DIRECAO = 0;
         }
         if (valor == 10)
-            sinal=1;
+            DIRECAO=1;
         else
-            sinal=0;        
+            DIRECAO=0;        
         contador++; //2 em 1, finaliza o dado 1 e ja pega o sinal do proximo      
     }else if(contador == 4){
         valorRes[1] = valor*10;
@@ -138,17 +142,10 @@ void faz_a_coisa (){
     }else if(contador == 5){
         valorRes[1] += valor;
         contador=0;       
-    }
+    }*/
 }
 
 void __interrupt() tratamento (void){
-   
-    /*if (INTCONbits.INT0IF == 1){         //Tratamento interrupção comunicação serial
-       PORTCbits.RC0 = 1;
-       valorRes = UART_Read();   
-       INTCONbits.INT0IF = 0;
-   }*/
-    
     if(RCIF){   
         RCIF=0;
         faz_a_coisa();
@@ -157,18 +154,12 @@ void __interrupt() tratamento (void){
    
 }
 
-char numeros[]      = { 0b10111111, // 0 Valores para o display
-                        0b10000110, // 1 
-                        0b11011011, // 2 
-                        0b11001111, // 3 
-                        0b11100110, // 4
-                        0b11101101, // 5 
-                        0b11111101, // 6 
-                        0b10000111, // 7
-                        0b11111111, // 8
-                        0b11100111};// 9
-
-
+void geraPasso(void){
+    PASSO = 1;
+    __delay_us(250);
+    PASSO = 0;
+    __delay_us(250);
+}
 
 void main(void) {
     //CONFIGURAÇÕES GERAIS DO PIC, portas:
@@ -179,10 +170,6 @@ void main(void) {
     PORTCbits.RC0 = 0;
     TRISD = 0x00;
     ADCON1 = 0x0F;
-    Q1 = 1;
-    Q2 = 1;
-    Q3 = 1;
-    Q4 = 1;    
     UART_Init(9600);
     //CONFIGURANDO INTERRUPÇÃO
     INTCONbits.PEIE = 1;        //Habilita interrupção de periféricos
@@ -191,6 +178,45 @@ void main(void) {
     TRISB = 0x00;
     TRISD = 0x00;
     ADCON1 = 0x0F;
+    
+    //CONFIGURAÇAO VALORRES[2] TEM OS DADOS DA SERIAL, APARTIR DAQUI, FAZER O CONTROLE DO BRACO
+    
+    MS1 = 0;
+    MS2 = 0;
+    MS3 = 0;
+    //Parametro de direção
+    /*
+     0-> Anti-Horário
+     1-> Horário
+    */
+    DIRECAO = 0;
+    PASSO = 0;
+    //Variaveis de Programa
+    int steps=valorRes[0];
+    /*    for(int i = 0;i<steps;i++){
+            geraPasso();
+        }*/
+
+        
+    
+   
+    SLEEP();
+    
+    while(1){
+        if(vai == 1){
+            steps= 40;
+            for(int i = 0;i<steps;i++){
+                geraPasso();
+            }
+            vai =0;
+        }
+    
+    };
+    
+    
+    
+    
+    /*
     Q1 = 1;
     Q2 = 1;
     Q3 = 1;
@@ -209,5 +235,5 @@ void main(void) {
         __delay_ms(5);
         Q3 = 1;
     }
-    return;
+    return;*/
 }

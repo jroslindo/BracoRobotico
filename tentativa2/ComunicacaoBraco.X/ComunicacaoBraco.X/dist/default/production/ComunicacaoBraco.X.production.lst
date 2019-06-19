@@ -1,1563 +1,1239 @@
 
 
 Microchip MPLAB XC8 Assembler V2.05 build -831301201 
-                                                                                               Mon Jun 10 11:01:29 2019
+                                                                                               Wed Jun 12 15:37:00 2019
 
 Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1 
      1                           	processor	18F4520
      2                           	fnconf	rparam,??,?,0
      3                           	opt	pw 120
      4                           	opt	flic
-     5                           	psect	idataCOMRAM,global,class=CODE,delta=1,noexec
-     6                           	psect	nvCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
-     7                           	psect	cinit,global,reloc=2,class=CODE,delta=1
-     8                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
-     9                           	psect	dataCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
-    10                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
-    11                           	psect	text0,global,reloc=2,class=CODE,delta=1
-    12                           	psect	text1,global,reloc=2,class=CODE,delta=1,group=1
-    13                           	psect	text2,global,reloc=2,class=CODE,delta=1,group=1
-    14                           	psect	text3,global,reloc=2,class=CODE,delta=1
-    15                           	psect	text4,global,reloc=2,class=CODE,delta=1,group=1
-    16                           	psect	intcode,global,reloc=2,class=CODE,delta=1
-    17                           	psect	intcode_body,global,reloc=2,class=CODE,delta=1
-    18                           	psect	text6,global,reloc=2,class=CODE,delta=1
-    19                           	psect	text7,global,reloc=2,class=CODE,delta=1,group=1
-    20                           	psect	text8,global,reloc=2,class=CODE,delta=1
-    21                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
-    22                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
-    23                           	psect	temp,global,ovrld,common,class=COMRAM,space=1,delta=1
-    24  0000                     
-    25                           ; Version 2.05
-    26                           ; Generated 20/12/2018 GMT
+     5                           	psect	nvCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+     6                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     7                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+     8                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+     9                           	psect	text0,global,reloc=2,class=CODE,delta=1
+    10                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    11                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    12                           	psect	text3,global,reloc=2,class=CODE,delta=1,group=1
+    13                           	psect	intcode,global,reloc=2,class=CODE,delta=1
+    14                           	psect	intcode_body,global,reloc=2,class=CODE,delta=1
+    15                           	psect	text5,global,reloc=2,class=CODE,delta=1
+    16                           	psect	text6,global,reloc=2,class=CODE,delta=1,group=1
+    17                           	psect	text7,global,reloc=2,class=CODE,delta=1
+    18                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    19                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    20                           	psect	temp,global,ovrld,common,class=COMRAM,space=1,delta=1
+    21  0000                     
+    22                           ; Version 2.05
+    23                           ; Generated 20/12/2018 GMT
+    24                           ; 
+    25                           ; Copyright © 2018, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    26                           ; All rights reserved.
     27                           ; 
-    28                           ; Copyright © 2018, Microchip Technology Inc. and its subsidiaries ("Microchip")
-    29                           ; All rights reserved.
-    30                           ; 
-    31                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+    28                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
       +                          ip").
+    29                           ; 
+    30                           ; Redistribution and use in source and binary forms, with or without modification, are
+    31                           ; permitted provided that the following conditions are met:
     32                           ; 
-    33                           ; Redistribution and use in source and binary forms, with or without modification, are
-    34                           ; permitted provided that the following conditions are met:
-    35                           ; 
-    36                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+    33                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
       +                          t of
-    37                           ;        conditions and the following disclaimer.
-    38                           ; 
-    39                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+    34                           ;        conditions and the following disclaimer.
+    35                           ; 
+    36                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
       +                          list
-    40                           ;        of conditions and the following disclaimer in the documentation and/or other
-    41                           ;        materials provided with the distribution.
-    42                           ; 
-    43                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+    37                           ;        of conditions and the following disclaimer in the documentation and/or other
+    38                           ;        materials provided with the distribution.
+    39                           ; 
+    40                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
       +                          is
-    44                           ;        software without specific prior written permission.
-    45                           ; 
-    46                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-    47                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+    41                           ;        software without specific prior written permission.
+    42                           ; 
+    43                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    44                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
       +                          OR
-    48                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+    45                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
       +                          T,
-    49                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
-    50                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
-    51                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+    46                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    47                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    48                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
       +                          RICT
-    52                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+    49                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
       +                          SE OF
-    53                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    50                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    51                           ; 
+    52                           ; 
+    53                           ; Code-generator required, PIC18F4520 Definitions
     54                           ; 
-    55                           ; 
-    56                           ; Code-generator required, PIC18F4520 Definitions
-    57                           ; 
-    58                           ; SFR Addresses
-    59  0000                     
-    60                           	psect	idataCOMRAM
-    61  0005C2                     __pidataCOMRAM:
-    62                           	opt callstack 0
-    63                           
-    64                           ;initializer for _numeros
-    65  0005C2  BF                 	db	191
-    66  0005C3  86                 	db	134
-    67  0005C4  DB                 	db	219
-    68  0005C5  CF                 	db	207
-    69  0005C6  E6                 	db	230
-    70  0005C7  ED                 	db	237
-    71  0005C8  FD                 	db	253
-    72  0005C9  87                 	db	135
-    73  0005CA  FF                 	db	255
-    74  0005CB  E7                 	db	231
-    75                           
-    76                           	psect	nvCOMRAM
-    77  000039                     __pnvCOMRAM:
-    78                           	opt callstack 0
-    79  000039                     _x:
-    80                           	opt callstack 0
-    81  000039                     	ds	2
-    82  0000                     _PORTD	set	3971
-    83  0000                     _PIE1bits	set	3997
-    84  0000                     _INTCONbits	set	4082
-    85  0000                     _PORTBbits	set	3969
-    86  0000                     _ADCON1	set	4033
-    87  0000                     _TRISD	set	3989
-    88  0000                     _PORTCbits	set	3970
-    89  0000                     _TRISCbits	set	3988
-    90  0000                     _TRISB	set	3987
-    91  0000                     _RCREG	set	4014
-    92  0000                     _SPBRG	set	4015
-    93  0000                     _RCIF	set	31989
-    94  0000                     _TXEN	set	32101
-    95  0000                     _CREN	set	32092
-    96  0000                     _TRISC6	set	31910
-    97  0000                     _TRISC7	set	31911
-    98  0000                     _SPEN	set	32095
-    99  0000                     _SYNC	set	32100
-   100  0000                     _BRGH	set	32098
-   101                           
-   102                           ; #config settings
-   103                           
-   104                           	psect	cinit
-   105  000546                     __pcinit:
-   106                           	opt callstack 0
-   107  000546                     start_initialization:
-   108                           	opt callstack 0
-   109  000546                     __initialization:
+    55                           ; SFR Addresses
+    56  0000                     
+    57                           	psect	nvCOMRAM
+    58  000033                     __pnvCOMRAM:
+    59                           	opt callstack 0
+    60  000033                     _x:
+    61                           	opt callstack 0
+    62  000033                     	ds	2
+    63  0000                     _PIE1bits	set	3997
+    64  0000                     _INTCONbits	set	4082
+    65  0000                     _ADCON1	set	4033
+    66  0000                     _TRISD	set	3989
+    67  0000                     _PORTCbits	set	3970
+    68  0000                     _TRISCbits	set	3988
+    69  0000                     _TRISB	set	3987
+    70  0000                     _PORTDbits	set	3971
+    71  0000                     _RCREG	set	4014
+    72  0000                     _SPBRG	set	4015
+    73  0000                     _RCIF	set	31989
+    74  0000                     _TXEN	set	32101
+    75  0000                     _CREN	set	32092
+    76  0000                     _TRISC6	set	31910
+    77  0000                     _TRISC7	set	31911
+    78  0000                     _SPEN	set	32095
+    79  0000                     _SYNC	set	32100
+    80  0000                     _BRGH	set	32098
+    81                           
+    82                           ; #config settings
+    83                           
+    84                           	psect	cinit
+    85  0003E4                     __pcinit:
+    86                           	opt callstack 0
+    87  0003E4                     start_initialization:
+    88                           	opt callstack 0
+    89  0003E4                     __initialization:
+    90                           	opt callstack 0
+    91                           
+    92                           ; Clear objects allocated to COMRAM (8 bytes)
+    93  0003E4  EE00  F02B         	lfsr	0,__pbssCOMRAM
+    94  0003E8  0E08               	movlw	8
+    95  0003EA                     clear_0:
+    96  0003EA  6AEE               	clrf	postinc0,c
+    97  0003EC  06E8               	decf	wreg,f,c
+    98  0003EE  E1FD               	bnz	clear_0
+    99  0003F0                     end_of_initialization:
+   100                           	opt callstack 0
+   101  0003F0                     __end_of__initialization:
+   102                           	opt callstack 0
+   103  0003F0  9035               	bcf	int$flags,0,c	;clear compiler interrupt flag (level 1)
+   104  0003F2  9235               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
+   105  0003F4  0100               	movlb	0
+   106  0003F6  EF52  F001         	goto	_main	;jump to C main() function
+   107                           
+   108                           	psect	bssCOMRAM
+   109  00002B                     __pbssCOMRAM:
    110                           	opt callstack 0
-   111                           
-   112                           ; Initialize objects allocated to COMRAM (10 bytes)
-   113                           ; load TBLPTR registers with __pidataCOMRAM
-   114  000546  0EC2               	movlw	low __pidataCOMRAM
-   115  000548  6EF6               	movwf	tblptrl,c
-   116  00054A  0E05               	movlw	high __pidataCOMRAM
-   117  00054C  6EF7               	movwf	tblptrh,c
-   118  00054E  0E00               	movlw	low (__pidataCOMRAM shr (0+16))
-   119  000550  6EF8               	movwf	tblptru,c
-   120  000552  EE00  F027         	lfsr	0,__pdataCOMRAM
-   121  000556  EE10 F00A          	lfsr	1,10
-   122  00055A                     copy_data0:
-   123  00055A  0009               	tblrd		*+
-   124  00055C  CFF5 FFEE          	movff	tablat,postinc0
-   125  000560  50E5               	movf	postdec1,w,c
-   126  000562  50E1               	movf	fsr1l,w,c
-   127  000564  E1FA               	bnz	copy_data0
-   128                           
-   129                           ; Clear objects allocated to COMRAM (8 bytes)
-   130  000566  EE00  F031         	lfsr	0,__pbssCOMRAM
-   131  00056A  0E08               	movlw	8
-   132  00056C                     clear_0:
-   133  00056C  6AEE               	clrf	postinc0,c
-   134  00056E  06E8               	decf	wreg,f,c
-   135  000570  E1FD               	bnz	clear_0
-   136  000572                     end_of_initialization:
-   137                           	opt callstack 0
-   138  000572                     __end_of__initialization:
+   111  00002B                     _valorRes:
+   112                           	opt callstack 0
+   113  00002B                     	ds	4
+   114  00002F                     _vai:
+   115                           	opt callstack 0
+   116  00002F                     	ds	2
+   117  000031                     _contador:
+   118                           	opt callstack 0
+   119  000031                     	ds	2
+   120                           
+   121                           	psect	cstackCOMRAM
+   122  000001                     __pcstackCOMRAM:
+   123                           	opt callstack 0
+   124  000001                     ?___wmul:
+   125                           	opt callstack 0
+   126  000001                     UART_Read@retorno:
+   127                           	opt callstack 0
+   128  000001                     ___wmul@multiplier:
+   129                           	opt callstack 0
+   130                           
+   131                           ; 2 bytes @ 0x0
+   132  000001                     	ds	2
+   133  000003                     ___wmul@multiplicand:
+   134                           	opt callstack 0
+   135                           
+   136                           ; 2 bytes @ 0x2
+   137  000003                     	ds	2
+   138  000005                     ___wmul@product:
    139                           	opt callstack 0
-   140  000572  903B               	bcf	int$flags,0,c	;clear compiler interrupt flag (level 1)
-   141  000574  923B               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
-   142  000576  0100               	movlb	0
-   143  000578  EFCB  F001         	goto	_main	;jump to C main() function
+   140                           
+   141                           ; 2 bytes @ 0x4
+   142  000005                     	ds	2
+   143  000007                     ??_faz_a_coisa:
    144                           
-   145                           	psect	bssCOMRAM
-   146  000031                     __pbssCOMRAM:
-   147                           	opt callstack 0
-   148  000031                     _valorRes:
-   149                           	opt callstack 0
-   150  000031                     	ds	4
-   151  000035                     _sinal:
-   152                           	opt callstack 0
-   153  000035                     	ds	2
-   154  000037                     _contador:
-   155                           	opt callstack 0
-   156  000037                     	ds	2
-   157                           
-   158                           	psect	dataCOMRAM
-   159  000027                     __pdataCOMRAM:
-   160                           	opt callstack 0
-   161  000027                     _numeros:
-   162                           	opt callstack 0
-   163  000027                     	ds	10
-   164                           
-   165                           	psect	cstackCOMRAM
-   166  000001                     __pcstackCOMRAM:
-   167                           	opt callstack 0
-   168  000001                     ?___wmul:
+   145                           ; 1 bytes @ 0x6
+   146  000007                     	ds	1
+   147  000008                     faz_a_coisa@valor:
+   148                           	opt callstack 0
+   149                           
+   150                           ; 2 bytes @ 0x7
+   151  000008                     	ds	2
+   152  00000A                     ??_tratamento:
+   153                           
+   154                           ; 1 bytes @ 0x9
+   155  00000A                     	ds	2
+   156  00000C                     ?___aldiv:
+   157                           	opt callstack 0
+   158  00000C                     ___aldiv@dividend:
+   159                           	opt callstack 0
+   160                           
+   161                           ; 4 bytes @ 0xB
+   162  00000C                     	ds	4
+   163  000010                     ___aldiv@divisor:
+   164                           	opt callstack 0
+   165                           
+   166                           ; 4 bytes @ 0xF
+   167  000010                     	ds	4
+   168  000014                     ___aldiv@counter:
    169                           	opt callstack 0
-   170  000001                     UART_Read@retorno:
-   171                           	opt callstack 0
-   172  000001                     ___wmul@multiplier:
-   173                           	opt callstack 0
-   174                           
-   175                           ; 2 bytes @ 0x0
-   176  000001                     	ds	2
-   177  000003                     ___wmul@multiplicand:
-   178                           	opt callstack 0
-   179                           
-   180                           ; 2 bytes @ 0x2
-   181  000003                     	ds	2
-   182  000005                     ___wmul@product:
-   183                           	opt callstack 0
-   184                           
-   185                           ; 2 bytes @ 0x4
-   186  000005                     	ds	2
-   187  000007                     ??_faz_a_coisa:
-   188                           
-   189                           ; 1 bytes @ 0x6
-   190  000007                     	ds	1
-   191  000008                     faz_a_coisa@valor:
-   192                           	opt callstack 0
+   170                           
+   171                           ; 1 bytes @ 0x13
+   172  000014                     	ds	1
+   173  000015                     ___aldiv@sign:
+   174                           	opt callstack 0
+   175                           
+   176                           ; 1 bytes @ 0x14
+   177  000015                     	ds	1
+   178  000016                     ___aldiv@quotient:
+   179                           	opt callstack 0
+   180                           
+   181                           ; 4 bytes @ 0x15
+   182  000016                     	ds	4
+   183  00001A                     UART_Init@baudrate:
+   184                           	opt callstack 0
+   185                           
+   186                           ; 4 bytes @ 0x19
+   187  00001A                     	ds	4
+   188  00001E                     ??_UART_Init:
+   189                           
+   190                           ; 1 bytes @ 0x1D
+   191  00001E                     	ds	8
+   192  000026                     ??_main:
    193                           
-   194                           ; 2 bytes @ 0x7
-   195  000008                     	ds	2
-   196  00000A                     ??_tratamento:
-   197                           
-   198                           ; 1 bytes @ 0x9
-   199  00000A                     	ds	2
-   200  00000C                     ?___awdiv:
-   201                           	opt callstack 0
-   202  00000C                     ?___awmod:
-   203                           	opt callstack 0
-   204  00000C                     ?___aldiv:
-   205                           	opt callstack 0
-   206  00000C                     ___awdiv@dividend:
-   207                           	opt callstack 0
-   208  00000C                     ___awmod@dividend:
-   209                           	opt callstack 0
-   210  00000C                     ___aldiv@dividend:
-   211                           	opt callstack 0
-   212                           
-   213                           ; 4 bytes @ 0xB
-   214  00000C                     	ds	2
-   215  00000E                     ___awdiv@divisor:
-   216                           	opt callstack 0
-   217  00000E                     ___awmod@divisor:
-   218                           	opt callstack 0
-   219                           
-   220                           ; 2 bytes @ 0xD
-   221  00000E                     	ds	2
-   222  000010                     ___awdiv@counter:
-   223                           	opt callstack 0
-   224  000010                     ___awmod@counter:
-   225                           	opt callstack 0
-   226  000010                     ___aldiv@divisor:
-   227                           	opt callstack 0
-   228                           
-   229                           ; 4 bytes @ 0xF
-   230  000010                     	ds	1
-   231  000011                     ___awdiv@sign:
-   232                           	opt callstack 0
-   233  000011                     ___awmod@sign:
-   234                           	opt callstack 0
-   235                           
-   236                           ; 1 bytes @ 0x10
-   237  000011                     	ds	1
-   238  000012                     ___awdiv@quotient:
-   239                           	opt callstack 0
+   194                           ; 1 bytes @ 0x25
+   195  000026                     	ds	1
+   196  000027                     main@steps:
+   197                           	opt callstack 0
+   198                           
+   199                           ; 2 bytes @ 0x26
+   200  000027                     	ds	2
+   201  000029                     main@i:
+   202                           	opt callstack 0
+   203                           
+   204                           ; 2 bytes @ 0x28
+   205  000029                     	ds	2
+   206                           
+   207 ;;
+   208 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+   209 ;;
+   210 ;; *************** function _main *****************
+   211 ;; Defined at:
+   212 ;;		line 164 in file "comunicacao.c"
+   213 ;; Parameters:    Size  Location     Type
+   214 ;;		None
+   215 ;; Auto vars:     Size  Location     Type
+   216 ;;  i               2   40[COMRAM] int 
+   217 ;;  steps           2   38[COMRAM] int 
+   218 ;; Return value:  Size  Location     Type
+   219 ;;                  1    wreg      void 
+   220 ;; Registers used:
+   221 ;;		wreg, status,2, status,0, cstack
+   222 ;; Tracked objects:
+   223 ;;		On entry : 0/0
+   224 ;;		On exit  : 0/0
+   225 ;;		Unchanged: 0/0
+   226 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   227 ;;      Params:         0       0       0       0       0       0       0
+   228 ;;      Locals:         4       0       0       0       0       0       0
+   229 ;;      Temps:          1       0       0       0       0       0       0
+   230 ;;      Totals:         5       0       0       0       0       0       0
+   231 ;;Total ram usage:        5 bytes
+   232 ;; Hardware stack levels required when called:    5
+   233 ;; This function calls:
+   234 ;;		_UART_Init
+   235 ;;		_geraPasso
+   236 ;; This function is called by:
+   237 ;;		Startup code after reset
+   238 ;; This function uses a non-reentrant model
+   239 ;;
    240                           
-   241                           ; 2 bytes @ 0x11
-   242  000012                     	ds	2
-   243  000014                     ___aldiv@counter:
-   244                           	opt callstack 0
-   245                           
-   246                           ; 1 bytes @ 0x13
-   247  000014                     	ds	1
-   248  000015                     ___aldiv@sign:
-   249                           	opt callstack 0
-   250                           
-   251                           ; 1 bytes @ 0x14
-   252  000015                     	ds	1
-   253  000016                     ___aldiv@quotient:
-   254                           	opt callstack 0
+   241                           	psect	text0
+   242  0002A4                     __ptext0:
+   243                           	opt callstack 0
+   244  0002A4                     _main:
+   245                           	opt callstack 26
+   246                           
+   247                           ;comunicacao.c: 166:     TRISB = 0x00;
+   248                           
+   249                           ;incstack = 0
+   250  0002A4  0E00               	movlw	0
+   251  0002A6  6E93               	movwf	3987,c	;volatile
+   252                           
+   253                           ;comunicacao.c: 167:     TRISCbits.TRISC7 = 1;
+   254  0002A8  8E94               	bsf	3988,7,c	;volatile
    255                           
-   256                           ; 4 bytes @ 0x15
-   257  000016                     	ds	4
-   258  00001A                     UART_Init@baudrate:
-   259                           	opt callstack 0
-   260                           
-   261                           ; 4 bytes @ 0x19
-   262  00001A                     	ds	4
-   263  00001E                     ??_UART_Init:
+   256                           ;comunicacao.c: 168:     TRISCbits.TRISC6 = 1;
+   257  0002AA  8C94               	bsf	3988,6,c	;volatile
+   258                           
+   259                           ;comunicacao.c: 169:     TRISCbits.TRISC0 = 0;
+   260  0002AC  9094               	bcf	3988,0,c	;volatile
+   261                           
+   262                           ;comunicacao.c: 170:     PORTCbits.RC0 = 0;
+   263  0002AE  9082               	bcf	3970,0,c	;volatile
    264                           
-   265                           ; 1 bytes @ 0x1D
-   266  00001E                     	ds	8
-   267  000026                     ??_main:
+   265                           ;comunicacao.c: 171:     TRISD = 0x00;
+   266  0002B0  0E00               	movlw	0
+   267  0002B2  6E95               	movwf	3989,c	;volatile
    268                           
-   269                           ; 1 bytes @ 0x25
-   270  000026                     	ds	1
-   271                           
-   272 ;;
-   273 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
-   274 ;;
-   275 ;; *************** function _main *****************
-   276 ;; Defined at:
-   277 ;;		line 173 in file "comunicacao.c"
-   278 ;; Parameters:    Size  Location     Type
-   279 ;;		None
-   280 ;; Auto vars:     Size  Location     Type
-   281 ;;		None
-   282 ;; Return value:  Size  Location     Type
-   283 ;;                  1    wreg      void 
-   284 ;; Registers used:
-   285 ;;		wreg, fsr2l, fsr2h, status,2, status,0, cstack
-   286 ;; Tracked objects:
-   287 ;;		On entry : 0/0
-   288 ;;		On exit  : 0/0
-   289 ;;		Unchanged: 0/0
-   290 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-   291 ;;      Params:         0       0       0       0       0       0       0
-   292 ;;      Locals:         0       0       0       0       0       0       0
-   293 ;;      Temps:          1       0       0       0       0       0       0
-   294 ;;      Totals:         1       0       0       0       0       0       0
-   295 ;;Total ram usage:        1 bytes
-   296 ;; Hardware stack levels required when called:    5
-   297 ;; This function calls:
-   298 ;;		_UART_Init
-   299 ;;		___awdiv
-   300 ;;		___awmod
-   301 ;; This function is called by:
-   302 ;;		Startup code after reset
-   303 ;; This function uses a non-reentrant model
-   304 ;;
-   305                           
-   306                           	psect	text0
-   307  000396                     __ptext0:
-   308                           	opt callstack 0
-   309  000396                     _main:
-   310                           	opt callstack 26
-   311                           
-   312                           ;comunicacao.c: 175:     PORTBbits.RB5 = 1;
+   269                           ;comunicacao.c: 172:     ADCON1 = 0x0F;
+   270  0002B4  0E0F               	movlw	15
+   271  0002B6  6EC1               	movwf	4033,c	;volatile
+   272                           
+   273                           ;comunicacao.c: 173:     UART_Init(9600);
+   274  0002B8  0E80               	movlw	128
+   275  0002BA  6E1A               	movwf	UART_Init@baudrate,c
+   276  0002BC  0E25               	movlw	37
+   277  0002BE  6E1B               	movwf	UART_Init@baudrate+1,c
+   278  0002C0  0E00               	movlw	0
+   279  0002C2  6E1C               	movwf	UART_Init@baudrate+2,c
+   280  0002C4  0E00               	movlw	0
+   281  0002C6  6E1D               	movwf	UART_Init@baudrate+3,c
+   282  0002C8  EC09  F000         	call	_UART_Init	;wreg free
+   283                           
+   284                           ;comunicacao.c: 175:     INTCONbits.PEIE = 1;
+   285  0002CC  8CF2               	bsf	4082,6,c	;volatile
+   286                           
+   287                           ;comunicacao.c: 176:     PIE1bits.RCIE = 1;
+   288  0002CE  8A9D               	bsf	3997,5,c	;volatile
+   289                           
+   290                           ;comunicacao.c: 177:     INTCONbits.GIE = 1;
+   291  0002D0  8EF2               	bsf	4082,7,c	;volatile
+   292                           
+   293                           ;comunicacao.c: 178:     TRISB = 0x00;
+   294  0002D2  0E00               	movlw	0
+   295  0002D4  6E93               	movwf	3987,c	;volatile
+   296                           
+   297                           ;comunicacao.c: 179:     TRISD = 0x00;
+   298  0002D6  0E00               	movlw	0
+   299  0002D8  6E95               	movwf	3989,c	;volatile
+   300                           
+   301                           ;comunicacao.c: 180:     ADCON1 = 0x0F;
+   302  0002DA  0E0F               	movlw	15
+   303  0002DC  6EC1               	movwf	4033,c	;volatile
+   304                           
+   305                           ;comunicacao.c: 184:     PORTDbits.RD1 = 0;
+   306  0002DE  9283               	bcf	3971,1,c	;volatile
+   307                           
+   308                           ;comunicacao.c: 185:     PORTDbits.RD2 = 0;
+   309  0002E0  9483               	bcf	3971,2,c	;volatile
+   310                           
+   311                           ;comunicacao.c: 186:     PORTDbits.RD3 = 0;
+   312  0002E2  9683               	bcf	3971,3,c	;volatile
    313                           
-   314                           ;incstack = 0
-   315  000396  0E00               	movlw	0
-   316  000398  6E93               	movwf	3987,c	;volatile
-   317                           
-   318                           ;comunicacao.c: 176:     PORTBbits.RB6 = 1;
-   319  00039A  8E94               	bsf	3988,7,c	;volatile
-   320                           
-   321                           ;comunicacao.c: 177:     PORTBbits.RB7 = 1;
-   322  00039C  8C94               	bsf	3988,6,c	;volatile
-   323                           
-   324                           ;comunicacao.c: 178:     while(1){
-   325  00039E  9094               	bcf	3988,0,c	;volatile
-   326                           
-   327                           ;comunicacao.c: 179: 
-   328  0003A0  9082               	bcf	3970,0,c	;volatile
-   329                           
-   330                           ;comunicacao.c: 180:         PORTD = numeros[valorRes[1]%10];
-   331  0003A2  0E00               	movlw	0
-   332  0003A4  6E95               	movwf	3989,c	;volatile
+   314                           ;comunicacao.c: 192:     PORTDbits.RD5 = 0;
+   315  0002E4  9A83               	bcf	3971,5,c	;volatile
+   316                           
+   317                           ;comunicacao.c: 193:     PORTDbits.RD0 = 0;
+   318  0002E6  9083               	bcf	3971,0,c	;volatile
+   319  0002E8  0003               	sleep		;# 
+   320  0002EA                     l1102:
+   321                           
+   322                           ;comunicacao.c: 206:         if(vai == 1){
+   323  0002EA  042F               	decf	_vai,w,c
+   324  0002EC  1030               	iorwf	_vai+1,w,c
+   325  0002EE  A4D8               	btfss	status,2,c
+   326  0002F0  D7FC               	goto	l1102
+   327                           
+   328                           ;comunicacao.c: 207:             steps= 40;
+   329  0002F2  0E00               	movlw	0
+   330  0002F4  6E28               	movwf	main@steps+1,c
+   331  0002F6  0E28               	movlw	40
+   332  0002F8  6E27               	movwf	main@steps,c
    333                           
-   334                           ;comunicacao.c: 181: 
-   335  0003A6  0E0F               	movlw	15
-   336  0003A8  6EC1               	movwf	4033,c	;volatile
-   337                           
-   338                           ;comunicacao.c: 182:         PORTBbits.RB7 = 0;
-   339  0003AA  8881               	bsf	3969,4,c	;volatile
-   340                           
-   341                           ;comunicacao.c: 183:         _delay((unsigned long)((5)*(16000000/4000.0)));
-   342  0003AC  8A81               	bsf	3969,5,c	;volatile
-   343                           
-   344                           ;comunicacao.c: 184:         PORTBbits.RB7 = 1;
-   345  0003AE  8C81               	bsf	3969,6,c	;volatile
-   346                           
-   347                           ;comunicacao.c: 185: 
-   348  0003B0  8E81               	bsf	3969,7,c	;volatile
-   349                           
-   350                           ;comunicacao.c: 186:         PORTD = numeros[valorRes[1]/10];
-   351  0003B2  0E80               	movlw	128
-   352  0003B4  6E1A               	movwf	UART_Init@baudrate,c
-   353  0003B6  0E25               	movlw	37
-   354  0003B8  6E1B               	movwf	UART_Init@baudrate+1,c
-   355  0003BA  0E00               	movlw	0
-   356  0003BC  6E1C               	movwf	UART_Init@baudrate+2,c
-   357  0003BE  0E00               	movlw	0
-   358  0003C0  6E1D               	movwf	UART_Init@baudrate+3,c
-   359  0003C2  EC09  F000         	call	_UART_Init	;wreg free
-   360                           
-   361                           ;comunicacao.c: 188:         PORTBbits.RB6 = 0;
-   362  0003C6  8CF2               	bsf	4082,6,c	;volatile
-   363                           
-   364                           ;comunicacao.c: 189:         _delay((unsigned long)((5)*(16000000/4000.0)));
-   365  0003C8  8A9D               	bsf	3997,5,c	;volatile
-   366                           
-   367                           ;comunicacao.c: 190:         PORTBbits.RB6 = 1;
-   368  0003CA  8EF2               	bsf	4082,7,c	;volatile
-   369                           
-   370                           ;comunicacao.c: 191:     }
-   371  0003CC  0E00               	movlw	0
-   372  0003CE  6E93               	movwf	3987,c	;volatile
-   373                           
-   374                           ;comunicacao.c: 192:     return;
-   375  0003D0  0E00               	movlw	0
-   376  0003D2  6E95               	movwf	3989,c	;volatile
-   377                           
-   378                           ;comunicacao.c: 193: }
-   379  0003D4  0E0F               	movlw	15
-   380  0003D6  6EC1               	movwf	4033,c	;volatile
-   381  0003D8  8881               	bsf	3969,4,c	;volatile
-   382  0003DA  8A81               	bsf	3969,5,c	;volatile
-   383  0003DC  8C81               	bsf	3969,6,c	;volatile
-   384  0003DE  8E81               	bsf	3969,7,c	;volatile
-   385  0003E0                     l1330:
-   386  0003E0  C033  F00C         	movff	_valorRes+2,___awmod@dividend
-   387  0003E4  C034  F00D         	movff	_valorRes+3,___awmod@dividend+1
-   388  0003E8  0E00               	movlw	0
-   389  0003EA  6E0F               	movwf	___awmod@divisor+1,c
-   390  0003EC  0E0A               	movlw	10
-   391  0003EE  6E0E               	movwf	___awmod@divisor,c
-   392  0003F0  EC6B  F002         	call	___awmod	;wreg free
-   393  0003F4  0E27               	movlw	low _numeros
-   394  0003F6  240C               	addwf	?___awmod,w,c
-   395  0003F8  6ED9               	movwf	fsr2l,c
-   396  0003FA  0E00               	movlw	high _numeros
-   397  0003FC  200D               	addwfc	?___awmod+1,w,c
-   398  0003FE  6EDA               	movwf	fsr2h,c
-   399  000400  50DF               	movf	indf2,w,c
-   400  000402  6E83               	movwf	3971,c	;volatile
-   401  000404  9E81               	bcf	3969,7,c	;volatile
-   402  000406  0E1A               	movlw	26
-   403  000408  6E26               	movwf	??_main& (0+255),c
-   404  00040A  0EF8               	movlw	248
-   405  00040C                     u817:
-   406  00040C  2EE8               	decfsz	wreg,f,c
-   407  00040E  D7FE               	bra	u817
-   408  000410  2E26               	decfsz	??_main& (0+255),f,c
-   409  000412  D7FC               	bra	u817
-   410  000414  D000               	nop2	
-   411  000416  8E81               	bsf	3969,7,c	;volatile
-   412  000418  C033  F00C         	movff	_valorRes+2,___awdiv@dividend
-   413  00041C  C034  F00D         	movff	_valorRes+3,___awdiv@dividend+1
-   414  000420  0E00               	movlw	0
-   415  000422  6E0F               	movwf	___awdiv@divisor+1,c
-   416  000424  0E0A               	movlw	10
-   417  000426  6E0E               	movwf	___awdiv@divisor,c
-   418  000428  EC29  F002         	call	___awdiv	;wreg free
-   419  00042C  0E27               	movlw	low _numeros
-   420  00042E  240C               	addwf	?___awdiv,w,c
-   421  000430  6ED9               	movwf	fsr2l,c
-   422  000432  0E00               	movlw	high _numeros
-   423  000434  200D               	addwfc	?___awdiv+1,w,c
-   424  000436  6EDA               	movwf	fsr2h,c
-   425  000438  50DF               	movf	indf2,w,c
-   426  00043A  6E83               	movwf	3971,c	;volatile
-   427  00043C  9C81               	bcf	3969,6,c	;volatile
-   428  00043E  0E1A               	movlw	26
-   429  000440  6E26               	movwf	??_main& (0+255),c
-   430  000442  0EF8               	movlw	248
-   431  000444                     u827:
-   432  000444  2EE8               	decfsz	wreg,f,c
-   433  000446  D7FE               	bra	u827
-   434  000448  2E26               	decfsz	??_main& (0+255),f,c
-   435  00044A  D7FC               	bra	u827
-   436  00044C  D000               	nop2	
-   437  00044E  8C81               	bsf	3969,6,c	;volatile
-   438  000450  D7C7               	goto	l1330
-   439  000452                     __end_of_main:
-   440                           	opt callstack 0
-   441                           
-   442 ;; *************** function ___awmod *****************
-   443 ;; Defined at:
-   444 ;;		line 7 in file "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awmod.c"
-   445 ;; Parameters:    Size  Location     Type
-   446 ;;  dividend        2   11[COMRAM] int 
-   447 ;;  divisor         2   13[COMRAM] int 
-   448 ;; Auto vars:     Size  Location     Type
-   449 ;;  sign            1   16[COMRAM] unsigned char 
-   450 ;;  counter         1   15[COMRAM] unsigned char 
-   451 ;; Return value:  Size  Location     Type
-   452 ;;                  2   11[COMRAM] int 
-   453 ;; Registers used:
-   454 ;;		wreg, status,2, status,0
-   455 ;; Tracked objects:
-   456 ;;		On entry : 0/0
-   457 ;;		On exit  : 0/0
-   458 ;;		Unchanged: 0/0
-   459 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-   460 ;;      Params:         4       0       0       0       0       0       0
-   461 ;;      Locals:         2       0       0       0       0       0       0
-   462 ;;      Temps:          0       0       0       0       0       0       0
-   463 ;;      Totals:         6       0       0       0       0       0       0
-   464 ;;Total ram usage:        6 bytes
-   465 ;; Hardware stack levels used:    1
-   466 ;; Hardware stack levels required when called:    3
-   467 ;; This function calls:
-   468 ;;		Nothing
-   469 ;; This function is called by:
-   470 ;;		_main
-   471 ;; This function uses a non-reentrant model
-   472 ;;
-   473                           
-   474                           	psect	text1
-   475  0004D6                     __ptext1:
-   476                           	opt callstack 0
-   477  0004D6                     ___awmod:
-   478                           	opt callstack 27
-   479                           
-   480                           ;incstack = 0
-   481  0004D6  0E00               	movlw	0
-   482  0004D8  6E11               	movwf	___awmod@sign,c
-   483  0004DA  AE0D               	btfss	___awmod@dividend+1,7,c
-   484  0004DC  D006               	goto	l1256
-   485  0004DE  6C0C               	negf	___awmod@dividend,c
-   486  0004E0  1E0D               	comf	___awmod@dividend+1,f,c
-   487  0004E2  B0D8               	btfsc	status,0,c
-   488  0004E4  2A0D               	incf	___awmod@dividend+1,f,c
-   489  0004E6  0E01               	movlw	1
-   490  0004E8  6E11               	movwf	___awmod@sign,c
-   491  0004EA                     l1256:
-   492  0004EA  AE0F               	btfss	___awmod@divisor+1,7,c
-   493  0004EC  D004               	goto	l1260
-   494  0004EE  6C0E               	negf	___awmod@divisor,c
-   495  0004F0  1E0F               	comf	___awmod@divisor+1,f,c
-   496  0004F2  B0D8               	btfsc	status,0,c
-   497  0004F4  2A0F               	incf	___awmod@divisor+1,f,c
-   498  0004F6                     l1260:
-   499  0004F6  500E               	movf	___awmod@divisor,w,c
-   500  0004F8  100F               	iorwf	___awmod@divisor+1,w,c
-   501  0004FA  B4D8               	btfsc	status,2,c
-   502  0004FC  D018               	goto	l1276
-   503  0004FE  0E01               	movlw	1
-   504  000500  6E10               	movwf	___awmod@counter,c
-   505  000502  D004               	goto	l1266
-   506  000504                     l1264:
-   507  000504  90D8               	bcf	status,0,c
-   508  000506  360E               	rlcf	___awmod@divisor,f,c
-   509  000508  360F               	rlcf	___awmod@divisor+1,f,c
-   510  00050A  2A10               	incf	___awmod@counter,f,c
-   511  00050C                     l1266:
-   512  00050C  AE0F               	btfss	___awmod@divisor+1,7,c
-   513  00050E  D7FA               	goto	l1264
-   514  000510                     u770:
-   515  000510  500E               	movf	___awmod@divisor,w,c
-   516  000512  5C0C               	subwf	___awmod@dividend,w,c
-   517  000514  500F               	movf	___awmod@divisor+1,w,c
-   518  000516  580D               	subwfb	___awmod@dividend+1,w,c
-   519  000518  A0D8               	btfss	status,0,c
-   520  00051A  D004               	goto	l1272
-   521  00051C  500E               	movf	___awmod@divisor,w,c
-   522  00051E  5E0C               	subwf	___awmod@dividend,f,c
-   523  000520  500F               	movf	___awmod@divisor+1,w,c
-   524  000522  5A0D               	subwfb	___awmod@dividend+1,f,c
-   525  000524                     l1272:
-   526  000524  90D8               	bcf	status,0,c
-   527  000526  320F               	rrcf	___awmod@divisor+1,f,c
-   528  000528  320E               	rrcf	___awmod@divisor,f,c
-   529  00052A  2E10               	decfsz	___awmod@counter,f,c
-   530  00052C  D7F1               	goto	u770
-   531  00052E                     l1276:
-   532  00052E  5011               	movf	___awmod@sign,w,c
-   533  000530  B4D8               	btfsc	status,2,c
-   534  000532  D004               	goto	l1280
-   535  000534  6C0C               	negf	___awmod@dividend,c
-   536  000536  1E0D               	comf	___awmod@dividend+1,f,c
-   537  000538  B0D8               	btfsc	status,0,c
-   538  00053A  2A0D               	incf	___awmod@dividend+1,f,c
-   539  00053C                     l1280:
-   540  00053C  C00C  F00C         	movff	___awmod@dividend,?___awmod
-   541  000540  C00D  F00D         	movff	___awmod@dividend+1,?___awmod+1
-   542  000544  0012               	return		;funcret
-   543  000546                     __end_of___awmod:
-   544                           	opt callstack 0
-   545                           
-   546 ;; *************** function ___awdiv *****************
-   547 ;; Defined at:
-   548 ;;		line 7 in file "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awdiv.c"
-   549 ;; Parameters:    Size  Location     Type
-   550 ;;  dividend        2   11[COMRAM] int 
-   551 ;;  divisor         2   13[COMRAM] int 
-   552 ;; Auto vars:     Size  Location     Type
-   553 ;;  quotient        2   17[COMRAM] int 
-   554 ;;  sign            1   16[COMRAM] unsigned char 
-   555 ;;  counter         1   15[COMRAM] unsigned char 
-   556 ;; Return value:  Size  Location     Type
-   557 ;;                  2   11[COMRAM] int 
-   558 ;; Registers used:
-   559 ;;		wreg, status,2, status,0
-   560 ;; Tracked objects:
-   561 ;;		On entry : 0/0
-   562 ;;		On exit  : 0/0
-   563 ;;		Unchanged: 0/0
-   564 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-   565 ;;      Params:         4       0       0       0       0       0       0
-   566 ;;      Locals:         4       0       0       0       0       0       0
-   567 ;;      Temps:          0       0       0       0       0       0       0
-   568 ;;      Totals:         8       0       0       0       0       0       0
-   569 ;;Total ram usage:        8 bytes
-   570 ;; Hardware stack levels used:    1
-   571 ;; Hardware stack levels required when called:    3
-   572 ;; This function calls:
-   573 ;;		Nothing
-   574 ;; This function is called by:
-   575 ;;		_main
-   576 ;; This function uses a non-reentrant model
-   577 ;;
-   578                           
-   579                           	psect	text2
-   580  000452                     __ptext2:
-   581                           	opt callstack 0
-   582  000452                     ___awdiv:
-   583                           	opt callstack 27
-   584                           
-   585                           ;incstack = 0
-   586  000452  0E00               	movlw	0
-   587  000454  6E11               	movwf	___awdiv@sign,c
-   588  000456  AE0F               	btfss	___awdiv@divisor+1,7,c
-   589  000458  D006               	goto	l1212
-   590  00045A  6C0E               	negf	___awdiv@divisor,c
-   591  00045C  1E0F               	comf	___awdiv@divisor+1,f,c
-   592  00045E  B0D8               	btfsc	status,0,c
-   593  000460  2A0F               	incf	___awdiv@divisor+1,f,c
-   594  000462  0E01               	movlw	1
-   595  000464  6E11               	movwf	___awdiv@sign,c
-   596  000466                     l1212:
-   597  000466  AE0D               	btfss	___awdiv@dividend+1,7,c
-   598  000468  D006               	goto	l1218
-   599  00046A  6C0C               	negf	___awdiv@dividend,c
-   600  00046C  1E0D               	comf	___awdiv@dividend+1,f,c
-   601  00046E  B0D8               	btfsc	status,0,c
-   602  000470  2A0D               	incf	___awdiv@dividend+1,f,c
-   603  000472  0E01               	movlw	1
-   604  000474  1A11               	xorwf	___awdiv@sign,f,c
-   605  000476                     l1218:
-   606  000476  0E00               	movlw	0
-   607  000478  6E13               	movwf	___awdiv@quotient+1,c
-   608  00047A  0E00               	movlw	0
-   609  00047C  6E12               	movwf	___awdiv@quotient,c
-   610  00047E  500E               	movf	___awdiv@divisor,w,c
-   611  000480  100F               	iorwf	___awdiv@divisor+1,w,c
-   612  000482  B4D8               	btfsc	status,2,c
-   613  000484  D01C               	goto	l1240
-   614  000486  0E01               	movlw	1
-   615  000488  6E10               	movwf	___awdiv@counter,c
-   616  00048A  D004               	goto	l1226
-   617  00048C                     l1224:
-   618  00048C  90D8               	bcf	status,0,c
-   619  00048E  360E               	rlcf	___awdiv@divisor,f,c
-   620  000490  360F               	rlcf	___awdiv@divisor+1,f,c
-   621  000492  2A10               	incf	___awdiv@counter,f,c
-   622  000494                     l1226:
-   623  000494  AE0F               	btfss	___awdiv@divisor+1,7,c
-   624  000496  D7FA               	goto	l1224
-   625  000498                     u710:
-   626  000498  90D8               	bcf	status,0,c
-   627  00049A  3612               	rlcf	___awdiv@quotient,f,c
-   628  00049C  3613               	rlcf	___awdiv@quotient+1,f,c
-   629  00049E  500E               	movf	___awdiv@divisor,w,c
-   630  0004A0  5C0C               	subwf	___awdiv@dividend,w,c
-   631  0004A2  500F               	movf	___awdiv@divisor+1,w,c
-   632  0004A4  580D               	subwfb	___awdiv@dividend+1,w,c
-   633  0004A6  A0D8               	btfss	status,0,c
-   634  0004A8  D005               	goto	l1236
-   635  0004AA  500E               	movf	___awdiv@divisor,w,c
-   636  0004AC  5E0C               	subwf	___awdiv@dividend,f,c
-   637  0004AE  500F               	movf	___awdiv@divisor+1,w,c
-   638  0004B0  5A0D               	subwfb	___awdiv@dividend+1,f,c
-   639  0004B2  8012               	bsf	___awdiv@quotient,0,c
-   640  0004B4                     l1236:
-   641  0004B4  90D8               	bcf	status,0,c
-   642  0004B6  320F               	rrcf	___awdiv@divisor+1,f,c
-   643  0004B8  320E               	rrcf	___awdiv@divisor,f,c
-   644  0004BA  2E10               	decfsz	___awdiv@counter,f,c
-   645  0004BC  D7ED               	goto	u710
-   646  0004BE                     l1240:
-   647  0004BE  5011               	movf	___awdiv@sign,w,c
-   648  0004C0  B4D8               	btfsc	status,2,c
-   649  0004C2  D004               	goto	l1244
-   650  0004C4  6C12               	negf	___awdiv@quotient,c
-   651  0004C6  1E13               	comf	___awdiv@quotient+1,f,c
-   652  0004C8  B0D8               	btfsc	status,0,c
-   653  0004CA  2A13               	incf	___awdiv@quotient+1,f,c
-   654  0004CC                     l1244:
-   655  0004CC  C012  F00C         	movff	___awdiv@quotient,?___awdiv
-   656  0004D0  C013  F00D         	movff	___awdiv@quotient+1,?___awdiv+1
-   657  0004D4  0012               	return		;funcret
-   658  0004D6                     __end_of___awdiv:
-   659                           	opt callstack 0
-   660                           
-   661 ;; *************** function _UART_Init *****************
-   662 ;; Defined at:
-   663 ;;		line 30 in file "comunicacao.c"
-   664 ;; Parameters:    Size  Location     Type
-   665 ;;  baudrate        4   25[COMRAM] const long 
-   666 ;; Auto vars:     Size  Location     Type
-   667 ;;		None
-   668 ;; Return value:  Size  Location     Type
-   669 ;;                  1    wreg      unsigned char 
-   670 ;; Registers used:
-   671 ;;		wreg, status,2, status,0, cstack
-   672 ;; Tracked objects:
-   673 ;;		On entry : 0/0
-   674 ;;		On exit  : 0/0
-   675 ;;		Unchanged: 0/0
-   676 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-   677 ;;      Params:         4       0       0       0       0       0       0
-   678 ;;      Locals:         0       0       0       0       0       0       0
-   679 ;;      Temps:          8       0       0       0       0       0       0
-   680 ;;      Totals:        12       0       0       0       0       0       0
-   681 ;;Total ram usage:       12 bytes
-   682 ;; Hardware stack levels used:    1
-   683 ;; Hardware stack levels required when called:    4
-   684 ;; This function calls:
-   685 ;;		___aldiv
-   686 ;; This function is called by:
-   687 ;;		_main
-   688 ;; This function uses a non-reentrant model
-   689 ;;
-   690                           
-   691                           	psect	text3
-   692  000012                     __ptext3:
-   693                           	opt callstack 0
-   694  000012                     _UART_Init:
-   695                           	opt callstack 26
-   696                           
-   697                           ;comunicacao.c: 30:   return 0;;comunicacao.c: 31: };comunicacao.c: 33: char UART_Data_R
+   334                           ;comunicacao.c: 208:             for(int i = 0;i<steps;i++){
+   335  0002FA  0E00               	movlw	0
+   336  0002FC  6E2A               	movwf	main@i+1,c
+   337  0002FE  0E00               	movlw	0
+   338  000300  6E29               	movwf	main@i,c
+   339  000302  D004               	goto	l1110
+   340  000304                     l1106:
+   341                           
+   342                           ;comunicacao.c: 209:                 geraPasso();
+   343  000304  ECFD  F001         	call	_geraPasso	;wreg free
+   344                           
+   345                           ;comunicacao.c: 210:             }
+   346  000308  4A29               	infsnz	main@i,f,c
+   347  00030A  2A2A               	incf	main@i+1,f,c
+   348  00030C                     l1110:
+   349  00030C  5027               	movf	main@steps,w,c
+   350  00030E  5C29               	subwf	main@i,w,c
+   351  000310  502A               	movf	main@i+1,w,c
+   352  000312  0A80               	xorlw	128
+   353  000314  6E26               	movwf	??_main& (0+255),c
+   354  000316  5028               	movf	main@steps+1,w,c
+   355  000318  0A80               	xorlw	128
+   356  00031A  5826               	subwfb	??_main& (0+255),w,c
+   357  00031C  A0D8               	btfss	status,0,c
+   358  00031E  D7F2               	goto	l1106
+   359                           
+   360                           ;comunicacao.c: 211:             vai =0;
+   361  000320  0E00               	movlw	0
+   362  000322  6E30               	movwf	_vai+1,c
+   363  000324  0E00               	movlw	0
+   364  000326  6E2F               	movwf	_vai,c
+   365  000328  D7E0               	goto	l1102
+   366  00032A                     __end_of_main:
+   367                           	opt callstack 0
+   368                           
+   369 ;; *************** function _geraPasso *****************
+   370 ;; Defined at:
+   371 ;;		line 157 in file "comunicacao.c"
+   372 ;; Parameters:    Size  Location     Type
+   373 ;;		None
+   374 ;; Auto vars:     Size  Location     Type
+   375 ;;		None
+   376 ;; Return value:  Size  Location     Type
+   377 ;;                  1    wreg      void 
+   378 ;; Registers used:
+   379 ;;		wreg
+   380 ;; Tracked objects:
+   381 ;;		On entry : 0/0
+   382 ;;		On exit  : 0/0
+   383 ;;		Unchanged: 0/0
+   384 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   385 ;;      Params:         0       0       0       0       0       0       0
+   386 ;;      Locals:         0       0       0       0       0       0       0
+   387 ;;      Temps:          0       0       0       0       0       0       0
+   388 ;;      Totals:         0       0       0       0       0       0       0
+   389 ;;Total ram usage:        0 bytes
+   390 ;; Hardware stack levels used:    1
+   391 ;; Hardware stack levels required when called:    3
+   392 ;; This function calls:
+   393 ;;		Nothing
+   394 ;; This function is called by:
+   395 ;;		_main
+   396 ;; This function uses a non-reentrant model
+   397 ;;
+   398                           
+   399                           	psect	text1
+   400  0003FA                     __ptext1:
+   401                           	opt callstack 0
+   402  0003FA                     _geraPasso:
+   403                           	opt callstack 27
+   404                           
+   405                           ;comunicacao.c: 158:     PORTDbits.RD0 = 1;
+   406                           
+   407                           ;incstack = 0
+   408  0003FA  8083               	bsf	3971,0,c	;volatile
+   409                           
+   410                           ;comunicacao.c: 159:     _delay((unsigned long)((250)*(16000000/4000000.0)));
+   411  0003FC  0EC8               	movlw	200
+   412  0003FE                     u517:
+   413  0003FE  D000               	nop2	
+   414  000400  2EE8               	decfsz	wreg,f,c
+   415  000402  D7FD               	bra	u517
+   416                           
+   417                           ;comunicacao.c: 160:     PORTDbits.RD0 = 0;
+   418  000404  9083               	bcf	3971,0,c	;volatile
+   419                           
+   420                           ;comunicacao.c: 161:     _delay((unsigned long)((250)*(16000000/4000000.0)));
+   421  000406  0EC8               	movlw	200
+   422  000408                     u527:
+   423  000408  D000               	nop2	
+   424  00040A  2EE8               	decfsz	wreg,f,c
+   425  00040C  D7FD               	bra	u527
+   426  00040E  0012               	return		;funcret
+   427  000410                     __end_of_geraPasso:
+   428                           	opt callstack 0
+   429                           
+   430 ;; *************** function _UART_Init *****************
+   431 ;; Defined at:
+   432 ;;		line 31 in file "comunicacao.c"
+   433 ;; Parameters:    Size  Location     Type
+   434 ;;  baudrate        4   25[COMRAM] const long 
+   435 ;; Auto vars:     Size  Location     Type
+   436 ;;		None
+   437 ;; Return value:  Size  Location     Type
+   438 ;;                  1    wreg      unsigned char 
+   439 ;; Registers used:
+   440 ;;		wreg, status,2, status,0, cstack
+   441 ;; Tracked objects:
+   442 ;;		On entry : 0/0
+   443 ;;		On exit  : 0/0
+   444 ;;		Unchanged: 0/0
+   445 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   446 ;;      Params:         4       0       0       0       0       0       0
+   447 ;;      Locals:         0       0       0       0       0       0       0
+   448 ;;      Temps:          8       0       0       0       0       0       0
+   449 ;;      Totals:        12       0       0       0       0       0       0
+   450 ;;Total ram usage:       12 bytes
+   451 ;; Hardware stack levels used:    1
+   452 ;; Hardware stack levels required when called:    4
+   453 ;; This function calls:
+   454 ;;		___aldiv
+   455 ;; This function is called by:
+   456 ;;		_main
+   457 ;; This function uses a non-reentrant model
+   458 ;;
+   459                           
+   460                           	psect	text2
+   461  000012                     __ptext2:
+   462                           	opt callstack 0
+   463  000012                     _UART_Init:
+   464                           	opt callstack 26
+   465                           
+   466                           ;comunicacao.c: 31:   return 0;;comunicacao.c: 32: };comunicacao.c: 34: char UART_Data_R
       +                          eady()
-   698                           
-   699                           ;incstack = 0
-   700  000012  C01A  F01E         	movff	UART_Init@baudrate,??_UART_Init
-   701  000016  C01B  F01F         	movff	UART_Init@baudrate+1,??_UART_Init+1
-   702  00001A  C01C  F020         	movff	UART_Init@baudrate+2,??_UART_Init+2
-   703  00001E  C01D  F021         	movff	UART_Init@baudrate+3,??_UART_Init+3
-   704  000022  0E06               	movlw	6
-   705  000024                     u535:
-   706  000024  90D8               	bcf	status,0,c
-   707  000026  361E               	rlcf	??_UART_Init,f,c
-   708  000028  361F               	rlcf	??_UART_Init+1,f,c
-   709  00002A  3620               	rlcf	??_UART_Init+2,f,c
-   710  00002C  3621               	rlcf	??_UART_Init+3,f,c
-   711  00002E  2EE8               	decfsz	wreg,f,c
-   712  000030  D7F9               	goto	u535
-   713  000032  501E               	movf	??_UART_Init,w,c
-   714  000034  0800               	sublw	0
-   715  000036  6E0C               	movwf	___aldiv@dividend,c
-   716  000038  0E24               	movlw	36
-   717  00003A  541F               	subfwb	??_UART_Init+1,w,c
-   718  00003C  6E0D               	movwf	___aldiv@dividend+1,c
-   719  00003E  0EF4               	movlw	244
-   720  000040  5420               	subfwb	??_UART_Init+2,w,c
-   721  000042  6E0E               	movwf	___aldiv@dividend+2,c
-   722  000044  0E00               	movlw	0
-   723  000046  5421               	subfwb	??_UART_Init+3,w,c
-   724  000048  6E0F               	movwf	___aldiv@dividend+3,c
-   725  00004A  C01A  F022         	movff	UART_Init@baudrate,??_UART_Init+4
-   726  00004E  C01B  F023         	movff	UART_Init@baudrate+1,??_UART_Init+5
-   727  000052  C01C  F024         	movff	UART_Init@baudrate+2,??_UART_Init+6
-   728  000056  C01D  F025         	movff	UART_Init@baudrate+3,??_UART_Init+7
-   729  00005A  0E06               	movlw	6
-   730  00005C                     u545:
-   731  00005C  90D8               	bcf	status,0,c
-   732  00005E  3622               	rlcf	??_UART_Init+4,f,c
-   733  000060  3623               	rlcf	??_UART_Init+5,f,c
-   734  000062  3624               	rlcf	??_UART_Init+6,f,c
-   735  000064  3625               	rlcf	??_UART_Init+7,f,c
-   736  000066  2EE8               	decfsz	wreg,f,c
-   737  000068  D7F9               	goto	u545
-   738  00006A  C022  F010         	movff	??_UART_Init+4,___aldiv@divisor
-   739  00006E  C023  F011         	movff	??_UART_Init+5,___aldiv@divisor+1
-   740  000072  C024  F012         	movff	??_UART_Init+6,___aldiv@divisor+2
-   741  000076  C025  F013         	movff	??_UART_Init+7,___aldiv@divisor+3
-   742  00007A  EC06  F001         	call	___aldiv	;wreg free
-   743  00007E  C00C  F039         	movff	?___aldiv,_x
-   744  000082  C00D  F03A         	movff	?___aldiv+1,_x+1
-   745                           
-   746                           ;comunicacao.c: 34: {
-   747  000086  043A               	decf	_x+1,w,c
-   748  000088  A0D8               	btfss	status,0,c
-   749  00008A  D03B               	goto	l1148
+   467                           
+   468                           ;incstack = 0
+   469  000012  C01A  F01E         	movff	UART_Init@baudrate,??_UART_Init
+   470  000016  C01B  F01F         	movff	UART_Init@baudrate+1,??_UART_Init+1
+   471  00001A  C01C  F020         	movff	UART_Init@baudrate+2,??_UART_Init+2
+   472  00001E  C01D  F021         	movff	UART_Init@baudrate+3,??_UART_Init+3
+   473  000022  0E06               	movlw	6
+   474  000024                     u385:
+   475  000024  90D8               	bcf	status,0,c
+   476  000026  361E               	rlcf	??_UART_Init,f,c
+   477  000028  361F               	rlcf	??_UART_Init+1,f,c
+   478  00002A  3620               	rlcf	??_UART_Init+2,f,c
+   479  00002C  3621               	rlcf	??_UART_Init+3,f,c
+   480  00002E  2EE8               	decfsz	wreg,f,c
+   481  000030  D7F9               	goto	u385
+   482  000032  501E               	movf	??_UART_Init,w,c
+   483  000034  0800               	sublw	0
+   484  000036  6E0C               	movwf	___aldiv@dividend,c
+   485  000038  0E24               	movlw	36
+   486  00003A  541F               	subfwb	??_UART_Init+1,w,c
+   487  00003C  6E0D               	movwf	___aldiv@dividend+1,c
+   488  00003E  0EF4               	movlw	244
+   489  000040  5420               	subfwb	??_UART_Init+2,w,c
+   490  000042  6E0E               	movwf	___aldiv@dividend+2,c
+   491  000044  0E00               	movlw	0
+   492  000046  5421               	subfwb	??_UART_Init+3,w,c
+   493  000048  6E0F               	movwf	___aldiv@dividend+3,c
+   494  00004A  C01A  F022         	movff	UART_Init@baudrate,??_UART_Init+4
+   495  00004E  C01B  F023         	movff	UART_Init@baudrate+1,??_UART_Init+5
+   496  000052  C01C  F024         	movff	UART_Init@baudrate+2,??_UART_Init+6
+   497  000056  C01D  F025         	movff	UART_Init@baudrate+3,??_UART_Init+7
+   498  00005A  0E06               	movlw	6
+   499  00005C                     u395:
+   500  00005C  90D8               	bcf	status,0,c
+   501  00005E  3622               	rlcf	??_UART_Init+4,f,c
+   502  000060  3623               	rlcf	??_UART_Init+5,f,c
+   503  000062  3624               	rlcf	??_UART_Init+6,f,c
+   504  000064  3625               	rlcf	??_UART_Init+7,f,c
+   505  000066  2EE8               	decfsz	wreg,f,c
+   506  000068  D7F9               	goto	u395
+   507  00006A  C022  F010         	movff	??_UART_Init+4,___aldiv@divisor
+   508  00006E  C023  F011         	movff	??_UART_Init+5,___aldiv@divisor+1
+   509  000072  C024  F012         	movff	??_UART_Init+6,___aldiv@divisor+2
+   510  000076  C025  F013         	movff	??_UART_Init+7,___aldiv@divisor+3
+   511  00007A  EC8D  F000         	call	___aldiv	;wreg free
+   512  00007E  C00C  F033         	movff	?___aldiv,_x
+   513  000082  C00D  F034         	movff	?___aldiv+1,_x+1
+   514                           
+   515                           ;comunicacao.c: 35: {
+   516  000086  0434               	decf	_x+1,w,c
+   517  000088  A0D8               	btfss	status,0,c
+   518  00008A  D03B               	goto	l1032
+   519                           
+   520                           ;comunicacao.c: 36:   return RCIF;;comunicacao.c: 37: }
+   521  00008C  C01A  F01E         	movff	UART_Init@baudrate,??_UART_Init
+   522  000090  C01B  F01F         	movff	UART_Init@baudrate+1,??_UART_Init+1
+   523  000094  C01C  F020         	movff	UART_Init@baudrate+2,??_UART_Init+2
+   524  000098  C01D  F021         	movff	UART_Init@baudrate+3,??_UART_Init+3
+   525  00009C  0E04               	movlw	4
+   526  00009E                     u415:
+   527  00009E  90D8               	bcf	status,0,c
+   528  0000A0  361E               	rlcf	??_UART_Init,f,c
+   529  0000A2  361F               	rlcf	??_UART_Init+1,f,c
+   530  0000A4  3620               	rlcf	??_UART_Init+2,f,c
+   531  0000A6  3621               	rlcf	??_UART_Init+3,f,c
+   532  0000A8  2EE8               	decfsz	wreg,f,c
+   533  0000AA  D7F9               	goto	u415
+   534  0000AC  501E               	movf	??_UART_Init,w,c
+   535  0000AE  0800               	sublw	0
+   536  0000B0  6E0C               	movwf	___aldiv@dividend,c
+   537  0000B2  0E24               	movlw	36
+   538  0000B4  541F               	subfwb	??_UART_Init+1,w,c
+   539  0000B6  6E0D               	movwf	___aldiv@dividend+1,c
+   540  0000B8  0EF4               	movlw	244
+   541  0000BA  5420               	subfwb	??_UART_Init+2,w,c
+   542  0000BC  6E0E               	movwf	___aldiv@dividend+2,c
+   543  0000BE  0E00               	movlw	0
+   544  0000C0  5421               	subfwb	??_UART_Init+3,w,c
+   545  0000C2  6E0F               	movwf	___aldiv@dividend+3,c
+   546  0000C4  C01A  F022         	movff	UART_Init@baudrate,??_UART_Init+4
+   547  0000C8  C01B  F023         	movff	UART_Init@baudrate+1,??_UART_Init+5
+   548  0000CC  C01C  F024         	movff	UART_Init@baudrate+2,??_UART_Init+6
+   549  0000D0  C01D  F025         	movff	UART_Init@baudrate+3,??_UART_Init+7
+   550  0000D4  0E04               	movlw	4
+   551  0000D6                     u425:
+   552  0000D6  90D8               	bcf	status,0,c
+   553  0000D8  3622               	rlcf	??_UART_Init+4,f,c
+   554  0000DA  3623               	rlcf	??_UART_Init+5,f,c
+   555  0000DC  3624               	rlcf	??_UART_Init+6,f,c
+   556  0000DE  3625               	rlcf	??_UART_Init+7,f,c
+   557  0000E0  2EE8               	decfsz	wreg,f,c
+   558  0000E2  D7F9               	goto	u425
+   559  0000E4  C022  F010         	movff	??_UART_Init+4,___aldiv@divisor
+   560  0000E8  C023  F011         	movff	??_UART_Init+5,___aldiv@divisor+1
+   561  0000EC  C024  F012         	movff	??_UART_Init+6,___aldiv@divisor+2
+   562  0000F0  C025  F013         	movff	??_UART_Init+7,___aldiv@divisor+3
+   563  0000F4  EC8D  F000         	call	___aldiv	;wreg free
+   564  0000F8  C00C  F033         	movff	?___aldiv,_x
+   565  0000FC  C00D  F034         	movff	?___aldiv+1,_x+1
+   566                           
+   567                           ;comunicacao.c: 38: 
+   568  000100  84AC               	bsf	4012,2,c	;volatile
+   569  000102                     l1032:
+   570                           
+   571                           ;comunicacao.c: 40: {
+   572  000102  0434               	decf	_x+1,w,c
+   573  000104  B0D8               	btfsc	status,0,c
+   574  000106  0012               	return	
+   575                           
+   576                           ;comunicacao.c: 41:     int retorno=9;;comunicacao.c: 42:   while(!RCIF);
+   577  000108  C033  FFAF         	movff	_x,4015	;volatile
+   578                           
+   579                           ;comunicacao.c: 43:   retorno = RCREG;
+   580  00010C  98AC               	bcf	4012,4,c	;volatile
+   581                           
+   582                           ;comunicacao.c: 44: 
+   583  00010E  8EAB               	bsf	4011,7,c	;volatile
+   584                           
+   585                           ;comunicacao.c: 45:   if (RCREG == '1'){
+   586  000110  8E94               	bsf	3988,7,c	;volatile
+   587                           
+   588                           ;comunicacao.c: 46:       retorno = 1;
+   589  000112  8C94               	bsf	3988,6,c	;volatile
+   590                           
+   591                           ;comunicacao.c: 47:   }
+   592  000114  88AB               	bsf	4011,4,c	;volatile
+   593                           
+   594                           ;comunicacao.c: 48: 
+   595  000116  8AAC               	bsf	4012,5,c	;volatile
+   596                           
+   597                           ;comunicacao.c: 49:   if (RCREG == '2'){;	Return value of _UART_Init is never used
+   598  000118  0012               	return		;funcret
+   599  00011A                     __end_of_UART_Init:
+   600                           	opt callstack 0
+   601                           
+   602 ;; *************** function ___aldiv *****************
+   603 ;; Defined at:
+   604 ;;		line 7 in file "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c"
+   605 ;; Parameters:    Size  Location     Type
+   606 ;;  dividend        4   11[COMRAM] long 
+   607 ;;  divisor         4   15[COMRAM] long 
+   608 ;; Auto vars:     Size  Location     Type
+   609 ;;  quotient        4   21[COMRAM] long 
+   610 ;;  sign            1   20[COMRAM] unsigned char 
+   611 ;;  counter         1   19[COMRAM] unsigned char 
+   612 ;; Return value:  Size  Location     Type
+   613 ;;                  4   11[COMRAM] long 
+   614 ;; Registers used:
+   615 ;;		wreg, status,2, status,0
+   616 ;; Tracked objects:
+   617 ;;		On entry : 0/0
+   618 ;;		On exit  : 0/0
+   619 ;;		Unchanged: 0/0
+   620 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   621 ;;      Params:         8       0       0       0       0       0       0
+   622 ;;      Locals:         6       0       0       0       0       0       0
+   623 ;;      Temps:          0       0       0       0       0       0       0
+   624 ;;      Totals:        14       0       0       0       0       0       0
+   625 ;;Total ram usage:       14 bytes
+   626 ;; Hardware stack levels used:    1
+   627 ;; Hardware stack levels required when called:    3
+   628 ;; This function calls:
+   629 ;;		Nothing
+   630 ;; This function is called by:
+   631 ;;		_UART_Init
+   632 ;; This function uses a non-reentrant model
+   633 ;;
+   634                           
+   635                           	psect	text3
+   636  00011A                     __ptext3:
+   637                           	opt callstack 0
+   638  00011A                     ___aldiv:
+   639                           	opt callstack 26
+   640                           
+   641                           ;incstack = 0
+   642  00011A  0E00               	movlw	0
+   643  00011C  6E15               	movwf	___aldiv@sign,c
+   644  00011E  AE13               	btfss	___aldiv@divisor+3,7,c
+   645  000120  D00A               	goto	l988
+   646  000122  1E13               	comf	___aldiv@divisor+3,f,c
+   647  000124  1E12               	comf	___aldiv@divisor+2,f,c
+   648  000126  1E11               	comf	___aldiv@divisor+1,f,c
+   649  000128  6C10               	negf	___aldiv@divisor,c
+   650  00012A  0E00               	movlw	0
+   651  00012C  2211               	addwfc	___aldiv@divisor+1,f,c
+   652  00012E  2212               	addwfc	___aldiv@divisor+2,f,c
+   653  000130  2213               	addwfc	___aldiv@divisor+3,f,c
+   654  000132  0E01               	movlw	1
+   655  000134  6E15               	movwf	___aldiv@sign,c
+   656  000136                     l988:
+   657  000136  AE0F               	btfss	___aldiv@dividend+3,7,c
+   658  000138  D00A               	goto	l994
+   659  00013A  1E0F               	comf	___aldiv@dividend+3,f,c
+   660  00013C  1E0E               	comf	___aldiv@dividend+2,f,c
+   661  00013E  1E0D               	comf	___aldiv@dividend+1,f,c
+   662  000140  6C0C               	negf	___aldiv@dividend,c
+   663  000142  0E00               	movlw	0
+   664  000144  220D               	addwfc	___aldiv@dividend+1,f,c
+   665  000146  220E               	addwfc	___aldiv@dividend+2,f,c
+   666  000148  220F               	addwfc	___aldiv@dividend+3,f,c
+   667  00014A  0E01               	movlw	1
+   668  00014C  1A15               	xorwf	___aldiv@sign,f,c
+   669  00014E                     l994:
+   670  00014E  0E00               	movlw	0
+   671  000150  6E16               	movwf	___aldiv@quotient,c
+   672  000152  0E00               	movlw	0
+   673  000154  6E17               	movwf	___aldiv@quotient+1,c
+   674  000156  0E00               	movlw	0
+   675  000158  6E18               	movwf	___aldiv@quotient+2,c
+   676  00015A  0E00               	movlw	0
+   677  00015C  6E19               	movwf	___aldiv@quotient+3,c
+   678  00015E  5010               	movf	___aldiv@divisor,w,c
+   679  000160  1011               	iorwf	___aldiv@divisor+1,w,c
+   680  000162  1012               	iorwf	___aldiv@divisor+2,w,c
+   681  000164  1013               	iorwf	___aldiv@divisor+3,w,c
+   682  000166  B4D8               	btfsc	status,2,c
+   683  000168  D02A               	goto	l1016
+   684  00016A  0E01               	movlw	1
+   685  00016C  6E14               	movwf	___aldiv@counter,c
+   686  00016E  D006               	goto	l1002
+   687  000170                     l1000:
+   688  000170  90D8               	bcf	status,0,c
+   689  000172  3610               	rlcf	___aldiv@divisor,f,c
+   690  000174  3611               	rlcf	___aldiv@divisor+1,f,c
+   691  000176  3612               	rlcf	___aldiv@divisor+2,f,c
+   692  000178  3613               	rlcf	___aldiv@divisor+3,f,c
+   693  00017A  2A14               	incf	___aldiv@counter,f,c
+   694  00017C                     l1002:
+   695  00017C  AE13               	btfss	___aldiv@divisor+3,7,c
+   696  00017E  D7F8               	goto	l1000
+   697  000180                     u350:
+   698  000180  90D8               	bcf	status,0,c
+   699  000182  3616               	rlcf	___aldiv@quotient,f,c
+   700  000184  3617               	rlcf	___aldiv@quotient+1,f,c
+   701  000186  3618               	rlcf	___aldiv@quotient+2,f,c
+   702  000188  3619               	rlcf	___aldiv@quotient+3,f,c
+   703  00018A  5010               	movf	___aldiv@divisor,w,c
+   704  00018C  5C0C               	subwf	___aldiv@dividend,w,c
+   705  00018E  5011               	movf	___aldiv@divisor+1,w,c
+   706  000190  580D               	subwfb	___aldiv@dividend+1,w,c
+   707  000192  5012               	movf	___aldiv@divisor+2,w,c
+   708  000194  580E               	subwfb	___aldiv@dividend+2,w,c
+   709  000196  5013               	movf	___aldiv@divisor+3,w,c
+   710  000198  580F               	subwfb	___aldiv@dividend+3,w,c
+   711  00019A  A0D8               	btfss	status,0,c
+   712  00019C  D009               	goto	l1012
+   713  00019E  5010               	movf	___aldiv@divisor,w,c
+   714  0001A0  5E0C               	subwf	___aldiv@dividend,f,c
+   715  0001A2  5011               	movf	___aldiv@divisor+1,w,c
+   716  0001A4  5A0D               	subwfb	___aldiv@dividend+1,f,c
+   717  0001A6  5012               	movf	___aldiv@divisor+2,w,c
+   718  0001A8  5A0E               	subwfb	___aldiv@dividend+2,f,c
+   719  0001AA  5013               	movf	___aldiv@divisor+3,w,c
+   720  0001AC  5A0F               	subwfb	___aldiv@dividend+3,f,c
+   721  0001AE  8016               	bsf	___aldiv@quotient,0,c
+   722  0001B0                     l1012:
+   723  0001B0  90D8               	bcf	status,0,c
+   724  0001B2  3213               	rrcf	___aldiv@divisor+3,f,c
+   725  0001B4  3212               	rrcf	___aldiv@divisor+2,f,c
+   726  0001B6  3211               	rrcf	___aldiv@divisor+1,f,c
+   727  0001B8  3210               	rrcf	___aldiv@divisor,f,c
+   728  0001BA  2E14               	decfsz	___aldiv@counter,f,c
+   729  0001BC  D7E1               	goto	u350
+   730  0001BE                     l1016:
+   731  0001BE  5015               	movf	___aldiv@sign,w,c
+   732  0001C0  B4D8               	btfsc	status,2,c
+   733  0001C2  D008               	goto	l1020
+   734  0001C4  1E19               	comf	___aldiv@quotient+3,f,c
+   735  0001C6  1E18               	comf	___aldiv@quotient+2,f,c
+   736  0001C8  1E17               	comf	___aldiv@quotient+1,f,c
+   737  0001CA  6C16               	negf	___aldiv@quotient,c
+   738  0001CC  0E00               	movlw	0
+   739  0001CE  2217               	addwfc	___aldiv@quotient+1,f,c
+   740  0001D0  2218               	addwfc	___aldiv@quotient+2,f,c
+   741  0001D2  2219               	addwfc	___aldiv@quotient+3,f,c
+   742  0001D4                     l1020:
+   743  0001D4  C016  F00C         	movff	___aldiv@quotient,?___aldiv
+   744  0001D8  C017  F00D         	movff	___aldiv@quotient+1,?___aldiv+1
+   745  0001DC  C018  F00E         	movff	___aldiv@quotient+2,?___aldiv+2
+   746  0001E0  C019  F00F         	movff	___aldiv@quotient+3,?___aldiv+3
+   747  0001E4  0012               	return		;funcret
+   748  0001E6                     __end_of___aldiv:
+   749                           	opt callstack 0
    750                           
-   751                           ;comunicacao.c: 35:   return RCIF;;comunicacao.c: 36: }
-   752  00008C  C01A  F01E         	movff	UART_Init@baudrate,??_UART_Init
-   753  000090  C01B  F01F         	movff	UART_Init@baudrate+1,??_UART_Init+1
-   754  000094  C01C  F020         	movff	UART_Init@baudrate+2,??_UART_Init+2
-   755  000098  C01D  F021         	movff	UART_Init@baudrate+3,??_UART_Init+3
-   756  00009C  0E04               	movlw	4
-   757  00009E                     u565:
-   758  00009E  90D8               	bcf	status,0,c
-   759  0000A0  361E               	rlcf	??_UART_Init,f,c
-   760  0000A2  361F               	rlcf	??_UART_Init+1,f,c
-   761  0000A4  3620               	rlcf	??_UART_Init+2,f,c
-   762  0000A6  3621               	rlcf	??_UART_Init+3,f,c
-   763  0000A8  2EE8               	decfsz	wreg,f,c
-   764  0000AA  D7F9               	goto	u565
-   765  0000AC  501E               	movf	??_UART_Init,w,c
-   766  0000AE  0800               	sublw	0
-   767  0000B0  6E0C               	movwf	___aldiv@dividend,c
-   768  0000B2  0E24               	movlw	36
-   769  0000B4  541F               	subfwb	??_UART_Init+1,w,c
-   770  0000B6  6E0D               	movwf	___aldiv@dividend+1,c
-   771  0000B8  0EF4               	movlw	244
-   772  0000BA  5420               	subfwb	??_UART_Init+2,w,c
-   773  0000BC  6E0E               	movwf	___aldiv@dividend+2,c
-   774  0000BE  0E00               	movlw	0
-   775  0000C0  5421               	subfwb	??_UART_Init+3,w,c
-   776  0000C2  6E0F               	movwf	___aldiv@dividend+3,c
-   777  0000C4  C01A  F022         	movff	UART_Init@baudrate,??_UART_Init+4
-   778  0000C8  C01B  F023         	movff	UART_Init@baudrate+1,??_UART_Init+5
-   779  0000CC  C01C  F024         	movff	UART_Init@baudrate+2,??_UART_Init+6
-   780  0000D0  C01D  F025         	movff	UART_Init@baudrate+3,??_UART_Init+7
-   781  0000D4  0E04               	movlw	4
-   782  0000D6                     u575:
-   783  0000D6  90D8               	bcf	status,0,c
-   784  0000D8  3622               	rlcf	??_UART_Init+4,f,c
-   785  0000DA  3623               	rlcf	??_UART_Init+5,f,c
-   786  0000DC  3624               	rlcf	??_UART_Init+6,f,c
-   787  0000DE  3625               	rlcf	??_UART_Init+7,f,c
-   788  0000E0  2EE8               	decfsz	wreg,f,c
-   789  0000E2  D7F9               	goto	u575
-   790  0000E4  C022  F010         	movff	??_UART_Init+4,___aldiv@divisor
-   791  0000E8  C023  F011         	movff	??_UART_Init+5,___aldiv@divisor+1
-   792  0000EC  C024  F012         	movff	??_UART_Init+6,___aldiv@divisor+2
-   793  0000F0  C025  F013         	movff	??_UART_Init+7,___aldiv@divisor+3
-   794  0000F4  EC06  F001         	call	___aldiv	;wreg free
-   795  0000F8  C00C  F039         	movff	?___aldiv,_x
-   796  0000FC  C00D  F03A         	movff	?___aldiv+1,_x+1
-   797                           
-   798                           ;comunicacao.c: 37: 
-   799  000100  84AC               	bsf	4012,2,c	;volatile
-   800  000102                     l1148:
-   801                           
-   802                           ;comunicacao.c: 39: {
-   803  000102  043A               	decf	_x+1,w,c
-   804  000104  B0D8               	btfsc	status,0,c
-   805  000106  0012               	return	
+   751 ;; *************** function _tratamento *****************
+   752 ;; Defined at:
+   753 ;;		line 148 in file "comunicacao.c"
+   754 ;; Parameters:    Size  Location     Type
+   755 ;;		None
+   756 ;; Auto vars:     Size  Location     Type
+   757 ;;		None
+   758 ;; Return value:  Size  Location     Type
+   759 ;;                  1    wreg      void 
+   760 ;; Registers used:
+   761 ;;		wreg, status,2, status,0, prodl, prodh, cstack
+   762 ;; Tracked objects:
+   763 ;;		On entry : 0/0
+   764 ;;		On exit  : 0/0
+   765 ;;		Unchanged: 0/0
+   766 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   767 ;;      Params:         0       0       0       0       0       0       0
+   768 ;;      Locals:         0       0       0       0       0       0       0
+   769 ;;      Temps:          2       0       0       0       0       0       0
+   770 ;;      Totals:         2       0       0       0       0       0       0
+   771 ;;Total ram usage:        2 bytes
+   772 ;; Hardware stack levels used:    1
+   773 ;; Hardware stack levels required when called:    2
+   774 ;; This function calls:
+   775 ;;		_faz_a_coisa
+   776 ;; This function is called by:
+   777 ;;		Interrupt level 2
+   778 ;; This function uses a non-reentrant model
+   779 ;;
+   780                           
+   781                           	psect	intcode
+   782  000008                     __pintcode:
+   783                           	opt callstack 0
+   784  000008                     _tratamento:
+   785                           	opt callstack 26
+   786                           
+   787                           ;incstack = 0
+   788  000008  8235               	bsf	btemp,1,c	;set compiler interrupt flag (level 2)
+   789  00000A  EDE2  F001         	call	int_func,f	;refresh shadow registers
+   790                           
+   791                           	psect	intcode_body
+   792  0003C4                     __pintcode_body:
+   793                           	opt callstack 26
+   794  0003C4                     int_func:
+   795                           	opt callstack 26
+   796  0003C4  0006               	pop		; remove dummy address from shadow register refresh
+   797  0003C6  CFF3 F00A          	movff	prodl,??_tratamento
+   798  0003CA  CFF4 F00B          	movff	prodh,??_tratamento+1
+   799                           
+   800                           ;comunicacao.c: 149:     if(RCIF){
+   801  0003CE  AA9E               	btfss	3998,5,c	;volatile
+   802  0003D0  D003               	goto	i2l87
+   803                           
+   804                           ;comunicacao.c: 150:         RCIF=0;
+   805  0003D2  9A9E               	bcf	3998,5,c	;volatile
    806                           
-   807                           ;comunicacao.c: 40:     int retorno=9;;comunicacao.c: 41:   while(!RCIF);
-   808  000108  C039  FFAF         	movff	_x,4015	;volatile
-   809                           
-   810                           ;comunicacao.c: 42:   retorno = RCREG;
-   811  00010C  98AC               	bcf	4012,4,c	;volatile
-   812                           
-   813                           ;comunicacao.c: 43: 
-   814  00010E  8EAB               	bsf	4011,7,c	;volatile
-   815                           
-   816                           ;comunicacao.c: 44:   if (RCREG == '1'){
-   817  000110  8E94               	bsf	3988,7,c	;volatile
-   818                           
-   819                           ;comunicacao.c: 45:       retorno = 1;
-   820  000112  8C94               	bsf	3988,6,c	;volatile
-   821                           
-   822                           ;comunicacao.c: 46:   }
-   823  000114  88AB               	bsf	4011,4,c	;volatile
-   824                           
-   825                           ;comunicacao.c: 47: 
-   826  000116  8AAC               	bsf	4012,5,c	;volatile
-   827                           
-   828                           ;comunicacao.c: 48:   if (RCREG == '2'){;	Return value of _UART_Init is never used
-   829  000118  0012               	return		;funcret
-   830  00011A                     __end_of_UART_Init:
-   831                           	opt callstack 0
-   832                           
-   833 ;; *************** function ___aldiv *****************
-   834 ;; Defined at:
-   835 ;;		line 7 in file "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c"
-   836 ;; Parameters:    Size  Location     Type
-   837 ;;  dividend        4   11[COMRAM] long 
-   838 ;;  divisor         4   15[COMRAM] long 
-   839 ;; Auto vars:     Size  Location     Type
-   840 ;;  quotient        4   21[COMRAM] long 
-   841 ;;  sign            1   20[COMRAM] unsigned char 
-   842 ;;  counter         1   19[COMRAM] unsigned char 
-   843 ;; Return value:  Size  Location     Type
-   844 ;;                  4   11[COMRAM] long 
-   845 ;; Registers used:
-   846 ;;		wreg, status,2, status,0
-   847 ;; Tracked objects:
-   848 ;;		On entry : 0/0
-   849 ;;		On exit  : 0/0
-   850 ;;		Unchanged: 0/0
-   851 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-   852 ;;      Params:         8       0       0       0       0       0       0
-   853 ;;      Locals:         6       0       0       0       0       0       0
-   854 ;;      Temps:          0       0       0       0       0       0       0
-   855 ;;      Totals:        14       0       0       0       0       0       0
-   856 ;;Total ram usage:       14 bytes
-   857 ;; Hardware stack levels used:    1
-   858 ;; Hardware stack levels required when called:    3
-   859 ;; This function calls:
-   860 ;;		Nothing
-   861 ;; This function is called by:
-   862 ;;		_UART_Init
-   863 ;; This function uses a non-reentrant model
-   864 ;;
-   865                           
-   866                           	psect	text4
-   867  00020C                     __ptext4:
-   868                           	opt callstack 0
-   869  00020C                     ___aldiv:
-   870                           	opt callstack 26
-   871                           
-   872                           ;incstack = 0
-   873  00020C  0E00               	movlw	0
-   874  00020E  6E15               	movwf	___aldiv@sign,c
-   875  000210  AE13               	btfss	___aldiv@divisor+3,7,c
-   876  000212  D00A               	goto	l1104
-   877  000214  1E13               	comf	___aldiv@divisor+3,f,c
-   878  000216  1E12               	comf	___aldiv@divisor+2,f,c
-   879  000218  1E11               	comf	___aldiv@divisor+1,f,c
-   880  00021A  6C10               	negf	___aldiv@divisor,c
-   881  00021C  0E00               	movlw	0
-   882  00021E  2211               	addwfc	___aldiv@divisor+1,f,c
-   883  000220  2212               	addwfc	___aldiv@divisor+2,f,c
-   884  000222  2213               	addwfc	___aldiv@divisor+3,f,c
-   885  000224  0E01               	movlw	1
-   886  000226  6E15               	movwf	___aldiv@sign,c
-   887  000228                     l1104:
-   888  000228  AE0F               	btfss	___aldiv@dividend+3,7,c
-   889  00022A  D00A               	goto	l1110
-   890  00022C  1E0F               	comf	___aldiv@dividend+3,f,c
-   891  00022E  1E0E               	comf	___aldiv@dividend+2,f,c
-   892  000230  1E0D               	comf	___aldiv@dividend+1,f,c
-   893  000232  6C0C               	negf	___aldiv@dividend,c
-   894  000234  0E00               	movlw	0
-   895  000236  220D               	addwfc	___aldiv@dividend+1,f,c
-   896  000238  220E               	addwfc	___aldiv@dividend+2,f,c
-   897  00023A  220F               	addwfc	___aldiv@dividend+3,f,c
-   898  00023C  0E01               	movlw	1
-   899  00023E  1A15               	xorwf	___aldiv@sign,f,c
-   900  000240                     l1110:
-   901  000240  0E00               	movlw	0
-   902  000242  6E16               	movwf	___aldiv@quotient,c
-   903  000244  0E00               	movlw	0
-   904  000246  6E17               	movwf	___aldiv@quotient+1,c
-   905  000248  0E00               	movlw	0
-   906  00024A  6E18               	movwf	___aldiv@quotient+2,c
-   907  00024C  0E00               	movlw	0
-   908  00024E  6E19               	movwf	___aldiv@quotient+3,c
-   909  000250  5010               	movf	___aldiv@divisor,w,c
-   910  000252  1011               	iorwf	___aldiv@divisor+1,w,c
-   911  000254  1012               	iorwf	___aldiv@divisor+2,w,c
-   912  000256  1013               	iorwf	___aldiv@divisor+3,w,c
-   913  000258  B4D8               	btfsc	status,2,c
-   914  00025A  D02A               	goto	l1132
-   915  00025C  0E01               	movlw	1
-   916  00025E  6E14               	movwf	___aldiv@counter,c
-   917  000260  D006               	goto	l1118
-   918  000262                     l1116:
-   919  000262  90D8               	bcf	status,0,c
-   920  000264  3610               	rlcf	___aldiv@divisor,f,c
-   921  000266  3611               	rlcf	___aldiv@divisor+1,f,c
-   922  000268  3612               	rlcf	___aldiv@divisor+2,f,c
-   923  00026A  3613               	rlcf	___aldiv@divisor+3,f,c
-   924  00026C  2A14               	incf	___aldiv@counter,f,c
-   925  00026E                     l1118:
-   926  00026E  AE13               	btfss	___aldiv@divisor+3,7,c
-   927  000270  D7F8               	goto	l1116
-   928  000272                     u500:
-   929  000272  90D8               	bcf	status,0,c
-   930  000274  3616               	rlcf	___aldiv@quotient,f,c
-   931  000276  3617               	rlcf	___aldiv@quotient+1,f,c
-   932  000278  3618               	rlcf	___aldiv@quotient+2,f,c
-   933  00027A  3619               	rlcf	___aldiv@quotient+3,f,c
-   934  00027C  5010               	movf	___aldiv@divisor,w,c
-   935  00027E  5C0C               	subwf	___aldiv@dividend,w,c
-   936  000280  5011               	movf	___aldiv@divisor+1,w,c
-   937  000282  580D               	subwfb	___aldiv@dividend+1,w,c
-   938  000284  5012               	movf	___aldiv@divisor+2,w,c
-   939  000286  580E               	subwfb	___aldiv@dividend+2,w,c
-   940  000288  5013               	movf	___aldiv@divisor+3,w,c
-   941  00028A  580F               	subwfb	___aldiv@dividend+3,w,c
-   942  00028C  A0D8               	btfss	status,0,c
-   943  00028E  D009               	goto	l1128
-   944  000290  5010               	movf	___aldiv@divisor,w,c
-   945  000292  5E0C               	subwf	___aldiv@dividend,f,c
-   946  000294  5011               	movf	___aldiv@divisor+1,w,c
-   947  000296  5A0D               	subwfb	___aldiv@dividend+1,f,c
-   948  000298  5012               	movf	___aldiv@divisor+2,w,c
-   949  00029A  5A0E               	subwfb	___aldiv@dividend+2,f,c
-   950  00029C  5013               	movf	___aldiv@divisor+3,w,c
-   951  00029E  5A0F               	subwfb	___aldiv@dividend+3,f,c
-   952  0002A0  8016               	bsf	___aldiv@quotient,0,c
-   953  0002A2                     l1128:
-   954  0002A2  90D8               	bcf	status,0,c
-   955  0002A4  3213               	rrcf	___aldiv@divisor+3,f,c
-   956  0002A6  3212               	rrcf	___aldiv@divisor+2,f,c
-   957  0002A8  3211               	rrcf	___aldiv@divisor+1,f,c
-   958  0002AA  3210               	rrcf	___aldiv@divisor,f,c
-   959  0002AC  2E14               	decfsz	___aldiv@counter,f,c
-   960  0002AE  D7E1               	goto	u500
-   961  0002B0                     l1132:
-   962  0002B0  5015               	movf	___aldiv@sign,w,c
-   963  0002B2  B4D8               	btfsc	status,2,c
-   964  0002B4  D008               	goto	l1136
-   965  0002B6  1E19               	comf	___aldiv@quotient+3,f,c
-   966  0002B8  1E18               	comf	___aldiv@quotient+2,f,c
-   967  0002BA  1E17               	comf	___aldiv@quotient+1,f,c
-   968  0002BC  6C16               	negf	___aldiv@quotient,c
-   969  0002BE  0E00               	movlw	0
-   970  0002C0  2217               	addwfc	___aldiv@quotient+1,f,c
-   971  0002C2  2218               	addwfc	___aldiv@quotient+2,f,c
-   972  0002C4  2219               	addwfc	___aldiv@quotient+3,f,c
-   973  0002C6                     l1136:
-   974  0002C6  C016  F00C         	movff	___aldiv@quotient,?___aldiv
-   975  0002CA  C017  F00D         	movff	___aldiv@quotient+1,?___aldiv+1
-   976  0002CE  C018  F00E         	movff	___aldiv@quotient+2,?___aldiv+2
-   977  0002D2  C019  F00F         	movff	___aldiv@quotient+3,?___aldiv+3
-   978  0002D6  0012               	return		;funcret
-   979  0002D8                     __end_of___aldiv:
-   980                           	opt callstack 0
-   981                           
-   982 ;; *************** function _tratamento *****************
-   983 ;; Defined at:
-   984 ;;		line 144 in file "comunicacao.c"
-   985 ;; Parameters:    Size  Location     Type
-   986 ;;		None
-   987 ;; Auto vars:     Size  Location     Type
-   988 ;;		None
-   989 ;; Return value:  Size  Location     Type
-   990 ;;                  1    wreg      void 
-   991 ;; Registers used:
-   992 ;;		wreg, status,2, status,0, prodl, prodh, cstack
-   993 ;; Tracked objects:
-   994 ;;		On entry : 0/0
-   995 ;;		On exit  : 0/0
-   996 ;;		Unchanged: 0/0
-   997 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-   998 ;;      Params:         0       0       0       0       0       0       0
-   999 ;;      Locals:         0       0       0       0       0       0       0
-  1000 ;;      Temps:          2       0       0       0       0       0       0
-  1001 ;;      Totals:         2       0       0       0       0       0       0
-  1002 ;;Total ram usage:        2 bytes
-  1003 ;; Hardware stack levels used:    1
-  1004 ;; Hardware stack levels required when called:    2
-  1005 ;; This function calls:
-  1006 ;;		_faz_a_coisa
-  1007 ;; This function is called by:
-  1008 ;;		Interrupt level 2
-  1009 ;; This function uses a non-reentrant model
-  1010 ;;
-  1011                           
-  1012                           	psect	intcode
-  1013  000008                     __pintcode:
-  1014                           	opt callstack 0
-  1015  000008                     _tratamento:
-  1016                           	opt callstack 26
-  1017                           
-  1018                           ;incstack = 0
-  1019  000008  823B               	bsf	btemp,1,c	;set compiler interrupt flag (level 2)
-  1020  00000A  EDD1  F002         	call	int_func,f	;refresh shadow registers
-  1021                           
-  1022                           	psect	intcode_body
-  1023  0005A2                     __pintcode_body:
-  1024                           	opt callstack 26
-  1025  0005A2                     int_func:
-  1026                           	opt callstack 26
-  1027  0005A2  0006               	pop		; remove dummy address from shadow register refresh
-  1028  0005A4  CFF3 F00A          	movff	prodl,??_tratamento
-  1029  0005A8  CFF4 F00B          	movff	prodh,??_tratamento+1
-  1030                           
-  1031                           ;comunicacao.c: 152: 
-  1032  0005AC  AA9E               	btfss	3998,5,c	;volatile
-  1033  0005AE  D003               	goto	i2l98
-  1034                           
-  1035                           ;comunicacao.c: 153: void main(void) {
-  1036  0005B0  9A9E               	bcf	3998,5,c	;volatile
-  1037                           
-  1038                           ;comunicacao.c: 154: 
-  1039  0005B2  EC8D  F000         	call	_faz_a_coisa	;wreg free
-  1040  0005B6                     i2l98:
-  1041  0005B6  C00B  FFF4         	movff	??_tratamento+1,prodh
-  1042  0005BA  C00A  FFF3         	movff	??_tratamento,prodl
-  1043  0005BE  923B               	bcf	btemp,1,c	;clear compiler interrupt flag (level 2)
-  1044  0005C0  0011               	retfie		f
-  1045  0005C2                     __end_of_tratamento:
-  1046                           	opt callstack 0
-  1047                           
-  1048 ;; *************** function _faz_a_coisa *****************
-  1049 ;; Defined at:
-  1050 ;;		line 110 in file "comunicacao.c"
-  1051 ;; Parameters:    Size  Location     Type
-  1052 ;;		None
-  1053 ;; Auto vars:     Size  Location     Type
-  1054 ;;  valor           2    7[COMRAM] int 
-  1055 ;; Return value:  Size  Location     Type
-  1056 ;;                  1    wreg      void 
-  1057 ;; Registers used:
-  1058 ;;		wreg, status,2, status,0, prodl, prodh, cstack
-  1059 ;; Tracked objects:
-  1060 ;;		On entry : 0/0
-  1061 ;;		On exit  : 0/0
-  1062 ;;		Unchanged: 0/0
-  1063 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-  1064 ;;      Params:         0       0       0       0       0       0       0
-  1065 ;;      Locals:         2       0       0       0       0       0       0
-  1066 ;;      Temps:          1       0       0       0       0       0       0
-  1067 ;;      Totals:         3       0       0       0       0       0       0
-  1068 ;;Total ram usage:        3 bytes
-  1069 ;; Hardware stack levels used:    1
-  1070 ;; Hardware stack levels required when called:    1
-  1071 ;; This function calls:
-  1072 ;;		_UART_Read
-  1073 ;;		___wmul
-  1074 ;; This function is called by:
-  1075 ;;		_tratamento
-  1076 ;; This function uses a non-reentrant model
-  1077 ;;
+   807                           ;comunicacao.c: 151:         faz_a_coisa();
+   808  0003D4  EC95  F001         	call	_faz_a_coisa	;wreg free
+   809  0003D8                     i2l87:
+   810  0003D8  C00B  FFF4         	movff	??_tratamento+1,prodh
+   811  0003DC  C00A  FFF3         	movff	??_tratamento,prodl
+   812  0003E0  9235               	bcf	btemp,1,c	;clear compiler interrupt flag (level 2)
+   813  0003E2  0011               	retfie		f
+   814  0003E4                     __end_of_tratamento:
+   815                           	opt callstack 0
+   816                           
+   817 ;; *************** function _faz_a_coisa *****************
+   818 ;; Defined at:
+   819 ;;		line 111 in file "comunicacao.c"
+   820 ;; Parameters:    Size  Location     Type
+   821 ;;		None
+   822 ;; Auto vars:     Size  Location     Type
+   823 ;;  valor           2    7[COMRAM] int 
+   824 ;; Return value:  Size  Location     Type
+   825 ;;                  1    wreg      void 
+   826 ;; Registers used:
+   827 ;;		wreg, status,2, status,0, prodl, prodh, cstack
+   828 ;; Tracked objects:
+   829 ;;		On entry : 0/0
+   830 ;;		On exit  : 0/0
+   831 ;;		Unchanged: 0/0
+   832 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   833 ;;      Params:         0       0       0       0       0       0       0
+   834 ;;      Locals:         2       0       0       0       0       0       0
+   835 ;;      Temps:          1       0       0       0       0       0       0
+   836 ;;      Totals:         3       0       0       0       0       0       0
+   837 ;;Total ram usage:        3 bytes
+   838 ;; Hardware stack levels used:    1
+   839 ;; Hardware stack levels required when called:    1
+   840 ;; This function calls:
+   841 ;;		_UART_Read
+   842 ;;		___wmul
+   843 ;; This function is called by:
+   844 ;;		_tratamento
+   845 ;; This function uses a non-reentrant model
+   846 ;;
+   847                           
+   848                           	psect	text5
+   849  00032A                     __ptext5:
+   850                           	opt callstack 0
+   851  00032A                     _faz_a_coisa:
+   852                           	opt callstack 26
+   853                           
+   854                           ;incstack = 0
+   855  00032A  ECF3  F000         	call	_UART_Read	;wreg free
+   856  00032E  6E07               	movwf	??_faz_a_coisa& (0+255),c
+   857  000330  5007               	movf	??_faz_a_coisa,w,c
+   858  000332  6E08               	movwf	faz_a_coisa@valor,c
+   859  000334  6A09               	clrf	faz_a_coisa@valor+1,c
+   860  000336  5031               	movf	_contador,w,c
+   861  000338  1032               	iorwf	_contador+1,w,c
+   862  00033A  A4D8               	btfss	status,2,c
+   863  00033C  D00B               	goto	i2l1046
+   864  00033E  0E0A               	movlw	10
+   865  000340  1808               	xorwf	faz_a_coisa@valor,w,c
+   866  000342  1009               	iorwf	faz_a_coisa@valor+1,w,c
+   867  000344  A4D8               	btfss	status,2,c
+   868  000346  D002               	goto	i2l75
+   869  000348  9A83               	bcf	3971,5,c	;volatile
+   870  00034A  D001               	goto	i2l1044
+   871  00034C                     i2l75:
+   872  00034C  8A83               	bsf	3971,5,c	;volatile
+   873  00034E                     i2l1044:
+   874  00034E  4A31               	infsnz	_contador,f,c
+   875  000350  2A32               	incf	_contador+1,f,c
+   876  000352  0012               	return	
+   877  000354                     i2l1046:
+   878  000354  0431               	decf	_contador,w,c
+   879  000356  1032               	iorwf	_contador+1,w,c
+   880  000358  A4D8               	btfss	status,2,c
+   881  00035A  D00F               	goto	i2l1052
+   882  00035C  C008  F001         	movff	faz_a_coisa@valor,___wmul@multiplier
+   883  000360  C009  F002         	movff	faz_a_coisa@valor+1,___wmul@multiplier+1
+   884  000364  0E00               	movlw	0
+   885  000366  6E04               	movwf	___wmul@multiplicand+1,c
+   886  000368  0E0A               	movlw	10
+   887  00036A  6E03               	movwf	___wmul@multiplicand,c
+   888  00036C  ECCF  F001         	call	___wmul	;wreg free
+   889  000370  C001  F02B         	movff	?___wmul,_valorRes
+   890  000374  C002  F02C         	movff	?___wmul+1,_valorRes+1
+   891  000378  D7EA               	goto	i2l1044
+   892  00037A                     i2l1052:
+   893  00037A  0E02               	movlw	2
+   894  00037C  1831               	xorwf	_contador,w,c
+   895  00037E  1032               	iorwf	_contador+1,w,c
+   896  000380  A4D8               	btfss	status,2,c
+   897  000382  0012               	return	
+   898  000384  5008               	movf	faz_a_coisa@valor,w,c
+   899  000386  262B               	addwf	_valorRes,f,c
+   900  000388  5009               	movf	faz_a_coisa@valor+1,w,c
+   901  00038A  222C               	addwfc	_valorRes+1,f,c
+   902  00038C  0E00               	movlw	0
+   903  00038E  6E32               	movwf	_contador+1,c
+   904  000390  0E00               	movlw	0
+   905  000392  6E31               	movwf	_contador,c
+   906  000394  0E00               	movlw	0
+   907  000396  6E30               	movwf	_vai+1,c
+   908  000398  0E01               	movlw	1
+   909  00039A  6E2F               	movwf	_vai,c
+   910  00039C  0012               	return		;funcret
+   911  00039E                     __end_of_faz_a_coisa:
+   912                           	opt callstack 0
+   913                           
+   914 ;; *************** function ___wmul *****************
+   915 ;; Defined at:
+   916 ;;		line 15 in file "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul16.c"
+   917 ;; Parameters:    Size  Location     Type
+   918 ;;  multiplier      2    0[COMRAM] unsigned int 
+   919 ;;  multiplicand    2    2[COMRAM] unsigned int 
+   920 ;; Auto vars:     Size  Location     Type
+   921 ;;  product         2    4[COMRAM] unsigned int 
+   922 ;; Return value:  Size  Location     Type
+   923 ;;                  2    0[COMRAM] unsigned int 
+   924 ;; Registers used:
+   925 ;;		wreg, status,2, status,0, prodl, prodh
+   926 ;; Tracked objects:
+   927 ;;		On entry : 0/0
+   928 ;;		On exit  : 0/0
+   929 ;;		Unchanged: 0/0
+   930 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   931 ;;      Params:         4       0       0       0       0       0       0
+   932 ;;      Locals:         2       0       0       0       0       0       0
+   933 ;;      Temps:          0       0       0       0       0       0       0
+   934 ;;      Totals:         6       0       0       0       0       0       0
+   935 ;;Total ram usage:        6 bytes
+   936 ;; Hardware stack levels used:    1
+   937 ;; This function calls:
+   938 ;;		Nothing
+   939 ;; This function is called by:
+   940 ;;		_faz_a_coisa
+   941 ;; This function uses a non-reentrant model
+   942 ;;
+   943                           
+   944                           	psect	text6
+   945  00039E                     __ptext6:
+   946                           	opt callstack 0
+   947  00039E                     ___wmul:
+   948                           	opt callstack 26
+   949                           
+   950                           ;incstack = 0
+   951  00039E  5001               	movf	___wmul@multiplier,w,c
+   952  0003A0  0203               	mulwf	___wmul@multiplicand,c
+   953  0003A2  CFF3 F005          	movff	prodl,___wmul@product
+   954  0003A6  CFF4 F006          	movff	prodh,___wmul@product+1
+   955  0003AA  5001               	movf	___wmul@multiplier,w,c
+   956  0003AC  0204               	mulwf	___wmul@multiplicand+1,c
+   957  0003AE  50F3               	movf	prodl,w,c
+   958  0003B0  2606               	addwf	___wmul@product+1,f,c
+   959  0003B2  5002               	movf	___wmul@multiplier+1,w,c
+   960  0003B4  0203               	mulwf	___wmul@multiplicand,c
+   961  0003B6  50F3               	movf	prodl,w,c
+   962  0003B8  2606               	addwf	___wmul@product+1,f,c
+   963  0003BA  C005  F001         	movff	___wmul@product,?___wmul
+   964  0003BE  C006  F002         	movff	___wmul@product+1,?___wmul+1
+   965  0003C2  0012               	return		;funcret
+   966  0003C4                     __end_of___wmul:
+   967                           	opt callstack 0
+   968                           
+   969 ;; *************** function _UART_Read *****************
+   970 ;; Defined at:
+   971 ;;		line 59 in file "comunicacao.c"
+   972 ;; Parameters:    Size  Location     Type
+   973 ;;		None
+   974 ;; Auto vars:     Size  Location     Type
+   975 ;;  retorno         2    0[COMRAM] int 
+   976 ;; Return value:  Size  Location     Type
+   977 ;;                  1    wreg      unsigned char 
+   978 ;; Registers used:
+   979 ;;		wreg, status,2, status,0
+   980 ;; Tracked objects:
+   981 ;;		On entry : 0/0
+   982 ;;		On exit  : 0/0
+   983 ;;		Unchanged: 0/0
+   984 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   985 ;;      Params:         0       0       0       0       0       0       0
+   986 ;;      Locals:         2       0       0       0       0       0       0
+   987 ;;      Temps:          0       0       0       0       0       0       0
+   988 ;;      Totals:         2       0       0       0       0       0       0
+   989 ;;Total ram usage:        2 bytes
+   990 ;; Hardware stack levels used:    1
+   991 ;; This function calls:
+   992 ;;		Nothing
+   993 ;; This function is called by:
+   994 ;;		_faz_a_coisa
+   995 ;; This function uses a non-reentrant model
+   996 ;;
+   997                           
+   998                           	psect	text7
+   999  0001E6                     __ptext7:
+  1000                           	opt callstack 0
+  1001  0001E6                     _UART_Read:
+  1002                           	opt callstack 26
+  1003                           
+  1004                           ;comunicacao.c: 62:       retorno = 5;
+  1005                           
+  1006                           ;incstack = 0
+  1007  0001E6  AA9E               	btfss	3998,5,c	;volatile
+  1008  0001E8  D7FE               	goto	_UART_Read
+  1009                           
+  1010                           ;comunicacao.c: 63:   }
+  1011  0001EA  CFAE F001          	movff	4014,UART_Read@retorno	;volatile
+  1012  0001EE  6A02               	clrf	UART_Read@retorno+1,c
+  1013                           
+  1014                           ;comunicacao.c: 65:   if (RCREG == '6'){
+  1015  0001F0  0E31               	movlw	49
+  1016  0001F2  18AE               	xorwf	4014,w,c	;volatile
+  1017  0001F4  A4D8               	btfss	status,2,c
+  1018  0001F6  D004               	goto	i2l784
+  1019                           
+  1020                           ;comunicacao.c: 66:       retorno = 6;
+  1021  0001F8  0E00               	movlw	0
+  1022  0001FA  6E02               	movwf	UART_Read@retorno+1,c
+  1023  0001FC  0E01               	movlw	1
+  1024  0001FE  6E01               	movwf	UART_Read@retorno,c
+  1025  000200                     i2l784:
+  1026                           
+  1027                           ;comunicacao.c: 69:   if (RCREG == '7'){
+  1028  000200  0E32               	movlw	50
+  1029  000202  18AE               	xorwf	4014,w,c	;volatile
+  1030  000204  A4D8               	btfss	status,2,c
+  1031  000206  D004               	goto	i2l788
+  1032                           
+  1033                           ;comunicacao.c: 70:       retorno = 7;
+  1034  000208  0E00               	movlw	0
+  1035  00020A  6E02               	movwf	UART_Read@retorno+1,c
+  1036  00020C  0E02               	movlw	2
+  1037  00020E  6E01               	movwf	UART_Read@retorno,c
+  1038  000210                     i2l788:
+  1039                           
+  1040                           ;comunicacao.c: 73:   if (RCREG == '8'){
+  1041  000210  0E33               	movlw	51
+  1042  000212  18AE               	xorwf	4014,w,c	;volatile
+  1043  000214  A4D8               	btfss	status,2,c
+  1044  000216  D004               	goto	i2l792
+  1045                           
+  1046                           ;comunicacao.c: 74:       retorno = 8;
+  1047  000218  0E00               	movlw	0
+  1048  00021A  6E02               	movwf	UART_Read@retorno+1,c
+  1049  00021C  0E03               	movlw	3
+  1050  00021E  6E01               	movwf	UART_Read@retorno,c
+  1051  000220                     i2l792:
+  1052                           
+  1053                           ;comunicacao.c: 77:   if (RCREG == '9'){
+  1054  000220  0E34               	movlw	52
+  1055  000222  18AE               	xorwf	4014,w,c	;volatile
+  1056  000224  A4D8               	btfss	status,2,c
+  1057  000226  D004               	goto	i2l796
+  1058                           
+  1059                           ;comunicacao.c: 78:       retorno = 9;
+  1060  000228  0E00               	movlw	0
+  1061  00022A  6E02               	movwf	UART_Read@retorno+1,c
+  1062  00022C  0E04               	movlw	4
+  1063  00022E  6E01               	movwf	UART_Read@retorno,c
+  1064  000230                     i2l796:
+  1065                           
+  1066                           ;comunicacao.c: 81:       retorno = 0;
+  1067  000230  0E35               	movlw	53
+  1068  000232  18AE               	xorwf	4014,w,c	;volatile
+  1069  000234  A4D8               	btfss	status,2,c
+  1070  000236  D004               	goto	i2l800
+  1071                           
+  1072                           ;comunicacao.c: 82:   }
+  1073  000238  0E00               	movlw	0
+  1074  00023A  6E02               	movwf	UART_Read@retorno+1,c
+  1075  00023C  0E05               	movlw	5
+  1076  00023E  6E01               	movwf	UART_Read@retorno,c
+  1077  000240                     i2l800:
   1078                           
-  1079                           	psect	text6
-  1080  00011A                     __ptext6:
-  1081                           	opt callstack 0
-  1082  00011A                     _faz_a_coisa:
-  1083                           	opt callstack 26
+  1079                           ;comunicacao.c: 85:       retorno = 10;
+  1080  000240  0E36               	movlw	54
+  1081  000242  18AE               	xorwf	4014,w,c	;volatile
+  1082  000244  A4D8               	btfss	status,2,c
+  1083  000246  D004               	goto	i2l804
   1084                           
-  1085                           ;comunicacao.c: 111:             sinal=1;
-  1086                           
-  1087                           ;incstack = 0
-  1088  00011A  EC6C  F001         	call	_UART_Read	;wreg free
-  1089  00011E  6E07               	movwf	??_faz_a_coisa& (0+255),c
-  1090  000120  5007               	movf	??_faz_a_coisa,w,c
-  1091  000122  6E08               	movwf	faz_a_coisa@valor,c
-  1092  000124  6A09               	clrf	faz_a_coisa@valor+1,c
-  1093                           
-  1094                           ;comunicacao.c: 113:             sinal=0;
-  1095  000126  5037               	movf	_contador,w,c
-  1096  000128  1038               	iorwf	_contador+1,w,c
-  1097  00012A  A4D8               	btfss	status,2,c
-  1098  00012C  D010               	goto	i2l1164
-  1099                           
-  1100                           ;comunicacao.c: 114:         contador++;
-  1101  00012E  0E0A               	movlw	10
-  1102  000130  1808               	xorwf	faz_a_coisa@valor,w,c
-  1103  000132  1009               	iorwf	faz_a_coisa@valor+1,w,c
-  1104  000134  A4D8               	btfss	status,2,c
-  1105  000136  D004               	goto	i2l1160
-  1106  000138                     i2u60_40:
-  1107                           
-  1108                           ;comunicacao.c: 115:     }else if(contador == 4){
-  1109  000138  0E00               	movlw	0
-  1110  00013A  6E36               	movwf	_sinal+1,c
-  1111  00013C  0E01               	movlw	1
-  1112  00013E  D003               	goto	L1
-  1113  000140                     i2l1160:
-  1114                           
-  1115                           ;comunicacao.c: 117:         contador++;
-  1116  000140  0E00               	movlw	0
-  1117  000142  6E36               	movwf	_sinal+1,c
-  1118  000144  0E00               	movlw	0
-  1119  000146                     L1:
-  1120  000146  6E35               	movwf	_sinal,c
-  1121  000148                     i2l1162:
-  1122                           
-  1123                           ;comunicacao.c: 118:     }else if(contador == 5){
-  1124  000148  4A37               	infsnz	_contador,f,c
-  1125  00014A  2A38               	incf	_contador+1,f,c
-  1126                           
-  1127                           ;comunicacao.c: 119:         valorRes[1] += valor;
-  1128  00014C  0012               	return	
-  1129  00014E                     i2l1164:
-  1130  00014E  0437               	decf	_contador,w,c
-  1131  000150  1038               	iorwf	_contador+1,w,c
-  1132  000152  A4D8               	btfss	status,2,c
-  1133  000154  D00F               	goto	i2l1170
-  1134                           
-  1135                           ;comunicacao.c: 120:         contador=0;
-  1136  000156  C008  F001         	movff	faz_a_coisa@valor,___wmul@multiplier
-  1137  00015A  C009  F002         	movff	faz_a_coisa@valor+1,___wmul@multiplier+1
-  1138  00015E  0E00               	movlw	0
-  1139  000160  6E04               	movwf	___wmul@multiplicand+1,c
-  1140  000162  0E0A               	movlw	10
-  1141  000164  6E03               	movwf	___wmul@multiplicand,c
-  1142  000166  ECBE  F002         	call	___wmul	;wreg free
-  1143  00016A  C001  F031         	movff	?___wmul,_valorRes
-  1144  00016E  C002  F032         	movff	?___wmul+1,_valorRes+1
-  1145  000172  D7EA               	goto	i2l1162
-  1146  000174                     i2l1170:
-  1147  000174  0E02               	movlw	2
-  1148  000176  1837               	xorwf	_contador,w,c
-  1149  000178  1038               	iorwf	_contador+1,w,c
-  1150  00017A  A4D8               	btfss	status,2,c
-  1151  00017C  D005               	goto	i2l1176
-  1152                           
-  1153                           ;comunicacao.c: 123: 
-  1154  00017E  5008               	movf	faz_a_coisa@valor,w,c
-  1155  000180  2631               	addwf	_valorRes,f,c
-  1156  000182  5009               	movf	faz_a_coisa@valor+1,w,c
-  1157  000184  2232               	addwfc	_valorRes+1,f,c
-  1158  000186  D7E0               	goto	i2l1162
-  1159  000188                     i2l1176:
-  1160  000188  0E03               	movlw	3
-  1161  00018A  1837               	xorwf	_contador,w,c
-  1162  00018C  1038               	iorwf	_contador+1,w,c
-  1163  00018E  A4D8               	btfss	status,2,c
-  1164  000190  D01B               	goto	i2l1192
-  1165                           
-  1166                           ;comunicacao.c: 126: 
-  1167  000192  0435               	decf	_sinal,w,c
-  1168  000194  1036               	iorwf	_sinal+1,w,c
-  1169  000196  A4D8               	btfss	status,2,c
-  1170  000198  D011               	goto	i2l1184
-  1171                           
-  1172                           ;comunicacao.c: 127: 
-  1173  00019A  C031  F001         	movff	_valorRes,___wmul@multiplier
-  1174  00019E  C032  F002         	movff	_valorRes+1,___wmul@multiplier+1
-  1175  0001A2  0EFF               	movlw	255
-  1176  0001A4  6E04               	movwf	___wmul@multiplicand+1,c
-  1177  0001A6  6803               	setf	___wmul@multiplicand,c
-  1178  0001A8  ECBE  F002         	call	___wmul	;wreg free
-  1179  0001AC  C001  F031         	movff	?___wmul,_valorRes
-  1180  0001B0  C002  F032         	movff	?___wmul+1,_valorRes+1
-  1181                           
-  1182                           ;comunicacao.c: 128: 
-  1183  0001B4  0E00               	movlw	0
-  1184  0001B6  6E36               	movwf	_sinal+1,c
-  1185  0001B8  0E00               	movlw	0
-  1186  0001BA  6E35               	movwf	_sinal,c
-  1187  0001BC                     i2l1184:
-  1188                           
-  1189                           ;comunicacao.c: 130: 
-  1190  0001BC  0E0A               	movlw	10
-  1191  0001BE  1808               	xorwf	faz_a_coisa@valor,w,c
-  1192  0001C0  1009               	iorwf	faz_a_coisa@valor+1,w,c
-  1193  0001C2  B4D8               	btfsc	status,2,c
-  1194  0001C4  D7B9               	goto	i2u60_40
-  1195  0001C6  D7BC               	goto	i2l1160
-  1196  0001C8                     i2l1192:
-  1197  0001C8  0E04               	movlw	4
-  1198  0001CA  1837               	xorwf	_contador,w,c
-  1199  0001CC  1038               	iorwf	_contador+1,w,c
-  1200  0001CE  A4D8               	btfss	status,2,c
-  1201  0001D0  D00F               	goto	i2l1198
-  1202                           
-  1203                           ;comunicacao.c: 136:     }
-  1204  0001D2  C008  F001         	movff	faz_a_coisa@valor,___wmul@multiplier
-  1205  0001D6  C009  F002         	movff	faz_a_coisa@valor+1,___wmul@multiplier+1
-  1206  0001DA  0E00               	movlw	0
-  1207  0001DC  6E04               	movwf	___wmul@multiplicand+1,c
-  1208  0001DE  0E0A               	movlw	10
-  1209  0001E0  6E03               	movwf	___wmul@multiplicand,c
-  1210  0001E2  ECBE  F002         	call	___wmul	;wreg free
-  1211  0001E6  C001  F033         	movff	?___wmul,_valorRes+2
-  1212  0001EA  C002  F034         	movff	?___wmul+1,_valorRes+3
-  1213  0001EE  D7AC               	goto	i2l1162
-  1214  0001F0                     i2l1198:
-  1215  0001F0  0E05               	movlw	5
-  1216  0001F2  1837               	xorwf	_contador,w,c
-  1217  0001F4  1038               	iorwf	_contador+1,w,c
-  1218  0001F6  A4D8               	btfss	status,2,c
-  1219  0001F8  0012               	return	
-  1220                           
-  1221                           ;comunicacao.c: 139: 
-  1222  0001FA  5008               	movf	faz_a_coisa@valor,w,c
-  1223  0001FC  2633               	addwf	_valorRes+2,f,c
-  1224  0001FE  5009               	movf	faz_a_coisa@valor+1,w,c
-  1225  000200  2234               	addwfc	_valorRes+3,f,c
-  1226                           
-  1227                           ;comunicacao.c: 140: char numeros[] = { 0b10111111,
-  1228  000202  0E00               	movlw	0
-  1229  000204  6E38               	movwf	_contador+1,c
-  1230  000206  0E00               	movlw	0
-  1231  000208  6E37               	movwf	_contador,c
-  1232  00020A  0012               	return	
-  1233  00020C                     __end_of_faz_a_coisa:
-  1234                           	opt callstack 0
-  1235                           
-  1236 ;; *************** function ___wmul *****************
-  1237 ;; Defined at:
-  1238 ;;		line 15 in file "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul16.c"
-  1239 ;; Parameters:    Size  Location     Type
-  1240 ;;  multiplier      2    0[COMRAM] unsigned int 
-  1241 ;;  multiplicand    2    2[COMRAM] unsigned int 
-  1242 ;; Auto vars:     Size  Location     Type
-  1243 ;;  product         2    4[COMRAM] unsigned int 
-  1244 ;; Return value:  Size  Location     Type
-  1245 ;;                  2    0[COMRAM] unsigned int 
-  1246 ;; Registers used:
-  1247 ;;		wreg, status,2, status,0, prodl, prodh
-  1248 ;; Tracked objects:
-  1249 ;;		On entry : 0/0
-  1250 ;;		On exit  : 0/0
-  1251 ;;		Unchanged: 0/0
-  1252 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-  1253 ;;      Params:         4       0       0       0       0       0       0
-  1254 ;;      Locals:         2       0       0       0       0       0       0
-  1255 ;;      Temps:          0       0       0       0       0       0       0
-  1256 ;;      Totals:         6       0       0       0       0       0       0
-  1257 ;;Total ram usage:        6 bytes
-  1258 ;; Hardware stack levels used:    1
-  1259 ;; This function calls:
-  1260 ;;		Nothing
-  1261 ;; This function is called by:
-  1262 ;;		_faz_a_coisa
-  1263 ;; This function uses a non-reentrant model
-  1264 ;;
-  1265                           
-  1266                           	psect	text7
-  1267  00057C                     __ptext7:
-  1268                           	opt callstack 0
-  1269  00057C                     ___wmul:
-  1270                           	opt callstack 26
-  1271                           
-  1272                           ;incstack = 0
-  1273  00057C  5001               	movf	___wmul@multiplier,w,c
-  1274  00057E  0203               	mulwf	___wmul@multiplicand,c
-  1275  000580  CFF3 F005          	movff	prodl,___wmul@product
-  1276  000584  CFF4 F006          	movff	prodh,___wmul@product+1
-  1277  000588  5001               	movf	___wmul@multiplier,w,c
-  1278  00058A  0204               	mulwf	___wmul@multiplicand+1,c
-  1279  00058C  50F3               	movf	prodl,w,c
-  1280  00058E  2606               	addwf	___wmul@product+1,f,c
-  1281  000590  5002               	movf	___wmul@multiplier+1,w,c
-  1282  000592  0203               	mulwf	___wmul@multiplicand,c
-  1283  000594  50F3               	movf	prodl,w,c
-  1284  000596  2606               	addwf	___wmul@product+1,f,c
-  1285  000598  C005  F001         	movff	___wmul@product,?___wmul
-  1286  00059C  C006  F002         	movff	___wmul@product+1,?___wmul+1
-  1287  0005A0  0012               	return		;funcret
-  1288  0005A2                     __end_of___wmul:
-  1289                           	opt callstack 0
-  1290                           
-  1291 ;; *************** function _UART_Read *****************
-  1292 ;; Defined at:
-  1293 ;;		line 58 in file "comunicacao.c"
-  1294 ;; Parameters:    Size  Location     Type
-  1295 ;;		None
-  1296 ;; Auto vars:     Size  Location     Type
-  1297 ;;  retorno         2    0[COMRAM] int 
-  1298 ;; Return value:  Size  Location     Type
-  1299 ;;                  1    wreg      unsigned char 
-  1300 ;; Registers used:
-  1301 ;;		wreg, status,2, status,0
-  1302 ;; Tracked objects:
-  1303 ;;		On entry : 0/0
-  1304 ;;		On exit  : 0/0
-  1305 ;;		Unchanged: 0/0
-  1306 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-  1307 ;;      Params:         0       0       0       0       0       0       0
-  1308 ;;      Locals:         2       0       0       0       0       0       0
-  1309 ;;      Temps:          0       0       0       0       0       0       0
-  1310 ;;      Totals:         2       0       0       0       0       0       0
-  1311 ;;Total ram usage:        2 bytes
-  1312 ;; Hardware stack levels used:    1
-  1313 ;; This function calls:
-  1314 ;;		Nothing
-  1315 ;; This function is called by:
-  1316 ;;		_faz_a_coisa
-  1317 ;; This function uses a non-reentrant model
-  1318 ;;
-  1319                           
-  1320                           	psect	text8
-  1321  0002D8                     __ptext8:
-  1322                           	opt callstack 0
-  1323  0002D8                     _UART_Read:
-  1324                           	opt callstack 26
-  1325                           
-  1326                           ;comunicacao.c: 61:       retorno = 5;
-  1327                           
-  1328                           ;incstack = 0
-  1329  0002D8  AA9E               	btfss	3998,5,c	;volatile
-  1330  0002DA  D7FE               	goto	_UART_Read
-  1331                           
-  1332                           ;comunicacao.c: 62:   }
-  1333  0002DC  CFAE F001          	movff	4014,UART_Read@retorno	;volatile
-  1334  0002E0  6A02               	clrf	UART_Read@retorno+1,c
-  1335                           
-  1336                           ;comunicacao.c: 64:   if (RCREG == '6'){
-  1337  0002E2  0E31               	movlw	49
-  1338  0002E4  18AE               	xorwf	4014,w,c	;volatile
-  1339  0002E6  A4D8               	btfss	status,2,c
-  1340  0002E8  D004               	goto	i2l790
-  1341                           
-  1342                           ;comunicacao.c: 65:       retorno = 6;
-  1343  0002EA  0E00               	movlw	0
-  1344  0002EC  6E02               	movwf	UART_Read@retorno+1,c
-  1345  0002EE  0E01               	movlw	1
-  1346  0002F0  6E01               	movwf	UART_Read@retorno,c
-  1347  0002F2                     i2l790:
-  1348                           
-  1349                           ;comunicacao.c: 68:   if (RCREG == '7'){
-  1350  0002F2  0E32               	movlw	50
-  1351  0002F4  18AE               	xorwf	4014,w,c	;volatile
-  1352  0002F6  A4D8               	btfss	status,2,c
-  1353  0002F8  D004               	goto	i2l794
-  1354                           
-  1355                           ;comunicacao.c: 69:       retorno = 7;
-  1356  0002FA  0E00               	movlw	0
-  1357  0002FC  6E02               	movwf	UART_Read@retorno+1,c
-  1358  0002FE  0E02               	movlw	2
-  1359  000300  6E01               	movwf	UART_Read@retorno,c
-  1360  000302                     i2l794:
-  1361                           
-  1362                           ;comunicacao.c: 72:   if (RCREG == '8'){
-  1363  000302  0E33               	movlw	51
-  1364  000304  18AE               	xorwf	4014,w,c	;volatile
-  1365  000306  A4D8               	btfss	status,2,c
-  1366  000308  D004               	goto	i2l798
-  1367                           
-  1368                           ;comunicacao.c: 73:       retorno = 8;
-  1369  00030A  0E00               	movlw	0
-  1370  00030C  6E02               	movwf	UART_Read@retorno+1,c
-  1371  00030E  0E03               	movlw	3
-  1372  000310  6E01               	movwf	UART_Read@retorno,c
-  1373  000312                     i2l798:
-  1374                           
-  1375                           ;comunicacao.c: 76:   if (RCREG == '9'){
-  1376  000312  0E34               	movlw	52
-  1377  000314  18AE               	xorwf	4014,w,c	;volatile
-  1378  000316  A4D8               	btfss	status,2,c
-  1379  000318  D004               	goto	i2l802
-  1380                           
-  1381                           ;comunicacao.c: 77:       retorno = 9;
-  1382  00031A  0E00               	movlw	0
-  1383  00031C  6E02               	movwf	UART_Read@retorno+1,c
-  1384  00031E  0E04               	movlw	4
-  1385  000320  6E01               	movwf	UART_Read@retorno,c
-  1386  000322                     i2l802:
-  1387                           
-  1388                           ;comunicacao.c: 80:       retorno = 0;
-  1389  000322  0E35               	movlw	53
-  1390  000324  18AE               	xorwf	4014,w,c	;volatile
-  1391  000326  A4D8               	btfss	status,2,c
-  1392  000328  D004               	goto	i2l806
-  1393                           
-  1394                           ;comunicacao.c: 81:   }
-  1395  00032A  0E00               	movlw	0
-  1396  00032C  6E02               	movwf	UART_Read@retorno+1,c
-  1397  00032E  0E05               	movlw	5
-  1398  000330  6E01               	movwf	UART_Read@retorno,c
-  1399  000332                     i2l806:
-  1400                           
-  1401                           ;comunicacao.c: 84:       retorno = 10;
-  1402  000332  0E36               	movlw	54
-  1403  000334  18AE               	xorwf	4014,w,c	;volatile
-  1404  000336  A4D8               	btfss	status,2,c
-  1405  000338  D004               	goto	i2l810
-  1406                           
-  1407                           ;comunicacao.c: 85:   }
-  1408  00033A  0E00               	movlw	0
-  1409  00033C  6E02               	movwf	UART_Read@retorno+1,c
-  1410  00033E  0E06               	movlw	6
-  1411  000340  6E01               	movwf	UART_Read@retorno,c
-  1412  000342                     i2l810:
-  1413                           
-  1414                           ;comunicacao.c: 88: }
-  1415  000342  0E37               	movlw	55
-  1416  000344  18AE               	xorwf	4014,w,c	;volatile
-  1417  000346  A4D8               	btfss	status,2,c
-  1418  000348  D004               	goto	i2l814
-  1419                           
-  1420                           ;comunicacao.c: 89: 
-  1421  00034A  0E00               	movlw	0
-  1422  00034C  6E02               	movwf	UART_Read@retorno+1,c
-  1423  00034E  0E07               	movlw	7
-  1424  000350  6E01               	movwf	UART_Read@retorno,c
-  1425  000352                     i2l814:
-  1426                           
-  1427                           ;comunicacao.c: 92: 
-  1428  000352  0E38               	movlw	56
-  1429  000354  18AE               	xorwf	4014,w,c	;volatile
-  1430  000356  A4D8               	btfss	status,2,c
-  1431  000358  D004               	goto	i2l818
-  1432                           
-  1433                           ;comunicacao.c: 93:     if(contador == 0){
-  1434  00035A  0E00               	movlw	0
-  1435  00035C  6E02               	movwf	UART_Read@retorno+1,c
-  1436  00035E  0E08               	movlw	8
-  1437  000360  6E01               	movwf	UART_Read@retorno,c
-  1438  000362                     i2l818:
-  1439                           
-  1440                           ;comunicacao.c: 96:         else
-  1441  000362  0E39               	movlw	57
-  1442  000364  18AE               	xorwf	4014,w,c	;volatile
-  1443  000366  A4D8               	btfss	status,2,c
-  1444  000368  D004               	goto	i2l822
-  1445                           
-  1446                           ;comunicacao.c: 97:             sinal=0;
-  1447  00036A  0E00               	movlw	0
-  1448  00036C  6E02               	movwf	UART_Read@retorno+1,c
-  1449  00036E  0E09               	movlw	9
-  1450  000370  6E01               	movwf	UART_Read@retorno,c
-  1451  000372                     i2l822:
-  1452                           
-  1453                           ;comunicacao.c: 99:     }else if(contador == 1){
-  1454  000372  0E30               	movlw	48
-  1455  000374  18AE               	xorwf	4014,w,c	;volatile
-  1456  000376  A4D8               	btfss	status,2,c
-  1457  000378  D004               	goto	i2l826
-  1458                           
-  1459                           ;comunicacao.c: 100:         valorRes[0] = valor*10;
-  1460  00037A  0E00               	movlw	0
-  1461  00037C  6E02               	movwf	UART_Read@retorno+1,c
-  1462  00037E  0E00               	movlw	0
-  1463  000380  6E01               	movwf	UART_Read@retorno,c
-  1464  000382                     i2l826:
-  1465                           
-  1466                           ;comunicacao.c: 103:         valorRes[0] += valor;
-  1467  000382  0E2D               	movlw	45
-  1468  000384  18AE               	xorwf	4014,w,c	;volatile
-  1469  000386  A4D8               	btfss	status,2,c
-  1470  000388  D004               	goto	i2l72
-  1471                           
-  1472                           ;comunicacao.c: 104:         contador++;
-  1473  00038A  0E00               	movlw	0
-  1474  00038C  6E02               	movwf	UART_Read@retorno+1,c
-  1475  00038E  0E0A               	movlw	10
-  1476  000390  6E01               	movwf	UART_Read@retorno,c
-  1477  000392                     i2l72:
-  1478                           
-  1479                           ;comunicacao.c: 107:             valorRes[0] *= -1 ;
-  1480  000392  5001               	movf	UART_Read@retorno,w,c
-  1481  000394  0012               	return		;funcret
-  1482  000396                     __end_of_UART_Read:
-  1483                           	opt callstack 0
-  1484  0000                     
-  1485                           	psect	rparam
-  1486  0000                     
-  1487                           	psect	temp
-  1488  00003B                     btemp:
-  1489                           	opt callstack 0
-  1490  00003B                     	ds	1
-  1491  0000                     int$flags	set	btemp
-  1492  0000                     wtemp8	set	btemp+1
-  1493  0000                     ttemp5	set	btemp+1
-  1494  0000                     ttemp6	set	btemp+4
-  1495  0000                     ttemp7	set	btemp+8
-  1496                           tosu	equ	0xFFF
-  1497                           tosh	equ	0xFFE
-  1498                           tosl	equ	0xFFD
-  1499                           stkptr	equ	0xFFC
-  1500                           pclatu	equ	0xFFB
-  1501                           pclath	equ	0xFFA
-  1502                           pcl	equ	0xFF9
-  1503                           tblptru	equ	0xFF8
-  1504                           tblptrh	equ	0xFF7
-  1505                           tblptrl	equ	0xFF6
-  1506                           tablat	equ	0xFF5
-  1507                           prodh	equ	0xFF4
-  1508                           prodl	equ	0xFF3
-  1509                           indf0	equ	0xFEF
-  1510                           postinc0	equ	0xFEE
-  1511                           postdec0	equ	0xFED
-  1512                           preinc0	equ	0xFEC
-  1513                           plusw0	equ	0xFEB
-  1514                           fsr0h	equ	0xFEA
-  1515                           fsr0l	equ	0xFE9
-  1516                           wreg	equ	0xFE8
-  1517                           indf1	equ	0xFE7
-  1518                           postinc1	equ	0xFE6
-  1519                           postdec1	equ	0xFE5
-  1520                           preinc1	equ	0xFE4
-  1521                           plusw1	equ	0xFE3
-  1522                           fsr1h	equ	0xFE2
-  1523                           fsr1l	equ	0xFE1
-  1524                           bsr	equ	0xFE0
-  1525                           indf2	equ	0xFDF
-  1526                           postinc2	equ	0xFDE
-  1527                           postdec2	equ	0xFDD
-  1528                           preinc2	equ	0xFDC
-  1529                           plusw2	equ	0xFDB
-  1530                           fsr2h	equ	0xFDA
-  1531                           fsr2l	equ	0xFD9
-  1532                           status	equ	0xFD8
+  1085                           ;comunicacao.c: 86:   }
+  1086  000248  0E00               	movlw	0
+  1087  00024A  6E02               	movwf	UART_Read@retorno+1,c
+  1088  00024C  0E06               	movlw	6
+  1089  00024E  6E01               	movwf	UART_Read@retorno,c
+  1090  000250                     i2l804:
+  1091                           
+  1092                           ;comunicacao.c: 89: }
+  1093  000250  0E37               	movlw	55
+  1094  000252  18AE               	xorwf	4014,w,c	;volatile
+  1095  000254  A4D8               	btfss	status,2,c
+  1096  000256  D004               	goto	i2l808
+  1097                           
+  1098                           ;comunicacao.c: 90: 
+  1099  000258  0E00               	movlw	0
+  1100  00025A  6E02               	movwf	UART_Read@retorno+1,c
+  1101  00025C  0E07               	movlw	7
+  1102  00025E  6E01               	movwf	UART_Read@retorno,c
+  1103  000260                     i2l808:
+  1104                           
+  1105                           ;comunicacao.c: 93: 
+  1106  000260  0E38               	movlw	56
+  1107  000262  18AE               	xorwf	4014,w,c	;volatile
+  1108  000264  A4D8               	btfss	status,2,c
+  1109  000266  D004               	goto	i2l812
+  1110                           
+  1111                           ;comunicacao.c: 94:     if(contador == 0){
+  1112  000268  0E00               	movlw	0
+  1113  00026A  6E02               	movwf	UART_Read@retorno+1,c
+  1114  00026C  0E08               	movlw	8
+  1115  00026E  6E01               	movwf	UART_Read@retorno,c
+  1116  000270                     i2l812:
+  1117                           
+  1118                           ;comunicacao.c: 97:         else
+  1119  000270  0E39               	movlw	57
+  1120  000272  18AE               	xorwf	4014,w,c	;volatile
+  1121  000274  A4D8               	btfss	status,2,c
+  1122  000276  D004               	goto	i2l816
+  1123                           
+  1124                           ;comunicacao.c: 98:             PORTDbits.RD5=1;
+  1125  000278  0E00               	movlw	0
+  1126  00027A  6E02               	movwf	UART_Read@retorno+1,c
+  1127  00027C  0E09               	movlw	9
+  1128  00027E  6E01               	movwf	UART_Read@retorno,c
+  1129  000280                     i2l816:
+  1130                           
+  1131                           ;comunicacao.c: 100:     }else if(contador == 1){
+  1132  000280  0E30               	movlw	48
+  1133  000282  18AE               	xorwf	4014,w,c	;volatile
+  1134  000284  A4D8               	btfss	status,2,c
+  1135  000286  D004               	goto	i2l820
+  1136                           
+  1137                           ;comunicacao.c: 101:         valorRes[0] = valor*10;
+  1138  000288  0E00               	movlw	0
+  1139  00028A  6E02               	movwf	UART_Read@retorno+1,c
+  1140  00028C  0E00               	movlw	0
+  1141  00028E  6E01               	movwf	UART_Read@retorno,c
+  1142  000290                     i2l820:
+  1143                           
+  1144                           ;comunicacao.c: 104:         valorRes[0] += valor;
+  1145  000290  0E2D               	movlw	45
+  1146  000292  18AE               	xorwf	4014,w,c	;volatile
+  1147  000294  A4D8               	btfss	status,2,c
+  1148  000296  D004               	goto	i2l70
+  1149                           
+  1150                           ;comunicacao.c: 105:         contador=0;
+  1151  000298  0E00               	movlw	0
+  1152  00029A  6E02               	movwf	UART_Read@retorno+1,c
+  1153  00029C  0E0A               	movlw	10
+  1154  00029E  6E01               	movwf	UART_Read@retorno,c
+  1155  0002A0                     i2l70:
+  1156  0002A0  5001               	movf	UART_Read@retorno,w,c
+  1157  0002A2  0012               	return		;funcret
+  1158  0002A4                     __end_of_UART_Read:
+  1159                           	opt callstack 0
+  1160  0000                     
+  1161                           	psect	rparam
+  1162  0000                     
+  1163                           	psect	temp
+  1164  000035                     btemp:
+  1165                           	opt callstack 0
+  1166  000035                     	ds	1
+  1167  0000                     int$flags	set	btemp
+  1168  0000                     wtemp8	set	btemp+1
+  1169  0000                     ttemp5	set	btemp+1
+  1170  0000                     ttemp6	set	btemp+4
+  1171  0000                     ttemp7	set	btemp+8
+  1172                           tosu	equ	0xFFF
+  1173                           tosh	equ	0xFFE
+  1174                           tosl	equ	0xFFD
+  1175                           stkptr	equ	0xFFC
+  1176                           pclatu	equ	0xFFB
+  1177                           pclath	equ	0xFFA
+  1178                           pcl	equ	0xFF9
+  1179                           tblptru	equ	0xFF8
+  1180                           tblptrh	equ	0xFF7
+  1181                           tblptrl	equ	0xFF6
+  1182                           tablat	equ	0xFF5
+  1183                           prodh	equ	0xFF4
+  1184                           prodl	equ	0xFF3
+  1185                           indf0	equ	0xFEF
+  1186                           postinc0	equ	0xFEE
+  1187                           postdec0	equ	0xFED
+  1188                           preinc0	equ	0xFEC
+  1189                           plusw0	equ	0xFEB
+  1190                           fsr0h	equ	0xFEA
+  1191                           fsr0l	equ	0xFE9
+  1192                           wreg	equ	0xFE8
+  1193                           indf1	equ	0xFE7
+  1194                           postinc1	equ	0xFE6
+  1195                           postdec1	equ	0xFE5
+  1196                           preinc1	equ	0xFE4
+  1197                           plusw1	equ	0xFE3
+  1198                           fsr1h	equ	0xFE2
+  1199                           fsr1l	equ	0xFE1
+  1200                           bsr	equ	0xFE0
+  1201                           indf2	equ	0xFDF
+  1202                           postinc2	equ	0xFDE
+  1203                           postdec2	equ	0xFDD
+  1204                           preinc2	equ	0xFDC
+  1205                           plusw2	equ	0xFDB
+  1206                           fsr2h	equ	0xFDA
+  1207                           fsr2l	equ	0xFD9
+  1208                           status	equ	0xFD8
 
 
 Data Sizes:
     Strings     0
     Constant    0
-    Data        10
+    Data        0
     BSS         8
     Persistent  2
     Stack       0
 
 Auto Spaces:
     Space          Size  Autos    Used
-    COMRAM          126     38      58
+    COMRAM          126     42      52
     BANK0           128      0       0
     BANK1           256      0       0
     BANK2           256      0       0
@@ -1632,17 +1308,12 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                 1     1      0    1668
-                                             37 COMRAM     1     1      0
+ (0) _main                                                 5     5      0     816
+                                             37 COMRAM     5     5      0
                           _UART_Init
-                            ___awdiv
-                            ___awmod
+                          _geraPasso
  ---------------------------------------------------------------------------------
- (1) ___awmod                                              6     2      4     448
-                                             11 COMRAM     6     2      4
- ---------------------------------------------------------------------------------
- (1) ___awdiv                                              8     4      4     452
-                                             11 COMRAM     8     4      4
+ (1) _geraPasso                                            0     0      0       0
  ---------------------------------------------------------------------------------
  (1) _UART_Init                                           12     8      4     768
                                              25 COMRAM    12     8      4
@@ -1655,16 +1326,16 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (3) _tratamento                                           2     2      0     763
+ (3) _tratamento                                           2     2      0     393
                                               9 COMRAM     2     2      0
                         _faz_a_coisa
  ---------------------------------------------------------------------------------
- (4) _faz_a_coisa                                          3     3      0     763
+ (4) _faz_a_coisa                                          3     3      0     393
                                               6 COMRAM     3     3      0
                           _UART_Read
                              ___wmul
  ---------------------------------------------------------------------------------
- (5) ___wmul                                               6     2      4     615
+ (5) ___wmul                                               6     2      4     311
                                               0 COMRAM     6     2      4
  ---------------------------------------------------------------------------------
  (5) _UART_Read                                            2     2      0      15
@@ -1678,8 +1349,7 @@ Call Graph Tables:
  _main (ROOT)
    _UART_Init
      ___aldiv
-   ___awdiv
-   ___awmod
+   _geraPasso
 
  _tratamento (ROOT)
    _faz_a_coisa
@@ -1703,81 +1373,66 @@ BANK1              100      0       0       7        0.0%
 BITBANK0            80      0       0       4        0.0%
 BANK0               80      0       0       5        0.0%
 BITCOMRAM           7E      0       0       0        0.0%
-COMRAM              7E     26      3A       1       46.0%
+COMRAM              7E     2A      34       1       41.3%
 BITSFR               0      0       0     200        0.0%
 SFR                  0      0       0     200        0.0%
 STACK                0      0       0       2        0.0%
 NULL                 0      0       0       0        0.0%
-ABS                  0      0      3A      15        0.0%
-DATA                 0      0      3A       3        0.0%
+ABS                  0      0      34      15        0.0%
+DATA                 0      0      34       3        0.0%
 CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.05 build -831301201 
-Symbol Table                                                                                   Mon Jun 10 11:01:29 2019
+Symbol Table                                                                                   Wed Jun 12 15:37:00 2019
 
-                      _x 0039             ___awdiv@sign 0011      ___wmul@multiplicand 0003  
-                    u500 0272                      u710 0498                      u535 0024  
-                    u545 005C                      u565 009E                      u575 00D6  
-                    u817 040C                      u770 0510                      u827 0444  
-           ___awmod@sign 0011                      wreg 000FE8                     l1110 0240  
-                   l1104 0228                     l1116 0262                     l1132 02B0  
-                   l1212 0466                     l1118 026E                     l1136 02C6  
-                   l1128 02A2                     l1224 048C                     l1240 04BE  
-                   l1226 0494                     l1218 0476                     l1330 03E0  
-                   l1148 0102                     l1244 04CC                     l1236 04B4  
-                   l1260 04F6                     l1280 053C                     l1272 0524  
-                   l1264 0504                     l1256 04EA                     l1266 050C  
-                   l1276 052E                     _BRGH 007D62                     _CREN 007D5C  
-                   _RCIF 007CF5                     i2l72 0392                     i2l98 05B6  
-                   _SPEN 007D5F                     _TXEN 007D65                     _SYNC 007D64  
-                   _main 0396                     indf2 000FDF                     fsr1l 000FE1  
-                   fsr2l 000FD9                     btemp 003B                     prodh 000FF4  
-                   prodl 000FF3                     start 000E             ___param_bank 000000  
-        __end_of___aldiv 02D8                    ?_main 0001          __end_of___awdiv 04D6  
-        __end_of___awmod 0546          ___awdiv@divisor 000E                    i2l810 0342  
-                  i2l802 0322                    i2l822 0372                    i2l814 0352  
-                  i2l806 0332                    i2l826 0382                    i2l818 0362  
-                  i2l790 02F2                    i2l794 0302          ___awdiv@counter 0010  
-                  i2l798 0312                    _RCREG 000FAE                    _SPBRG 000FAF  
-                  _PORTD 000F83                    _TRISB 000F93                    _TRISD 000F95  
-     __size_of_UART_Init 0108       __size_of_UART_Read 00BE                    _sinal 0035  
-                  tablat 000FF5                    ttemp5 003C                    ttemp6 003F  
-                  ttemp7 0043                    status 000FD8                    wtemp8 003C  
-        __initialization 0546             __end_of_main 0452                   ??_main 0026  
-          __activetblptr 000000     __size_of_faz_a_coisa 00F2                   _ADCON1 000FC1  
-       ___awdiv@dividend 000C                   i2l1160 0140                   i2l1170 0174  
-                 i2l1162 0148                   i2l1164 014E                   i2l1184 01BC  
-                 i2l1192 01C8                   i2l1176 0188                   i2l1198 01F0  
-                 _TRISC6 007CA6                   _TRISC7 007CA7        __end_of_UART_Init 011A  
-      __end_of_UART_Read 0396                ??___aldiv 0014                   ___wmul 057C  
-              ??___awdiv 0010                ??___awmod 0010                   clear_0 056C  
-       ___awdiv@quotient 0012          ___awmod@divisor 000E          ___awmod@counter 0010  
-           __pdataCOMRAM 0027                   tblptrh 000FF7                   tblptrl 000FF6  
-                 tblptru 000FF8         faz_a_coisa@valor 0008               __accesstop 0080  
-__end_of__initialization 0572            ___rparam_used 000001           __pcstackCOMRAM 0001  
-             __pnvCOMRAM 0039                  ?___wmul 0001                  i2u60_40 0138  
-                __Hparam 0000                  __Lparam 0000                  ___aldiv 020C  
-                ___awdiv 0452                  ___awmod 04D6          __size_of___wmul 0026  
-       UART_Read@retorno 0001                  __pcinit 0546                  __ramtop 0600  
-                __ptext0 0396                  __ptext1 04D6                  __ptext2 0452  
-                __ptext3 0012                  __ptext4 020C                  __ptext6 011A  
-                __ptext7 057C                  __ptext8 02D8         ___awmod@dividend 000C  
-       ___aldiv@dividend 000C                  _numeros 0027           __pintcode_body 05A2  
-   end_of_initialization 0572                  int_func 05A2         ___aldiv@quotient 0016  
-                postdec1 000FE5                  postinc0 000FEE                _UART_Init 0012  
-              _UART_Read 02D8                _PORTBbits 000F81                _PORTCbits 000F82  
-          ??_faz_a_coisa 0007                _TRISCbits 000F94               _tratamento 0008  
-         __end_of___wmul 05A2               ?_UART_Init 001A               ?_UART_Read 0001  
-          __pidataCOMRAM 05C2      start_initialization 0546      __end_of_faz_a_coisa 020C  
-               ??___wmul 0005              __pbssCOMRAM 0031              ?_tratamento 0001  
-              __pintcode 0008                 ?___aldiv 000C                 ?___awdiv 000C  
-               ?___awmod 000C              ??_UART_Init 001E              ??_UART_Read 0001  
-            _faz_a_coisa 011A          ___aldiv@divisor 0010          ___aldiv@counter 0014  
-         ___wmul@product 0005                 _PIE1bits 000F9D      __size_of_tratamento 05BA  
-      UART_Init@baudrate 001A        ___wmul@multiplier 0001                copy_data0 055A  
-               __Hrparam 0000                 __Lrparam 0000         __size_of___aldiv 00CC  
-       __size_of___awdiv 0084         __size_of___awmod 0070                 _contador 0037  
-          __size_of_main 00BC                 _valorRes 0031                 int$flags 003B  
+                      _x 0033      ___wmul@multiplicand 0003                      l994 014E  
+                    l988 0136                      u350 0180                      u415 009E  
+                    u425 00D6                      u517 03FE                      u527 0408  
+                    u385 0024                      u395 005C                      _vai 002F  
+                    wreg 000FE8                     l1000 0170                     l1002 017C  
+                   l1020 01D4                     l1012 01B0                     l1110 030C  
+                   l1102 02EA                     l1016 01BE                     l1032 0102  
+                   l1106 0304                     _BRGH 007D62                     _CREN 007D5C  
+                   _RCIF 007CF5                     i2l70 02A0                     i2l75 034C  
+                   i2l87 03D8                     _SPEN 007D5F                     _TXEN 007D65  
+                   _SYNC 007D64                     _main 02A4                     btemp 0035  
+                   prodh 000FF4                     prodl 000FF3                     start 000E  
+           ___param_bank 000000          __end_of___aldiv 01E6                    ?_main 0001  
+                  i2l800 0240                    i2l820 0290                    i2l812 0270  
+                  i2l804 0250                    i2l816 0280                    i2l808 0260  
+                  i2l792 0220                    i2l784 0200                    i2l796 0230  
+                  i2l788 0210                    _RCREG 000FAE                    _SPBRG 000FAF  
+                  _TRISB 000F93                    _TRISD 000F95       __size_of_UART_Init 0108  
+     __size_of_UART_Read 00BE                    main@i 0029                    ttemp5 0036  
+                  ttemp6 0039                    ttemp7 003D                    status 000FD8  
+                  wtemp8 0036          __initialization 03E4             __end_of_main 032A  
+                 ??_main 0026            __activetblptr 000000     __size_of_faz_a_coisa 0074  
+                 _ADCON1 000FC1                   i2l1052 037A                   i2l1044 034E  
+                 i2l1046 0354                   _TRISC6 007CA6                   _TRISC7 007CA7  
+      __end_of_UART_Init 011A        __end_of_UART_Read 02A4                ??___aldiv 0014  
+                 ___wmul 039E                   clear_0 03EA         faz_a_coisa@valor 0008  
+             __accesstop 0080  __end_of__initialization 03F0            ___rparam_used 000001  
+         __pcstackCOMRAM 0001       __size_of_geraPasso 0016               __pnvCOMRAM 0033  
+                ?___wmul 0001        __end_of_geraPasso 0410                  __Hparam 0000  
+                __Lparam 0000                  ___aldiv 011A          __size_of___wmul 0026  
+       UART_Read@retorno 0001                  __pcinit 03E4                  __ramtop 0600  
+                __ptext0 02A4                  __ptext1 03FA                  __ptext2 0012  
+                __ptext3 011A                  __ptext5 032A                  __ptext6 039E  
+                __ptext7 01E6         ___aldiv@dividend 000C           __pintcode_body 03C4  
+   end_of_initialization 03F0                  int_func 03C4         ___aldiv@quotient 0016  
+                postinc0 000FEE                _UART_Init 0012                _UART_Read 01E6  
+              _PORTCbits 000F82            ??_faz_a_coisa 0007                _PORTDbits 000F83  
+              _TRISCbits 000F94               _tratamento 0008           __end_of___wmul 03C4  
+             ?_UART_Init 001A               ?_UART_Read 0001      start_initialization 03E4  
+    __end_of_faz_a_coisa 039E                 ??___wmul 0005              __pbssCOMRAM 002B  
+            ?_tratamento 0001                __pintcode 0008                 ?___aldiv 000C  
+              _geraPasso 03FA              ??_UART_Init 001E              ??_UART_Read 0001  
+            _faz_a_coisa 032A          ___aldiv@divisor 0010          ___aldiv@counter 0014  
+         ___wmul@product 0005                 _PIE1bits 000F9D               ?_geraPasso 0001  
+    __size_of_tratamento 03DC        UART_Init@baudrate 001A        ___wmul@multiplier 0001  
+              main@steps 0027                 __Hrparam 0000                 __Lrparam 0000  
+       __size_of___aldiv 00CC                 _contador 0031            __size_of_main 0086  
+               _valorRes 002B                 int$flags 0035              ??_geraPasso 000C  
              _INTCONbits 000FF2             ??_tratamento 000A                 intlevel2 0000  
-     __end_of_tratamento 05C2             ?_faz_a_coisa 0001             ___aldiv@sign 0015  
+     __end_of_tratamento 03E4             ?_faz_a_coisa 0001             ___aldiv@sign 0015  

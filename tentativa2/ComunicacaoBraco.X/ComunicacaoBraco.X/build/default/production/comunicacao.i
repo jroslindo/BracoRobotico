@@ -4677,10 +4677,11 @@ char *tempnam(const char *, const char *);
 
 
 
+
 int valorRes[2];
 unsigned int x;
 int contador=0;
-int sinal=0;
+int vai = 0;
 
 char UART_Init(const long int baudrate)
 {
@@ -4767,43 +4768,22 @@ void faz_a_coisa (){
 
     if(contador == 0){
         if (valor == 10)
-            sinal=1;
+            PORTDbits.RD5 = 0;
         else
-            sinal=0;
+            PORTDbits.RD5=1;
         contador ++;
     }else if(contador == 1){
         valorRes[0] = valor*10;
         contador++;
     }else if(contador == 2){
         valorRes[0] += valor;
-        contador++;
-    }else if(contador == 3){
-        if (sinal == 1){
-            valorRes[0] *= -1 ;
-            sinal = 0;
-        }
-        if (valor == 10)
-            sinal=1;
-        else
-            sinal=0;
-        contador++;
-    }else if(contador == 4){
-        valorRes[1] = valor*10;
-        contador++;
-    }else if(contador == 5){
-        valorRes[1] += valor;
         contador=0;
+        vai=1;
     }
+# 146 "comunicacao.c"
 }
 
 void __attribute__((picinterrupt(("")))) tratamento (void){
-
-
-
-
-
-
-
     if(RCIF){
         RCIF=0;
         faz_a_coisa();
@@ -4812,18 +4792,12 @@ void __attribute__((picinterrupt(("")))) tratamento (void){
 
 }
 
-char numeros[] = { 0b10111111,
-                        0b10000110,
-                        0b11011011,
-                        0b11001111,
-                        0b11100110,
-                        0b11101101,
-                        0b11111101,
-                        0b10000111,
-                        0b11111111,
-                        0b11100111};
-
-
+void geraPasso(void){
+    PORTDbits.RD0 = 1;
+    _delay((unsigned long)((250)*(16000000/4000000.0)));
+    PORTDbits.RD0 = 0;
+    _delay((unsigned long)((250)*(16000000/4000000.0)));
+}
 
 void main(void) {
 
@@ -4834,10 +4808,6 @@ void main(void) {
     PORTCbits.RC0 = 0;
     TRISD = 0x00;
     ADCON1 = 0x0F;
-    PORTBbits.RB4 = 1;
-    PORTBbits.RB5 = 1;
-    PORTBbits.RB6 = 1;
-    PORTBbits.RB7 = 1;
     UART_Init(9600);
 
     INTCONbits.PEIE = 1;
@@ -4846,23 +4816,39 @@ void main(void) {
     TRISB = 0x00;
     TRISD = 0x00;
     ADCON1 = 0x0F;
-    PORTBbits.RB4 = 1;
-    PORTBbits.RB5 = 1;
-    PORTBbits.RB6 = 1;
-    PORTBbits.RB7 = 1;
+
+
+
+    PORTDbits.RD1 = 0;
+    PORTDbits.RD2 = 0;
+    PORTDbits.RD3 = 0;
+
+
+
+
+
+    PORTDbits.RD5 = 0;
+    PORTDbits.RD0 = 0;
+
+    int steps=valorRes[0];
+
+
+
+
+
+
+
+    __asm(" sleep");
+
     while(1){
+        if(vai == 1){
+            steps= 40;
+            for(int i = 0;i<steps;i++){
+                geraPasso();
+            }
+            vai =0;
+        }
 
-        PORTD = numeros[valorRes[1]%10];
-
-        PORTBbits.RB7 = 0;
-        _delay((unsigned long)((5)*(16000000/4000.0)));
-        PORTBbits.RB7 = 1;
-
-        PORTD = numeros[valorRes[1]/10];
-
-        PORTBbits.RB6 = 0;
-        _delay((unsigned long)((5)*(16000000/4000.0)));
-        PORTBbits.RB6 = 1;
-    }
-    return;
+    };
+# 239 "comunicacao.c"
 }
