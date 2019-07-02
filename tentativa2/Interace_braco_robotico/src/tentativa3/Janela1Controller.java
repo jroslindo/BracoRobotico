@@ -214,11 +214,21 @@ public class Janela1Controller implements Initializable {
                 } catch (IOException ex) {
                     Logger.getLogger(Janela1Controller.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Janela1Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }else{
                 String comando = "python C:\\\\Users\\\\Razagorus\\\\Desktop\\\\teste.py " + valor[i - 1];
                 try {
                     Process p = Runtime.getRuntime().exec(comando);
                 } catch (IOException ex) {
+                    Logger.getLogger(Janela1Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException ex) {
                     Logger.getLogger(Janela1Controller.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
@@ -250,9 +260,6 @@ public class Janela1Controller implements Initializable {
                 i--;
                 j++;
             }
-
-            //valor[0] += 48;
-            //valor[1] += 48;
 
             enviarDados(valor, negativo);
         }
